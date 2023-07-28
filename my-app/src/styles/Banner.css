@@ -1,0 +1,16 @@
+.banner {
+        background-color: #003262; /* Change to your preferred color */
+        padding: 2em;
+        text-align: center;
+      }
+      
+      .banner-title {
+        color: #FDB515; /* Change to your preferred color */
+        font-size: 2em;
+      }
+      
+      .banner-text {
+        color: #FDB515; /* Change to your preferred color */
+        font-size: 1em;
+      }
+      
