@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import openai 
-openai.api_key = "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"
+openai.api_key = ""
 
 
 year = 2023
@@ -19,18 +19,35 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 #handlebarData theme_is_whitehot
 divs = soup.find_all('div', class_='handlebarData theme_is_whitehot')
+section_details = soup.find_all('section', class_="detail-class-associated-sections add-to-menu collapsable open")
+
 
 # Extract and parse JSON from the data-json attribute
 data_json = json.loads(divs[0]['data-json'])
 
 
+##SESSION C Start Date end data 
+data_term_details = soup.find('div', attrs={'data-term-details': True})
+data_term_details_value = data_term_details.get('data-term-details')
+data_term_details_json = json.loads(data_term_details_value)
+session_description = data_term_details_json['sessionDescription']
+
+instructors = data_json['meetings'][0]['assignedInstructors']
+instructor_names = list({name_dict['formattedName'] for instructor in instructors for name_dict in instructor['instructor']['names']})
+instructor_names = sorted(instructor_names, key=lambda name: name.split()[-1])
+
+instructor_format_names = ", ".join(instructor_names)
 course_details = {
     "Course Details": f"{data_json.get('class').get('course').get('displayName')} - {data_json.get('class').get('course').get('title')}",
     "Course Number": data_json.get("number"),
+    "Session": session_description,
     "Program": data_json.get("academicOrganization").get("description"),
+    "Instructor Names": instructor_format_names,
     "Instruction Mode": data_json.get("instructionMode").get("description"),
     "Description": data_json.get("displayName"),
     "Course description": data_json.get('course').get('description'),
+    "Lecture Room": data_json.get('meetings')[0].get('location').get('description'),
+    "Lecture Meet Days": data_json['meetings'][0]['meetsDays'],
     "Start Date": data_json.get("startDate"),
     "End Date": data_json.get("endDate"),
     "Enrollment Status": data_json.get("enrollmentStatus").get("status").get("description"),
@@ -47,6 +64,9 @@ course_details = {
     "Important Notes": data_json.get("importantNotes")
 }
 
+
+
+"""
 def chat_with_chatgpt(prompt):
     response = openai.ChatCompletion.create(
         model="gpt-4",
@@ -58,6 +78,8 @@ def chat_with_chatgpt(prompt):
 
     message = response["choices"][0]["message"]["content"]
     return message
+"""
+
 '''
 print(x := chat_with_chatgpt("Please show the information in the following format: Course Details,\
 Course Number, Program, Instruction Mode, Description, Start Date, End Date, Enrollment Status,\
@@ -67,3 +89,4 @@ Currently Enrolled Count, Maximum Enrollment Count, Attribute, Note, Email, Exam
 
 # # for div in divs:
 # #     print(div)
+
