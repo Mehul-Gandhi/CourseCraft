@@ -18,7 +18,11 @@ def extract_holidays(semester: str, year: int) -> dict:
     Params:
         semester (int): The semester to extract a dictionary of holidays from.
     Returns:
-        dict: A dictionary of holidays.
+        dict: A dictionary of holidays. key: date string, value: Academic Holiday name
+    Example:
+    >>> extract_holidays("Fall", 2023)
+    {'08/16/2023': 'Fall Semester Begins', '08/23/2023': "", ..., 
+    '11/10/2023': 'Academic & Administrative Holiday (Veterans Day)'}
     """
     assert type(semester) == str and type(year) == int, "Type error."
     assert semester in ["Fall", "Spring", "Summer"], "Semester must be either Fall, Spring, or Summer.\
