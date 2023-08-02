@@ -9,8 +9,6 @@ webscrapes the `url` and returns a dictionary of holidays
 creates a new schedule for a class in an upcoming semester.
 """
 
-
-
 def extract_holidays(semester: str, year: int) -> dict:
     """
     Webscrapes academic holidays from "https://guide.berkeley.edu/academic-calendar/"

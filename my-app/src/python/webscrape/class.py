@@ -90,3 +90,4 @@ Currently Enrolled Count, Maximum Enrollment Count, Attribute, Note, Email, Exam
 # # for div in divs:
 # #     print(div)
 
+print(course_details)
