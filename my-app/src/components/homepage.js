@@ -1,4 +1,4 @@
-import '../App.css';
+import '../styles/HomePage.css';
 import UploadButton from './UploadButton';
 import Banner from './Banner';
 import LoginButton from './login/LoginButton';
@@ -12,6 +12,9 @@ function HomePage() {
 
   return (
     <div className="App">
+        <div className="text-3xl font-bold underline">
+        hello world
+        </div>
       {isLoggedIn ? (
         <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
       ) : (
