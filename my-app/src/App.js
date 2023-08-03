@@ -3,8 +3,10 @@ import UploadButton from './components/UploadButton';
 import Banner from './components/Banner';
 import { GoogleOAuthProvider, GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
 import { useState } from "react"; 
+import jwt_decode from "jwt-decode";
 
-const GOOGLE_CLIENT_ID = "";
+
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 
 function LoginButton({ onSuccess, onFailure }) {
   return (
@@ -32,7 +34,8 @@ function App() {
   const handleLoginSuccess = async (credentialResponse) => {
     setIsLoggedIn(true);
     console.log(credentialResponse);
-    setUserProfile(credentialResponse.profileObj);
+    const userObject = jwt_decode(credentialResponse.credential);
+    setUserProfile(userObject);
     console.log(userProfile);
   };
 
@@ -53,6 +56,7 @@ function App() {
         <LoginButton
           onSuccess={handleLoginSuccess}
           onFailure={handleLoginFailure}
+          cookiePolicy="single_host_origin"
         />
       )}
 
