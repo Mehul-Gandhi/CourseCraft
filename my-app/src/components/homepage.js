@@ -1,9 +1,9 @@
-import './App.css';
-import UploadButton from './components/UploadButton';
-import Banner from './components/Banner';
-import LoginButton from './components/login/LoginButton';
-import LogoutButton from './components/login/LogoutButton';
-import { handleLoginSuccess, handleLoginFailure, handleLogout } from './components/login/helpers';
+import '../App.css';
+import UploadButton from './UploadButton';
+import Banner from './Banner';
+import LoginButton from './login/LoginButton';
+import LogoutButton from './login/LogoutButton';
+import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import { useState } from "react"; 
 
 function HomePage() {
@@ -28,4 +28,4 @@ function HomePage() {
   );
 }
 
-export default App;
+export default HomePage;
