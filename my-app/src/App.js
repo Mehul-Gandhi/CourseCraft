@@ -1,60 +1,23 @@
 import './App.css';
 import UploadButton from './components/UploadButton';
 import Banner from './components/Banner';
-import { GoogleOAuthProvider, GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
+import LoginButton from './components/login/LoginButton';
+import LogoutButton from './components/login/LogoutButton';
+import { handleLoginSuccess, handleLoginFailure, handleLogout } from './components/login/helpers';
 import { useState } from "react"; 
-import jwt_decode from "jwt-decode";
-
-
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-
-function LoginButton({ onSuccess, onFailure }) {
-  return (
-    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-      <GoogleLogin
-        onSuccess={onSuccess}
-        onError={onFailure}
-      />
-    </GoogleOAuthProvider>
-  );
-}
-
-function LogoutButton({ onLogout }) {
-  return <button onClick={onLogout}>Logout</button>;
-}
-
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
 
-  
-
-  const handleLoginSuccess = async (credentialResponse) => {
-    setIsLoggedIn(true);
-    console.log(credentialResponse);
-    const userObject = jwt_decode(credentialResponse.credential);
-    setUserProfile(userObject);
-    console.log(userProfile);
-  };
-
-  const handleLoginFailure = () => {
-    console.log("Login is not successful");
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    googleLogout();
-  };
-
   return (
     <div className="App">
       {isLoggedIn ? (
-        <LogoutButton onLogout={handleLogout} />
+        <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
       ) : (
         <LoginButton
-          onSuccess={handleLoginSuccess}
+          onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile)}
           onFailure={handleLoginFailure}
           cookiePolicy="single_host_origin"
         />
