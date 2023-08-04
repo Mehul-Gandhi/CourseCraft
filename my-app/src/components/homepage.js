@@ -5,12 +5,16 @@ import LoginButton from './login/LoginButton';
 import LogoutButton from './login/LogoutButton';
 import ClassWebsiteInput from './ClassWebsiteInput'
 import CourseWebsiteInput from './CourseWebsiteInput'
+import ConfirmButton from './buttons/ConfirmButton'
+import DropzoneComponent from './DropzoneComponent';
+
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import { useState } from "react"; 
 import "../index.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import Button from 'react-bootstrap/Button';
+import NavBar from "./NavBar"
 
 
 
@@ -20,9 +24,7 @@ function HomePage() {
 
   return (
     <div className="App">
-        <div className="text-3xl font-bold underline green">
-            Hello world
-        </div>
+    
       {isLoggedIn ? (
         <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
       ) : (
@@ -32,16 +34,20 @@ function HomePage() {
           cookiePolicy="single_host_origin"
         />
       )}
+      
 
       <Banner />
+
       {/* <Timeline /> */}
       <ClassWebsiteInput />
       <br></br>
       <CourseWebsiteInput />
-      
+      <br></br>
+      <br></br>
       <UploadButton />
-
-
+      <DropzoneComponent />
+      <br></br>
+      <ConfirmButton />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 * {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -10,15 +11,26 @@ body {
   margin: 0;
 }
 
-.upload-btn-wrapper {
+.upload-title {
+  color: #FFB81C;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 10px;
+  margin-bottom: 0;
+}
+
+.upload-container {
   position: relative;
   overflow: hidden;
   display: inline-block;
+  background-color: lightgrey
 }
 
-.btn {
+.upload-button {
   border: 0.2vw solid gray;
-  color: gray;
   background-color: white;
   padding: 2vh 5vw;
   cursor: pointer;
@@ -26,7 +38,7 @@ body {
   font-weight: bold;
 }
 
-.upload-btn-wrapper input[type=file] {
+.upload-button-container input[type=file] {
   font-size: 100px;
   position: absolute;
   left: 0;
@@ -40,7 +52,7 @@ body {
  
     border: 2px solid #ccc; /* Grey-colored border */
     padding: 10px; /* Add some padding to separate the content from the border */
-    background-color: grey;
+    background-color: lightgray;
   }
  
 .div-sc {
