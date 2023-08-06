@@ -7,7 +7,7 @@ import ClassWebsiteInput from './ClassWebsiteInput'
 import CourseWebsiteInput from './CourseWebsiteInput'
 import ConfirmButton from './buttons/ConfirmButton'
 import DropzoneComponent from './DropzoneComponent';
-import TimeLine from './TimeLine';
+import Timeline from './Timeline';
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import { useState } from "react"; 
@@ -37,9 +37,8 @@ function HomePage() {
       
 
       <Banner />
-      {/* <TimeLine /> */}
+      <Timeline />
 
-      {/* <Timeline /> */}
       <ClassWebsiteInput />
       <br></br>
       <CourseWebsiteInput />
