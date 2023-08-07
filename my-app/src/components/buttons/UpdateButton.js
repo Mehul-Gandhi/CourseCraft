@@ -2,14 +2,11 @@ import React from 'react';
 import '../../styles/ConfirmButton.css';
 import UpdateIcon from '@mui/icons-material/Update';
 
-function UpdateButton() {
-  const handleClick = () => {
-    console.log('Button clicked');
-    // Implement your button click logic here
-  };
+function UpdateButton({ onClick }) {
+  
 
   return (
-    <button className="button-container" onClick={handleClick}>
+    <button className="button-container" onClick={onClick}>
         <UpdateIcon />
       <span className="button-text">Update</span>
     </button>

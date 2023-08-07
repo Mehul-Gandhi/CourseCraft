@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import Instructions from "./components/Instructions"
-import CompareSchedule from "./components/CompareSchedule"
+import CompareSchedule from "./components/schedule/CompareSchedule"
 
 
 function App() {
