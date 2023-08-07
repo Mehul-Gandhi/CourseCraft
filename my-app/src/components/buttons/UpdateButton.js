@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../styles/ConfirmButton.css';
-import CheckIcon from '@mui/icons-material/Check';
+import UpdateIcon from '@mui/icons-material/Update';
 
-function ConfirmButton() {
+function UpdateButton() {
   const handleClick = () => {
     console.log('Button clicked');
     // Implement your button click logic here
@@ -10,10 +10,10 @@ function ConfirmButton() {
 
   return (
     <button className="button-container" onClick={handleClick}>
-      <CheckIcon />
-      <span className="button-text">Confirm</span>
+        <UpdateIcon />
+      <span className="button-text">Update</span>
     </button>
   );
 }
 
-export default ConfirmButton;
+export default UpdateButton;

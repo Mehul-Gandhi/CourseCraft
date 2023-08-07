@@ -21,7 +21,9 @@ import NavBar from "./NavBar"
 function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
-
+  const text = "Welcome to Course Logistics.AI, a course schedule\
+   generator dedicated for UC Berkeley Computer Science and Data \
+   Science classes.";
   return (
     <div className="App">
     
@@ -35,8 +37,8 @@ function HomePage() {
         />
       )}
       
-
-      <Banner />
+      
+      <Banner text={text}/>
       <TimeLine />
 
       <ClassWebsiteInput />
