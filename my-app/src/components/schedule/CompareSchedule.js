@@ -1,20 +1,45 @@
-import React, { useState } from 'react';
-import UploadButton from '../UploadButton';
+import React, { useState, useEffect } from 'react';
 import Banner from '../Banner';
-import ConfirmButton from '../buttons/ConfirmButton'
+
+
+import Button from '../buttons/Button';
 import UpdateButton from '../buttons/UpdateButton'
+import RegenerateButton from "../buttons/RegenerateButton"
+
 import TimeLine from '../TimeLine';
 import "../../index.css";
-import NavBar from "../NavBar"
 import placeholder from '../../assets/placeholder.png'; 
+import CheckIcon from '@mui/icons-material/Check';
+import UpdateIcon from '@mui/icons-material/Update';
 
 function CompareSchedule() {
   const [confirmClicked, setConfirmClicked] = useState(false);
   const [userInput, setUserInput] = useState('');
-
+  const [displayedText, setDisplayedText] = useState('');
+  
+  const fullText = "What would you like to update about the new calendar?";
   const text = "Update the new schedule with custom modifications or confirm the new schedule.";
 
-  const handleConfirmClick = () => {
+  const handleClick = () => {
+    console.log('Button clicked');
+  };
+
+  useEffect(() => {
+    let i = -1;
+    if (confirmClicked && i < fullText.length) {
+      const typingInterval = setInterval(() => {
+        if (i < fullText.length) {
+          setDisplayedText((prevText) => prevText + fullText.charAt(i));
+          i++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 30);
+      return () => clearInterval(typingInterval);
+    }
+  }, [confirmClicked]);
+
+  const handleUpdateClick = () => {
     setConfirmClicked(true);
   };
 
@@ -38,20 +63,28 @@ function CompareSchedule() {
         </div>
       </div>
       
-      <div className="flex justify-center space-x-4 m-4 md:m-50" style={{padding: "25px"}}>
-        <UpdateButton onClick={handleConfirmClick}/>
-        <ConfirmButton />
+      <div className="flex justify-center space-x-4 m-4 md:m-50">
+      <Button onClick={handleClick} icon={<UpdateIcon />} text={"Update"}/>
+        <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
       </div>
+
       {confirmClicked && (
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center" style={{padding: "50px"}}>
+          <h2 className="text-[#FFB81C] mb-4">{displayedText}</h2>
           <textarea
-            className="w-1/4 h-64 p-4 border-2 border-gray-600 rounded-lg overflow-auto resize-y"
+            className="w-1/2 h-64 p-4 border-2 border-gray-600 rounded-lg overflow-auto resize-y"
             value={userInput}
             onChange={handleInputChange}
             placeholder="Paste your text here"
           />
+          <div style={{padding: "25px"}}>
+           {confirmClicked && userInput.length > 0 && 
+      <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
+      }
+      </div>
         </div>
       )}
+     
     </div>
   );
 }
