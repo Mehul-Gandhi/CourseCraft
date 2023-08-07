@@ -8,14 +8,15 @@ import CompareSchedule from "./components/CompareSchedule"
 
 
 function App() {
-  
     return (
       <Router>
         <NavBar />
         <Routes>
           <Route index element={<HomePage />} />
-          <Route path="help" element={<Instructions />} />
+          <Route path="/help" element={<Instructions />} />
           <Route path="/schedule" element={<CompareSchedule />} />
+          {/* <Route path="/taskdoc" element={<TaskDoc />} />  */}
+
         </Routes>
       </Router>
     )
