@@ -26,7 +26,7 @@ const CustomConnector = styled('div')(({ theme }) => ({
   borderBottom: '1px solid #FFB81C',
 }));
 
-function Timeline() {
+function TimeLine() {
     const [activeStep, setActiveStep] = React.useState(0);
 
     const nextStep = () => {
@@ -83,4 +83,4 @@ function Timeline() {
     );
 }
 
-export default Timeline;
+export default TimeLine;
