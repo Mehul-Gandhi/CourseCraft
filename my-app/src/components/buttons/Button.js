@@ -1,13 +1,15 @@
 import React from 'react';
-import '../../styles/ConfirmButton.css';
 import CheckIcon from '@mui/icons-material/Check';
 
 function Button({ onClick, icon, text }) {
 
   return (
-    <button className="button-container" onClick={ onClick }>
+    <button 
+      className="flex items-center justify-center bg-[#FFB81C] text-white px-4 py-2 rounded max-w-xs truncate" 
+      onClick={ onClick }
+    >
       {icon}
-      <span className="button-text">{text}</span>
+      <span className="ml-2">{text}</span>
     </button>
   );
 }
