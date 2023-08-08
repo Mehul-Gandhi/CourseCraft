@@ -24,6 +24,29 @@ export default function Home() {
   const text = "Welcome to Course Logistics.AI, a course schedule\
    generator dedicated for UC Berkeley Computer Science and Data \
    Science classes.";
+
+   const getRequest = async () => {
+    // Assuming the ID is hardcoded as '1234' for this example.
+    const id = '1234';
+  
+    try {
+      const response = await fetch(`http://localhost:3001/getData/${id}`);
+  
+      if (!response.ok) {
+        throw new Error('Server responded with a non-200 status');
+      }
+  
+      const data = await response.json();
+  
+      console.log('Received data:', data);
+      // Optionally, set this data to the state or do something else with it.
+  
+    } catch (err) {
+      console.error('There was an error fetching data:', err);
+    }
+  };
+  
+
   const handleClick = async () => {
     console.log('Button clicked');
   
@@ -83,6 +106,8 @@ export default function Home() {
 
       <div className="flex justify-center items-center">
         <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
+        <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"}/>
+
       </div>
     </div>
   );

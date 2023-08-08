@@ -2,9 +2,14 @@ const mongoose = require("mongoose");
 
 
 const FileSchema = new mongoose.Schema({
-    filename: String,
-    filepath: String,
-    fileType: String
+    base64: String,
+    extension: String,
+    fileSize: String,
+    key: String,
+    name: String,
+    progress: Number,
+    status: String,
+    file: Object
 });
 
 const LogisticsSchema = new mongoose.Schema({

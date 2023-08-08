@@ -86,10 +86,31 @@ app.post("/addLogistics", async (req, res) => {
       res.json({ message: "Logistic added successfully!" });
   } catch (err) {
       // Respond with an error message
+      console.log(err);
       res.status(500).json({ error: "Failed to add logistical data", details: err });
   }
 });
 
+app.get("/getData/:id", async (req, res) => {
+  const id = req.params.id;  // Extract ID from request parameters
+
+  try {
+      // Query the database for documents with the specified ID
+      const data = await LogisticsModel.find({ ID: id });
+
+      if (!data.length) {
+          // If no data was found with the given ID
+          res.status(404).json({ error: "No data found for the provided ID" });
+      } else {
+          // Respond with the found data
+          res.json(data);
+      }
+  } catch (err) {
+      // Handle any errors that occurred while querying
+      console.log(err);
+      res.status(500).json({ error: "Failed to retrieve data", details: err });
+  }
+});
 
 app.listen(3001, () => {
     console.log("server is running");
