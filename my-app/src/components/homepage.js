@@ -71,7 +71,7 @@ function HomePage() {
   };
   
   return (
-    <div className="App flex flex-col justify-center items-center min-h-screen w-full">
+    <div className="App flex flex-col justify-center items-center w-full">
       {isLoggedIn ? (
         <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
       ) : (

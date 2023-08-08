@@ -22,8 +22,19 @@ function FileUpload() {
       }
       uploadFile(file, fileName);
     }
+    console.log(uploadData);
   }
-
+  function convertToBase64(e) {
+    console.log(e);
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      console.log(reader.result);
+    }
+    reader.onerror = error => {
+      console.log("Error: ", error);
+    }
+  };
   const uploadFile = (file, name) => {
     var formData = new FormData();
     formData.append('file', file, name);
@@ -47,6 +58,8 @@ function FileUpload() {
         }));
       }
     };
+
+  
   
     xhr.onload = function() {
       if (xhr.status === 200) {
@@ -68,7 +81,7 @@ function FileUpload() {
 
       {/* Handle click area */}
       <form onClick={handleClick}>
-        <input ref={fileInput} className="file-input" type="file" name="file" hidden onChange={handleChange} />
+        <input ref={fileInput} className="file-input" type="file" name="file" hidden onChange={convertToBase64} />
         <FontAwesomeIcon icon={faCloudUploadAlt} />
         <p>Browse File to Upload</p>
       </form>
