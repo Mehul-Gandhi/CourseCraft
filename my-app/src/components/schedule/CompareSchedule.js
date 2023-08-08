@@ -64,7 +64,7 @@ function CompareSchedule() {
       </div>
       
       <div className="flex justify-center space-x-4 m-4 md:m-50">
-      <Button onClick={handleClick} icon={<UpdateIcon />} text={"Update"}/>
+      <Button onClick={handleUpdateClick} icon={<UpdateIcon />} text={"Update"}/>
         <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
       </div>
 
