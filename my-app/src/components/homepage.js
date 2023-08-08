@@ -71,7 +71,7 @@ function HomePage() {
   };
   
   return (
-    <div className="App">
+    <div className="App flex flex-col justify-center items-center min-h-screen w-full">
       {isLoggedIn ? (
         <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
       ) : (
@@ -88,6 +88,7 @@ function HomePage() {
       <br></br>
       <CourseWebsiteInput />
       <br></br>
+      <FileUpload />
 
       <div className="flex justify-center items-center">
         <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
