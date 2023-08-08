@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
+import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Instructions from "./components/Instructions";
 import CompareSchedule from "./components/schedule/CompareSchedule";
@@ -12,7 +12,7 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route index element={<HomePage />} />
+          <Route index element={<Home />} />
           <Route path="/help" element={<Instructions />} />
           <Route path="/schedule" element={<CompareSchedule />} />
           {/* <Route path="/taskdoc" element={<TaskDoc />} />  */}

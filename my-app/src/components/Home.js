@@ -15,7 +15,7 @@ import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/he
 import "../index.css";
 import NavBar from "./NavBar"
 
-function HomePage() {
+export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
@@ -28,7 +28,7 @@ function HomePage() {
     console.log('Button clicked');
   
     // Dummy data
-    const x = {
+    const postData = {
       ID: '1234',
       OldSchedule: 'SampleOldSchedule.txt',
       NewSchedule: 'SampleNewSchedule.txt',
@@ -37,6 +37,7 @@ function HomePage() {
       Department: 'CS',
       Time: new Date(),
       MasterCalendar: 'SampleMasterCalendar.ics',
+      Files: uploadData
     };
   
     try {
@@ -45,7 +46,7 @@ function HomePage() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(x)
+        body: JSON.stringify(postData)
       });
   
       const data = await response.json();
@@ -87,4 +88,3 @@ function HomePage() {
   );
 }
 
-export default HomePage;
