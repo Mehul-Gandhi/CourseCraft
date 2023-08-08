@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import AceEditor from "react-ace";
+import CheckIcon from '@mui/icons-material/Check';
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
@@ -10,6 +11,7 @@ import "ace-builds/src-noconflict/theme-github";
 function CodeEditor({ language }) {
   const [value, setValue] = useState("");
   const textareaRef = useRef(null);
+  const [copyCode, setCopyCode] = useState(false);
 
   function onChange(newValue) {
     setValue(newValue);
@@ -19,6 +21,7 @@ function CodeEditor({ language }) {
     if (textareaRef.current) {
       textareaRef.current.select();
       document.execCommand("copy");
+      setCopyCode(true);
     }
   }
 
@@ -53,7 +56,7 @@ function CodeEditor({ language }) {
         onClick={handleCopyCode} 
         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
       >
-        Copy Code
+        {copyCode ? <> <CheckIcon /> Copied </> : "Copy Code"}
       </button>
     </div>
   );

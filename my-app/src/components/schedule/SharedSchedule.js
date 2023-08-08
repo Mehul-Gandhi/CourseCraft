@@ -63,8 +63,8 @@ function SharedSchedule() {
 
       <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
         <Button onClick={handleClick} icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
-        <Button onClick={handleEditorToggle} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"}/>
-        <Button onClick={handleClick} icon={<CodeIcon />} text={"Website Code"}/>
+        <Button onClick={handleClick} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"}/>
+        <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"}/>
       </div>
     </div>
   );
