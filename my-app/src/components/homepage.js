@@ -22,10 +22,54 @@ function HomePage() {
   const text = "Welcome to Course Logistics.AI, a course schedule\
    generator dedicated for UC Berkeley Computer Science and Data \
    Science classes.";
-  const handleClick = () => {
+   const handleClick = async () => {
     console.log('Button clicked');
+  
+    // Dummy data
+    const postData = {
+      ID: '1234',
+      OldSchedule: 'SampleOldSchedule.txt',
+      NewSchedule: 'SampleNewSchedule.txt',
+      Code: 'CS101',
+      Semester: 'Spring 2023',
+      Department: 'CS',
+      Time: new Date(),
+      MasterCalendar: 'SampleMasterCalendar.ics',
+      Files: [
+        {
+          filename: 'SampleFile1.txt',
+          filepath: '/path/to/samplefile1',
+          fileType: 'txt'
+        },
+        {
+          filename: 'SampleFile2.txt',
+          filepath: '/path/to/samplefile2',
+          fileType: 'txt'
+        }
+      ]
+    };
+  
+    try {
+      const response = await fetch('http://localhost:3001/addLogistics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send data.');
+      }
+  
+      console.log(data);
+    } catch (err) {
+      console.error('There was an error:', err);
+    }
   };
-
+  
   return (
     <div className="App">
       {isLoggedIn ? (

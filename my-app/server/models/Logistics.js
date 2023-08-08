@@ -1,0 +1,51 @@
+const mongoose = require("mongoose");
+
+
+const FileSchema = new mongoose.Schema({
+    filename: String,
+    filepath: String,
+    fileType: String
+});
+
+const LogisticsSchema = new mongoose.Schema({
+    ID: {
+        type: String,
+        required: true
+    },
+    OldSchedule: {
+        type: String, //any file, preferably .txt
+        required: true
+    },
+    NewSchedule: {
+        type: String,
+        required: true
+    },
+    Code: {
+        type: String,
+        required: true
+    },
+    Semester: {
+        type: String,
+        required: true
+    },
+    Department: {
+        type: String,
+        required: false
+    },
+    Time: {
+        type: Date,
+        default: Date.now,
+        required: true
+    },
+    MasterCalendar: {
+        type: String, //.ics file
+        required: false
+    },
+    Files: {
+        type: [FileSchema], //array of files for more specification
+        required: false
+    },
+})
+
+const LogisticsModel = mongoose.model("schedules", LogisticsSchema);
+module.exports = LogisticsModel;
