@@ -1,7 +1,6 @@
 .container {
     width: 75%;
     margin: 40px auto;
-    font-family: 'Dosis', sans-serif;
     background-color: #003262 !important;
     border:#003262
 }
@@ -29,10 +28,9 @@
 .timeline-item {
     list-style: none;
     text-align: center;
-    text-transform: uppercase;
     position: relative;
     flex: 1;
-    color: #4caf50;
+    color: white;
 }
 
 div .timeline-item .circle {
