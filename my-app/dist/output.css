@@ -671,8 +671,8 @@ video {
   height: auto;
 }
 
-.h-screen {
-  height: 100vh;
+.max-h-screen {
+  max-height: 100vh;
 }
 
 .w-1\/2 {
@@ -681,10 +681,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-screen {
-  width: 100vw;
 }
 
 .max-w-xs {
@@ -751,6 +747,10 @@ video {
 
 .overflow-auto {
   overflow: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .truncate {
@@ -831,14 +831,14 @@ video {
   line-height: 2.25rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -846,9 +846,18 @@ video {
   line-height: 1.25rem;
 }
 
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .font-medium {
@@ -857,10 +866,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.font-bold {
-  font-weight: 700;
 }
 
 .text-\[\#FFB81C\] {
@@ -875,6 +880,11 @@ video {
 
 .opacity-0 {
   opacity: 0;
+}
+
+.filter {
+  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 body {
@@ -915,10 +925,6 @@ code {
     margin-bottom: 0px;
   }
 
-  .md\:h-auto {
-    height: auto;
-  }
-
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -935,8 +941,8 @@ code {
     width: 75%;
   }
 
-  .md\:w-3 {
-    width: 0.75rem;
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:flex-row {
@@ -951,21 +957,5 @@ code {
     --tw-space-x-reverse: 0;
     margin-right: calc(2.5rem * var(--tw-space-x-reverse));
     margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:w-1\/2 {
-    width: 50%;
-  }
-
-  .lg\:w-3\/4 {
-    width: 75%;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:w-1\/2 {
-    width: 50%;
   }
 }

@@ -154,7 +154,11 @@ function base64ToBlob(base64, type = '') {
       <header>Upload Files Here</header>
 
       {/* Handle click area */}
-      <form onClick={handleClick}>
+      <form onClick={handleClick} onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+                handleClick(e);
+            }
+        }} tabIndex="0" role="button" aria-label="File uploader">
         <input ref={fileInput} className="file-input" type="file" name="file" hidden onChange={handleChange} />
         <FontAwesomeIcon icon={faCloudUploadAlt} />
         <p>Browse File to Upload</p>

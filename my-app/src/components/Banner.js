@@ -1,12 +1,10 @@
 import React from 'react';
-import '../styles/Banner.css';
 
 function Banner({text}) {
   return (
-    <div className="banner">
-      <div className="banner-rectangle"></div>
-      <h1 className="banner-title">CourseLogistics.ai</h1>
-      <p className="banner-text">{text}</p>
+    <div className="flex flex-col items-center justify-center ">
+      <h1 className="text-4xl font-bold text-white mb-4">CourseLogistics.ai</h1>
+      <p className="text-xl text-white">{text}</p>
     </div>
   );
 }

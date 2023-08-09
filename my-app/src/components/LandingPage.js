@@ -7,6 +7,7 @@ import ClassWebsiteInput from './ClassWebsiteInput'
 import CourseWebsiteInput from './CourseWebsiteInput';
 import Button from './buttons/Button';
 import FileUpload from './FileUpload';
+import Instructions from "./Instructions"
 
 import CheckIcon from '@mui/icons-material/Check';
 
@@ -96,14 +97,14 @@ export default function LandingPage() {
       )}
       
       <Banner text={text}/>
+        <Instructions />
 
-      <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
 
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center space-x-4" style={{margin: "25px"}}>
         <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
         <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"}/>
 
-      </div>
+      </div> 
     </div>
   );
 }

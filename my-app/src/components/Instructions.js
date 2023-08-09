@@ -20,16 +20,16 @@ function Information() {
         [CloudIcon, "Access from anywhere", "You can access the free PDF file converter anywhere, with an internet connection. Smallpdf PDF converter operates fully in the cloud."]
       ];
     return (
-      <div className="grid grid-cols-3 grid-rows-2 gap-4">
+      <div className="grid grid-cols-3 grid-rows-2 md:grid-cols-3  gap-4">
         {elements.map((el, index) => {
           const Icon = el[0]; // extract the icon component
           const title = el[1];
           const description = el[2];
   
           return (
-            <div key={index} style={{ margin: '25px', padding: '25px'}}>
+            <div key={index}>
               <Icon style={{color: '#ffffff'}} className="mb-2" />
-              <h2 style={{color: '#ffffff'}} className="text-lg font-semibold mb-2">{title}</h2>
+              <h2 style={{color: '#ffffff'}} className="text-md font-semibold mb-2">{title}</h2>
               <p style={{color: '#FFB81C'}} className="text-md">{description}</p>
             </div>
           );
@@ -39,21 +39,25 @@ function Information() {
   }
 
 export default function Instructions() {
-    return (<div className="App flex flex-col items-center justify-center h-screen w-screen  md:h-auto ">
-            <div className="bg-[#FFB81C] w-full md:w-1/2 h-50 rounded-full flex items-center justify-center p-4">
-                <div>
-                    Our program takes in the following inputs:
-                    <List>
-                        <ListItem><CalendarMonthIcon /> Current Course Calendar (.xlsx, .txt from website)</ListItem>
-                        <ListItem><GridOnIcon /> Master Course Logistics Spreadsheet (.xlsx, .csv)</ListItem>
-                        <ListItem><BookIcon /> Instructor/TA Handbook (.doc, .docx, .pdf)</ListItem>
-                        <ListItem><ArticleIcon /> Additional Documentation</ListItem>
-                    </List>
-                    <div>Accepted formats: .pdf,.csv, .xlsx</div>
-                </div>
+  
+  return (
+    <div className="flex flex-col items-center justify-center p-4 w-full">
+        <div className="bg-[#FFB81C] md:w-1/2 h-50 rounded-full flex items-center justify-center p-4">
+            <div>
+                Our program takes in the following inputs:
+                <List>
+                    <ListItem><CalendarMonthIcon /> Current Course Calendar (.xlsx, .txt from website)</ListItem>
+                    <ListItem><GridOnIcon /> Master Course Logistics Spreadsheet (.xlsx, .csv)</ListItem>
+                    <ListItem><BookIcon /> Instructor/TA Handbook (.doc, .docx, .pdf)</ListItem>
+                    <ListItem><ArticleIcon /> Additional Documentation</ListItem>
+                </List>
+                <div>Accepted formats: .pdf, .csv, .xlsx</div>
             </div>
-            <div className="text-[#FFB81C] font-inter text-3xl"  style={{ marginTop: '50px'}}>I N S T R U C T I O N S</div>
-            <Information />
         </div>
-    )
+        <div className="text-[#FFB81C] font-inter text-3xl" style={{ marginTop: '50px' }}>I N S T R U C T I O N S</div>
+        <div style={{margin: "25px"}}>
+          <Information />
+         </div>
+    </div>
+);
 }
