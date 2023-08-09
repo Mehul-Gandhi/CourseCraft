@@ -65,7 +65,7 @@ export default function Calendar() {
       </select>}
 
       <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
-    <div className="container flex flex-col justify-center items-center" style={{backgroundColor: "#FFFFFF"}}>
+    <div className="container flex flex-col justify-center items-center" style={{ width: '100%', maxWidth: '1280px', marginRight: 'auto', marginLeft: 'auto', backgroundColor: "#FFFFFF" }}>
         <h2>Google Calendar:</h2>
         <p>Lecture • Lab • Discussion</p>
         <Button onClick={handleClick} icon={<CalendarMonthIcon />} text={"Populate Google Calendar"}/>

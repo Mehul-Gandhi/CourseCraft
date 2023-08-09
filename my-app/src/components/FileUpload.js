@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import '../styles/FileUpload.css'; // Assuming you have a CSS file for styles
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt, faFileAlt, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import Tooltip from '@mui/material/Tooltip';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 import CryptoJS from 'crypto-js';
 
@@ -152,6 +154,20 @@ function base64ToBlob(base64, type = '') {
   return (
     <div className="wrapper">
       <header>Upload Files Here</header>
+      <ul>
+        <li>
+          Class Schedule Calendar(Required) 
+          <Tooltip title="Supported file types: .pdf, .docx, etc.">
+            <InfoOutlinedIcon fontSize="small" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+          </Tooltip>
+        </li>
+        <li>
+          TA/Reader Role Description Handbook 
+          <Tooltip title="Supported file types: .jpg, .png, etc.">
+            <InfoOutlinedIcon fontSize="small" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+          </Tooltip>
+        </li>
+      </ul>
 
       {/* Handle click area */}
       <form onClick={handleClick} onKeyPress={(e) => {

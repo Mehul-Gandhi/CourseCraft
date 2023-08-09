@@ -15,6 +15,11 @@ body{
   color: #fff;
   background: #FFB81C;
 }
+
+h1 {
+  color: #FFB81C;
+}
+
 .wrapper{
   width: 430px;
   background: #fff;
@@ -123,4 +128,3 @@ section .details span{
   width: 100px;
   height: 100px;
 }
-
