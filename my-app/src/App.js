@@ -9,7 +9,7 @@ import LandingPage from "./components/LandingPage";
 import NotFound from "./components/NotFound"; // Don't forget to import this too.
 
 function App() {
-    
+     
 
     return (
       <Router>
