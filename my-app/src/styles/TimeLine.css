@@ -2,7 +2,8 @@
     width: 75%;
     margin: 40px auto;
     font-family: 'Dosis', sans-serif;
-    background: white !important;
+    background-color: #003262 !important;
+    border:#003262
 }
 
 
@@ -13,7 +14,7 @@
 }
 
 
-.title a {
+.container .title h1 {
     color: #4caf50;
     text-decoration: none;
     

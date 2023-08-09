@@ -6,7 +6,6 @@ function TimeLine() {
 
     return (
         <div className="container" >
-            <h1 className="title">Status</h1>
             <ul className="timeline">
                 {items.map((item, index) => (
                     <li 
