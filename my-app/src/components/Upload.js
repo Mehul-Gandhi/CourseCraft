@@ -17,7 +17,7 @@ import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/he
 import "../index.css";
 import NavBar from "./NavBar"
 
-export default function Home() {
+export default function Upload() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
