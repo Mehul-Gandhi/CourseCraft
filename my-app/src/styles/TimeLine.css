@@ -2,15 +2,13 @@
     width: 75%;
     margin: 40px auto;
     font-family: 'Dosis', sans-serif;
-    background: none;
-    /* background-color: #F1F1F1;  */
+    background: white !important;
 }
 
 
 .title {
     text-align: center;
     font-size: 1.5rem;
-    
     margin-bottom: 30px;
 }
 
@@ -45,20 +43,23 @@ div .timeline-item .circle {
     justify-content: center;
     align-items: center;
     margin: 0 auto 10px;
-    background: #F1F1F1;
+    background: #F1F1F1 ;
     color: #032054;
     transition: all ease-in-out .3s;
     cursor: pointer;
+    position: relative !important;
+    z-index: 1;
 }
 
 .timeline-item.active .circle {
-    background: #FFB81C;
+    background: #FFB81C !important;
     color: #F1F1F1;
+
 }
 
 
 
-li:after {
+.container .timeline li:after {
     content: "";
     position: absolute !important;
     width: 100% !important;
@@ -66,11 +67,10 @@ li:after {
     background-color: #FFB81C !important; 
     top: 25px !important;
     left: -50% !important;
-    z-index: -999 !important;
+    z-index: 0;
     transition: all ease-in-out .3s !important;
-    background-color: none;
   }
 
- li:first-child:after {
+ .container li:first-child:after {
     content: none;
   }

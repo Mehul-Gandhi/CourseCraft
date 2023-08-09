@@ -107,7 +107,7 @@ export default function Home() {
       )}
       
       <Banner text={text}/>
-      <TimeLine />
+        <TimeLine />
       <ClassWebsiteInput />
       <br></br>
       <CourseWebsiteInput />

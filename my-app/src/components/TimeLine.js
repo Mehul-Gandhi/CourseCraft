@@ -5,7 +5,7 @@ function TimeLine() {
     const items = ['Bacon', 'Rib', 'Sausage'];
 
     return (
-        <div className="container">
+        <div className="container" >
             <h1 className="title">Status</h1>
             <ul className="timeline">
                 {items.map((item, index) => (
