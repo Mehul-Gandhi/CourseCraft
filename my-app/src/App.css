@@ -3,10 +3,10 @@
   box-sizing: border-box;
 }
 
-/* .App {
+.App {
   text-align: center;
-  background-color: #003262;
-} */
+  /* background-color: #003262; */
+}
 
 .App-logo {
   height: 40vmin;

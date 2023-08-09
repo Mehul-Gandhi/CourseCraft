@@ -3,8 +3,9 @@
     margin: 40px auto;
     font-family: 'Dosis', sans-serif;
     background: none;
-
+    /* background-color: #F1F1F1;  */
 }
+
 
 .title {
     text-align: center;
@@ -35,7 +36,7 @@
     color: #4caf50;
 }
 
-.timeline-item .circle {
+div .timeline-item .circle {
     width: 50px;
     height: 50px;
     border: 3px solid #FFB81C;
@@ -55,38 +56,21 @@
     color: #F1F1F1;
 }
 
-.line {
-    position: absolute
-}
 
-.timeline li:after {
+
+li:after {
     content: "";
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background-color: grey;
-    top: 25px;
-    left: -50%;
-    z-index: -999;
-    transition: all ease-in-out .3s;
+    position: absolute !important;
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #FFB81C !important; 
+    top: 25px !important;
+    left: -50% !important;
+    z-index: -999 !important;
+    transition: all ease-in-out .3s !important;
+    background-color: none;
   }
-  .timeline li:first-child:after {
+
+ li:first-child:after {
     content: none;
   }
-  .circle {
-    width: 50px;
-    height: 50px;
-    border: 3px solid #4caf50;
-    border-radius: 50%;
-    display: block;
-    text-align: center;
-    line-height: 50px;
-    margin: 0 auto 10px auto;
-    background: #F1F1F1;
-    color: #000;
-    transition: all ease-in-out .3s;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-  }
-  

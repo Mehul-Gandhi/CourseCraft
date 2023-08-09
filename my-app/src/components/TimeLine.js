@@ -10,7 +10,7 @@ function TimeLine() {
             <ul className="timeline">
                 {items.map((item, index) => (
                     <li 
-                        className={`timeline-item ${index === 0 ? "active" : ""}`} 
+                        className={`timeline-item ${index === 0 ? "active" : ""} hello`} 
                         key={index}
                     >
                         <div className="circle">{index + 1}</div>
