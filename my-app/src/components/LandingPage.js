@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import UploadButton from './UploadButton';
 import Banner from './Banner';
 import LoginButton from './login/LoginButton';
@@ -8,6 +9,7 @@ import CourseWebsiteInput from './CourseWebsiteInput';
 import Button from './buttons/Button';
 import FileUpload from './FileUpload';
 import Instructions from "./Instructions"
+
 
 import CheckIcon from '@mui/icons-material/Check';
 
@@ -20,6 +22,19 @@ export default function LandingPage() {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [uploadData, setUploadData] = useState([]);
+  const [department, setDepartment] = useState('');
+  const [semester, setSemester] = useState('');
+  const [year, setYear] = useState('');
+  const [key, setKey] = useState('');
+  const navigate = useNavigate();
+
+  const handleConfirmClick = () => {
+    navigate('/new-location-1', { state: { department, semester, year } });
+  };
+
+  const handleGetRequestClick = () => {
+    navigate('/new-location-2', { state: { key } });
+  };
 
   const text = "Welcome to Course Logistics.AI, a course schedule\
    generator dedicated for UC Berkeley Computer Science and Data \
@@ -100,12 +115,56 @@ export default function LandingPage() {
         <Instructions />
 
 
-      <div className="flex justify-center items-center space-x-4" style={{margin: "25px"}}>
-        <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
-        <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"}/>
+    <div className="flex flex-col items-end" style={{margin: "50px"}}>
+      <div className="flex space-x-4 mb-4">
+        <input 
+          type="text" 
+          placeholder="Class Code (Ex: CS10)" 
+          value={department}
+          className="flex-1 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+          onChange={(e) => setDepartment(e.target.value)}
+        />
+        <input 
+          type="text" 
+          placeholder="Semester (Ex: Spring)" 
+          value={semester}
+          className="flex-1 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+          onChange={(e) => setSemester(e.target.value)}
+        />
 
-      </div> 
+        <input 
+          type="text" 
+          placeholder="Year (Ex: 2023)" 
+          value={year}
+          className="flex-1 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+          onChange={(e) => setYear(e.target.value)}
+        />
+
+        <Button 
+        onClick={handleConfirmClick} 
+        icon={<CheckIcon />}
+         text={"Confirm"}
+         disabled={!department || !semester || !year}
+         />
+      </div>
+
+      <div className="flex space-x-4">
+        <input 
+          type="text" 
+          placeholder="Key" 
+          value={key}
+          className="flex-1  flex-grow rounded-full  border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+          onChange={(e) => setKey(e.target.value)}
+        />
+        <Button 
+        onClick={handleGetRequestClick}
+         icon={<CheckIcon />} 
+         text={"Get Request"}
+         disabled={!key}
+         />
+      </div>
     </div>
-  );
-}
 
+</div>
+  )
+      };
