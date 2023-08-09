@@ -47,10 +47,7 @@ export default function LandingPage() {
     navigate('/upload', { state: { department, semester, year } });
   };
 
-  const handleGetRequestClick = () => {
-    navigate('/new-location-2', { state: { key } });
-  };
-
+  
   const text = "Welcome to Course Logistics.AI, a course schedule\
    generator dedicated for UC Berkeley Computer Science and Data \
    Science classes.";
@@ -113,6 +110,11 @@ export default function LandingPage() {
       console.error('There was an error:', err);
     }
   };
+  const getSharedCalendar = () => {
+    //get request
+    //key?
+    navigate('/calendar', { state: { key } });
+  }
   
   return (
     <div className="App flex flex-col justify-center items-center w-full">
@@ -172,7 +174,8 @@ export default function LandingPage() {
           onChange={(e) => setKey(e.target.value)}
         />
         <Button 
-        onClick={handleGetRequestClick}
+        // onClick={handleGetRequestClick}
+        onClick={getSharedCalendar}
          icon={<CheckIcon />} 
          text={"Get Request"}
          disabled={!key}

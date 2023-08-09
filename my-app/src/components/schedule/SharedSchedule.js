@@ -10,6 +10,7 @@ import CodeEditor from '../website/AceEditor'; // Ensure you import the CodeEdit
 import DownloadIcon from '@mui/icons-material/Download';
 import GoogleIcon from '@mui/icons-material/Google';
 import CodeIcon from '@mui/icons-material/Code';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from '../login/helpers';
 import "../../index.css";
@@ -18,11 +19,20 @@ function SharedSchedule() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showEditor, setShowEditor] = useState(false); // New state variable
   const text = "Welcome to Course Logistics.AI, a course schedule generator dedicated for UC Berkeley Computer Science and Data Science classes.";
-  
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  var { uploadData, department, semester, year } = location.state;
+
+  console.log(uploadData);
+
   const [language, setLanguage] = useState("javascript"); // default language
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
+  }
+  const generateCalendar = () => {
+    navigate("/calendar", { state: { uploadData, department, semester, year } });
   }
 
   const handleClick = () => {
@@ -33,8 +43,6 @@ function SharedSchedule() {
     setShowEditor(true);
   };
   
-  const course = "CS10"; //query from the backend
-  const semester = "Spring 2024";
   const time = "4:10pm";
   
   return (
@@ -50,7 +58,7 @@ function SharedSchedule() {
       )}
       
       <Banner text={text}/>
-      <div className="font-bold text-white text-md">{course} {semester} table generated at {time} </div>
+      <div className="font-bold text-white text-md">{department} {semester} {year} table generated at {time} </div>
       
       {showEditor && <select value={language} onChange={handleLanguageChange}>
         <option value="javascript">JavaScript</option>
@@ -63,7 +71,7 @@ function SharedSchedule() {
 
       <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
         <Button onClick={handleClick} icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
-        <Button onClick={handleClick} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"}/>
+        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"}/>
         <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"}/>
       </div>
     </div>

@@ -11,6 +11,8 @@ import "../../index.css";
 import placeholder from '../../assets/placeholder.png'; 
 import CheckIcon from '@mui/icons-material/Check';
 import UpdateIcon from '@mui/icons-material/Update';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 function CompareSchedule() {
   const [confirmClicked, setConfirmClicked] = useState(false);
@@ -22,7 +24,12 @@ function CompareSchedule() {
 
   const handleClick = () => {
     console.log('Button clicked');
+    navigate("/shared", { state: { uploadData, department, semester, year } });
   };
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  var { uploadData, department, semester, year } = location.state;
 
   useEffect(() => {
     let i = -1;

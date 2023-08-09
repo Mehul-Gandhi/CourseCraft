@@ -7,6 +7,7 @@ import CompareSchedule from "./components/schedule/CompareSchedule";
 import SharedSchedule from "./components/schedule/SharedSchedule";
 import LandingPage from "./components/LandingPage";
 import NotFound from "./components/NotFound"; // Don't forget to import this too.
+import Calendar from "./components/Calendar";
 
 function App() {
      
@@ -22,6 +23,7 @@ function App() {
           <Route path="/schedule" element={<CompareSchedule />} />
           <Route path="/shared" element= {<SharedSchedule />} />
           <Route path="*" element={<NotFound />} /> {/* This route will catch all unmatched routes */}
+          <Route path="/calendar" element={<Calendar />} /> 
         </Routes>
       </Router>
     )
