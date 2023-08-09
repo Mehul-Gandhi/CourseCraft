@@ -12,12 +12,13 @@ import CloudIcon from '@mui/icons-material/Cloud';
 
 function Information() {
     const elements = [
-        [ArticleIcon, "Input Website & Current Schedule", "Drag and drop your file into the toolbox above to begin. Word, Excel, PPT and image files will convert to PDF format. PDF files will convert to the file type you choose."],
-        [GridOnIcon, "Generate New Schedule", "Based on the current year's schedule and academic holidays, generate a new schedule  given the next start, end dates, & holidays. Generate a new tabular schedule."],
+        [ArticleIcon, "Select Course", "Input the class code, semester, and year for the class you would like to develop a course schedule for."]
+        [ArticleIcon, "Input Website & Current Schedule", "1. Insert course website from classes.berkeley.edu, 2. Include course website, 3. Upload website code file"],
+        [GridOnIcon, "Generate New Schedule", "Based on past schedule, generate a new schedule for the specified semester and term. Generate a new tabular schedule."],
         [GetAppIcon,"Export New Schedule", "Export the newly generated schedule for updating the website code, and auto-creating google calendar and google tasks. Save hundreds of hours of repetitive work."],
         [VerifiedUserIcon, "Great quality", "Test and see for yourself! To ensure best quality of PDF conversion, we partnered with Solid Documents - the best solution provider on the market."],
         [DevicesIcon, "Perform on all devices", "You do not need to register or install a software. The online PDF converter works perfectly on all devices and popular browsers: IE, Firefox, Chrome & Opera."],
-        [CloudIcon, "Access from anywhere", "You can access the free PDF file converter anywhere, with an internet connection. Smallpdf PDF converter operates fully in the cloud."]
+        [DevicesIcon, "Perform on all devices", "You do not need to register or install a software. The online PDF converter works perfectly on all devices and popular browsers: IE, Firefox, Chrome & Opera."],
       ];
     return (
       <div className="grid grid-cols-3 grid-rows-2 md:grid-cols-3  gap-4">
