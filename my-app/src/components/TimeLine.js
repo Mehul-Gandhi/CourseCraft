@@ -1,52 +1,4 @@
-
 import React from "react";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import { styled } from "@mui/system";
-
-const ColorStepIcon = styled('span')(({ theme }) => ({
-  '&.MuiStepIcon-root': {
-    color: '#FFB81C'
-  },
-  '&.MuiStepIcon-active': {
-    color: '#FFB81C'
-  },
-  '&.MuiStepIcon-completed': {
-    color: '#FFB81C'
-  }
-}));
-
-const CustomStepIconContainer = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column', 
-  alignItems: 'center',
-}));
-
-const CustomStepIcon = styled('div')(({ theme, active }) => ({
-  width: 40,
-  height: 40,
-  borderRadius: '50%', 
-  backgroundColor: active ? '#FFB81C' : '#ffffff', 
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: active ? '#ffffff' : '#000000', 
-  fontSize: 18,
-  marginBottom: 8, 
-  border: `2px solid ${active ? '#FFB81C' : '#000000'}`, 
-}));
-
-const CustomConnector = styled('div')(({ theme }) => ({
-  flex: '1 1 auto',
-  marginTop: 8,
-  display: 'flex',
-  flexDirection: 'column', 
-  alignItems: 'center', 
-}));
 
 function TimeLine() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -62,73 +14,47 @@ function TimeLine() {
   }
 
   return (
-    <Container maxWidth="md" style={{ display: 'flex', justifyContent: 'center' }}>
-      <Box width="50%">
-        <Stepper activeStep={activeStep} connector={<CustomConnector />}>
-          <Step>
-            <StepLabel StepIconComponent={CustomStepIconContainer}>
-              <CustomStepIcon active={activeStep === 0}>
-                1
-              </CustomStepIcon>
-              Upload current schedule
-            </StepLabel>
-          </Step>
-          <Step>
-            <StepLabel StepIconComponent={CustomStepIconContainer}>
-              <CustomStepIcon active={activeStep === 1}>
-                2
-              </CustomStepIcon>
-              Generate new schedule
-            </StepLabel>
-          </Step>
-          <Step>
-            <StepLabel StepIconComponent={CustomStepIconContainer}>
-              <CustomStepIcon active={activeStep === 2}>
-                3
-              </CustomStepIcon>
-              Confirm new schedule
-            </StepLabel>
-          </Step>
-          <Step>
-            <StepLabel StepIconComponent={CustomStepIconContainer}>
-              <CustomStepIcon active={activeStep === 3}>
-                4
-              </CustomStepIcon>
-              Generate website code
-            </StepLabel>
-          </Step>
-          <Step>
-            <StepLabel StepIconComponent={CustomStepIconContainer}>
-              <CustomStepIcon active={activeStep === 4}>
-                5
-              </CustomStepIcon>
-              Add to GCal & tasks
-            </StepLabel>
-          </Step>
-        </Stepper>
-        {/*  <h3>{activeStep}</h3> */}
-        <Button
-          variant="outlined"
-          color="primary"
+    <div className="flex justify-center w-full">
+      <div className="w-1/2 space-y-4">
+        <div className="flex space-x-5">
+          {[...Array(5)].map((_, idx) => (
+            <div className="flex flex-col items-center">
+              <div
+                className={`w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold border-2 
+                  ${activeStep === idx ? 'bg-yellow-500 text-white border-yellow-500' : 'bg-white text-black border-black'}`}
+              >
+                {idx + 1}
+              </div>
+              <p className="mt-2 text-white">
+                {{
+                  0: "Upload current schedule",
+                  1: "Generate new schedule",
+                  2: "Confirm new schedule",
+                  3: "Generate website code",
+                  4: "Add to GCal & tasks"
+                }[idx]}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className={`w-full py-2 px-4 border rounded ${activeStep === 4 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 text-white cursor-pointer'}`}
           onClick={handleNextStep}
-          fullWidth
           disabled={activeStep === 4}
         >
           Next step
-        </Button>
-        <br />
-        <br />
-        <Button
-          variant="outlined"
-          color="primary"
+        </button>
+
+        <button
+          className={`w-full py-2 px-4 border rounded mt-4 ${activeStep === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 text-white cursor-pointer'}`}
           onClick={handlePreviousStep}
-          fullWidth
           disabled={activeStep === 0}
         >
           Previous step
-        </Button>
-      </Box>
-    </Container>
+        </button>
+      </div>
+    </div>
   );
 }
 
