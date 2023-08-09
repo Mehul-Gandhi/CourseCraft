@@ -17,7 +17,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route index element={<LandingPage />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/upload" element={<Home />} />
           <Route path="/help" element={<Instructions />} />
           <Route path="/schedule" element={<CompareSchedule />} />
           <Route path="/shared" element= {<SharedSchedule />} />

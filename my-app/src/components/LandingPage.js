@@ -26,10 +26,25 @@ export default function LandingPage() {
   const [semester, setSemester] = useState('');
   const [year, setYear] = useState('');
   const [key, setKey] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const navigate = useNavigate();
 
   const handleConfirmClick = () => {
-    navigate('/new-location-1', { state: { department, semester, year } });
+    if (!department) {
+        setErrorMessage("Please fill out the Class Code.");
+        return;
+      }
+      if (!semester) {
+        setErrorMessage("Please fill out the Semester.");
+        return;
+      }
+      if (!year  || isNaN(year) || year < 1900 || year > 2100) {
+        setErrorMessage("Please fill out the Year with a valid year.");
+        return;
+      }
+    
+    navigate('/upload', { state: { department, semester, year } });
   };
 
   const handleGetRequestClick = () => {
@@ -163,6 +178,8 @@ export default function LandingPage() {
          disabled={!key}
          />
       </div>
+      <p className="text-red-600 mt-2">{errorMessage}</p>
+
     </div>
 
 </div>

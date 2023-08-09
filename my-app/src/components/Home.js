@@ -8,6 +8,8 @@ import CourseWebsiteInput from './CourseWebsiteInput';
 import Button from './buttons/Button';
 import FileUpload from './FileUpload';
 import TimeLine from './TimeLine';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 import CheckIcon from '@mui/icons-material/Check';
 
@@ -20,6 +22,10 @@ export default function Home() {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [uploadData, setUploadData] = useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { department, semester, year } = location.state;
 
   const text = "Welcome to Course Logistics.AI, a course schedule\
    generator dedicated for UC Berkeley Computer Science and Data \
@@ -45,6 +51,10 @@ export default function Home() {
       console.error('There was an error fetching data:', err);
     }
   };
+
+  function generateSchedule() {
+    navigate('/schedule', { state: { uploadData, department, semester, year } });
+  }
   
 
   const handleClick = async () => {
@@ -105,6 +115,7 @@ export default function Home() {
       <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
 
       <div className="flex justify-center items-center">
+      <Button onClick={generateSchedule} icon={<CheckIcon />} text={"Generate Schedule"}/>
         <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
         <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"}/>
 
