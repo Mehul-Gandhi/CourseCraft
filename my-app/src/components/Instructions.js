@@ -43,26 +43,43 @@ function Information() {
     );
   }
 
-export default function Instructions() {
+
+  export default function Instructions() {
+    return (
+      <div className="flex flex-col items-center justify-center p-4 w-full space-y-12 ml-10 mr-10">
+          <div className="bg-[#FFB81C] md:w-1/2 h-50 rounded-full flex items-center justify-center p-8 space-y-4">
+              <div className="text-lg font-medium">
+                  Our program takes in the following inputs:
+              </div>
+              <List className="space-y-2">
+                  <ListItem className="flex items-center space-x-2">
+                      <CalendarMonthIcon />
+                      <span>Current Course Calendar (.xlsx, .txt from website)</span>
+                  </ListItem>
+                  <ListItem className="flex items-center space-x-2">
+                      <GridOnIcon />
+                      <span>Master Course Logistics Spreadsheet (.xlsx, .csv)</span>
+                  </ListItem>
+                  <ListItem className="flex items-center space-x-2">
+                      <BookIcon />
+                      <span>Instructor/TA Handbook (.doc, .docx, .pdf)</span>
+                  </ListItem>
+                  <ListItem className="flex items-center space-x-2">
+                      <ArticleIcon />
+                      <span>Additional Documentation</span>
+                  </ListItem>
+              </List>
+              <div className="text-sm mt-4">
+                  Accepted formats: .pdf, .csv, .xlsx
+              </div>
+          </div>
+          <div className="text-[#FFB81C] font-inter text-3xl">
+              I N S T R U C T I O N S
+          </div>
+          <div className="mt-6">
+            <Information />
+          </div>
+      </div>
+    );
+  }
   
-  return (
-    <div className="flex flex-col items-center justify-center p-4 w-full">
-        <div className="bg-[#FFB81C] md:w-1/2 h-50 rounded-full flex items-center justify-center p-4">
-            <div>
-                Our program takes in the following inputs:
-                <List>
-                    <ListItem><CalendarMonthIcon /> Current Course Calendar (.xlsx, .txt from website)</ListItem>
-                    <ListItem><GridOnIcon /> Master Course Logistics Spreadsheet (.xlsx, .csv)</ListItem>
-                    <ListItem><BookIcon /> Instructor/TA Handbook (.doc, .docx, .pdf)</ListItem>
-                    <ListItem><ArticleIcon /> Additional Documentation</ListItem>
-                </List>
-                <div>Accepted formats: .pdf, .csv, .xlsx</div>
-            </div>
-        </div>
-        <div className="text-[#FFB81C] font-inter text-3xl" style={{ marginTop: '50px' }}>I N S T R U C T I O N S</div>
-        <div style={{margin: "25px"}}>
-          <Information />
-         </div>
-    </div>
-);
-}

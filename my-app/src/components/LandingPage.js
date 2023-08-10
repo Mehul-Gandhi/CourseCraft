@@ -10,7 +10,8 @@ import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import CheckIcon from '@mui/icons-material/Check';
-import Flask;
+
+
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import "../App.css"
@@ -29,8 +30,6 @@ export default function LandingPage() {
   const navigate = useNavigate();
 
   
-
-
 
   const handleConfirmClick = () => {
     if (!department) {
