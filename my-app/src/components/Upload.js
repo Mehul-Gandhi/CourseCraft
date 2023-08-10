@@ -113,36 +113,43 @@ export default function Upload() {
   
   return (
     <div className="App flex flex-col justify-center items-center w-full">
-      {isLoggedIn ? (
-        <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
-      ) : (
-        <LoginButton
-          onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile)}
-          onFailure={handleLoginFailure}
-          cookiePolicy="single_host_origin"
-        />
-      )}
-      <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"}/>
-
-      
-      <Banner text={text}/>
-        <TimeLine page={1}/>
-      <ClassWebsiteInput classWebsite={classWebsite} setClassWebsite={setClassWebsite}/>
+      {/* Top container */}
+      <div className="w-full flex flex-row justify-between items-center px-4 py-2">
+        {/* Back button on the left */}
+        <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
+  
+        {/* Login/Logout button on the right */}
+        {isLoggedIn ? (
+          <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
+        ) : (
+          <LoginButton
+            onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile)}
+            onFailure={handleLoginFailure}
+            cookiePolicy="single_host_origin"
+          />
+        )}
+      </div>
+  
+      {/* The rest of your content */}
+      <Banner text={text} />
+      <TimeLine page={1} />
+      <ClassWebsiteInput classWebsite={classWebsite} setClassWebsite={setClassWebsite} />
       {classErrorMessage && <p className="text-red-600 mt-2">{classErrorMessage}</p>}
-
-      <br></br>
-      <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite}/>
+  
+      <br />
+      <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite} />
       {courseErrorMessage && <p className="text-red-600 mt-2">{courseErrorMessage}</p>}
-      <br></br>
+  
+      <br />
       <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
-
+  
       <div className="flex justify-center items-center">
-      <Button onClick={generateSchedule} icon={<CheckIcon />} text={"Generate Schedule"}/>
-        <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
-        <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"}/>
-
+        <Button onClick={generateSchedule} icon={<CheckIcon />} text={"Generate Schedule"} />
+        <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"} />
+        <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"} />
       </div>
     </div>
   );
+  
 }
 
