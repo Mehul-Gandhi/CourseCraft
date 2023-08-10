@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { List, ListItem } from '@mui/material';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import BookIcon from '@mui/icons-material/Book';
