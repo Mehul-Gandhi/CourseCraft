@@ -138,7 +138,7 @@ export default function LandingPage() {
 
 
     <div className="flex flex-col items-end" style={{margin: "50px"}}>
-      <div className="flex space-x-4 mb-4">
+      <div className="flex space-x-4 mb-4 text-[#FFB81C]">
         <input 
           type="text" 
           placeholder="Class Code (Ex: CS10)" 
@@ -168,6 +168,15 @@ export default function LandingPage() {
          text={"Confirm"}
          disabled={!department || !semester || !year}
          />
+         <Tooltip title={<div className="text-xl">
+          Input information about your class. <br />
+          Example format: < br/>
+          Class Code: CS10 < br/>
+          Semester: Spring <br />
+          Year: 2023 <br />
+          </div>}>
+  <InfoOutlinedIcon fontSize="large" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+</Tooltip>
       </div>
 
       <div className="flex space-x-4 text-[#FFB81C]">

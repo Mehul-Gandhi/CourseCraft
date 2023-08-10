@@ -21,6 +21,10 @@ export default function Upload() {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [uploadData, setUploadData] = useState([]);
+
+  const [classWebsite, setClassWebsite] = useState("");
+  const [courseWebsite, setCourseWebsite] = useState("");
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -107,9 +111,9 @@ export default function Upload() {
       
       <Banner text={text}/>
         <TimeLine page={1}/>
-      <ClassWebsiteInput />
+      <ClassWebsiteInput classWebsite={classWebsite} setClassWebsite={setClassWebsite}/>
       <br></br>
-      <CourseWebsiteInput />
+      <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite}/>
       <br></br>
       <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
 
