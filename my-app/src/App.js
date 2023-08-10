@@ -21,7 +21,7 @@ function App() {
           <Route path="/help" element={<Instructions />} />
           <Route path="/schedule" element={<CompareSchedule />} />
           <Route path="/shared" element= {<SharedSchedule />} />
-          <Route path="*" element={<NotFound />} /> {/* This route will catch all unmatched routes */}
+          {/* <Route path="*" element={<NotFound />} /> */}
           <Route path="/calendar" element={<Calendar />} /> 
         </Routes>
       </Router>

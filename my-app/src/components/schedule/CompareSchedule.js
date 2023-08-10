@@ -17,10 +17,32 @@ function CompareSchedule() {
   const [confirmClicked, setConfirmClicked] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [displayedText, setDisplayedText] = useState('');
+  const [oldSchedule, setOldSchedule] = useState('');
+  const [newSchedule, setNewSchedule] = useState("");
+ 
+  useEffect(() => {
+    // Fetch the HTML file and set its content to the state
+    fetch('./old_course.html')
+      .then(response => response.text())
+      .then(content => {
+        setOldSchedule(content);
+        console.log(content);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Fetch the HTML file and set its content to the state
+    fetch('./modified_course.html')
+      .then(response => response.text())
+      .then(content => {
+        setNewSchedule(content);
+        console.log(content);
+      });
+  }, []);
   
   const fullText = "What would you like to update about the new calendar?";
   const text = "Update the new schedule with custom modifications or confirm the new schedule.";
-
+ 
   const handleClick = () => {
     console.log('Button clicked');
     navigate("/shared", { state: { uploadData, department, semester, year } });
@@ -31,7 +53,7 @@ function CompareSchedule() {
   const navigateBack = () => {
     window.history.back()
   }
-  
+
   var { uploadData, department, semester, year } = location.state;
 
   useEffect(() => {
@@ -68,12 +90,12 @@ function CompareSchedule() {
       <div className="flex flex-wrap justify-around md:justify-center p-4 md:space-x-10">
         <div className="w-full md:w-auto mb-4 md:mb-0">
           <h1 className="text-[#FFB81C] text-center">Spring 2023 Input Schedule</h1>
-          <img src={placeholder} alt="Placeholder 2023" className="mx-auto md:w-75 h-auto"/>
+          <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: newSchedule }} style={{backgroundColor: "white"}}/>
         </div>
         
         <div className="w-full md:w-auto">
           <h1 className="text-[#FFB81C] text-center">Spring 2024 Generated Schedule</h1>
-          <img src={placeholder} alt="Placeholder 2024" className="mx-auto md:w-75 h-auto"/>
+          <div className="text-white" dangerouslySetInnerHTML={{ __html: newSchedule }} style={{backgroundColor: "white"}}/>
         </div>
       </div>
       
