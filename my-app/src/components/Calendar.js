@@ -17,9 +17,14 @@ import "./../index.css";
 export default function Calendar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showEditor, setShowEditor] = useState(false); // New state variable
+  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [userProfile, setUserProfile] = useState(null);
+
+  
   const text = "Populate your personal Google Calendar with all the events.";
   const [displayedText, setDisplayedText] = useState("");
   const [startTyping, setStartTyping] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const location = useLocation();
   var { uploadData, department, semester, year } = location.state;
   const time = "4:10pm";
@@ -40,6 +45,10 @@ export default function Calendar() {
   }
 
   const handleClick = () => {
+    if (!userProfile) {
+      setErrorMessage("Please Login to Google First.");
+      return;
+    }
     console.log('Button clicked');
   };
   
@@ -73,10 +82,17 @@ export default function Calendar() {
             <div className="w-full flex flex-row justify-between items-center px-4 py-2">
       <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
       {isLoggedIn ? (
-        <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
+        <LogoutButton onLogout={() => {
+          handleLogout(setIsLoggedIn);
+          setUserProfile("");
+        }} />
       ) : (
         <LoginButton
-          onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn)}
+          onSuccess={(credentialResponse) => {
+            handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile);
+            setErrorMessage("")
+          }
+        }
           onFailure={handleLoginFailure}
           cookiePolicy="single_host_origin"
         />
@@ -94,18 +110,23 @@ export default function Calendar() {
         <option value="markdown">Markdown</option>
       </select>}
 
-      <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
-    <div className="container flex flex-col justify-center items-center" style={{ width: '100%', maxWidth: '1280px', marginRight: 'auto', marginLeft: 'auto', backgroundColor: "#FFFFFF" }}>
-        <h2>Google Calendar:</h2>
-        <p>Lecture • Lab • Discussion</p>
-        <Button onClick={handleClick} icon={<CalendarMonthIcon />} text={"Populate Google Calendar"}/>
-    </div>
-    <div className="container flex flex-col justify-center items-center" style={{backgroundColor: "#FFFFFF"}}>
-        <h2>Google Tasks:</h2>
-        <p>Assignments • Exams</p>
-        <Button onClick={handleClick} icon={<TaskIcon />} text={"Populate Google Tasks"}/>
-    </div>
-</div>
+      <div className="flex justify-center items-center space-x-5 px-6 py-4">
+        <div className="flex-1 bg-white p-6 rounded-lg shadow-md max-w-lg flex flex-col justify-between"> {/* Added flex and flex-col here */}
+          <div>
+            <h2 className="text-center mb-4">Google Calendar:</h2>
+            <p className="text-center mb-4">Lecture • Lab • Discussion</p>
+          </div>
+          <Button onClick={handleClick} icon={<CalendarMonthIcon />} text={"Populate Google Calendar"} className="whitespace-nowrap"/> {/* Added whitespace-nowrap here */}
+        </div>
+        <div className="flex-1 bg-white p-6 rounded-lg shadow-md max-w-lg flex flex-col justify-between"> {/* Added flex and flex-col here */}
+          <div>
+            <h2 className="text-center mb-4">Google Tasks:</h2>
+            <p className="text-center mb-4">Assignments • Exams</p>
+          </div>
+          <Button onClick={handleClick} icon={<TaskIcon />} text={"Populate Google Tasks"} className="whitespace-nowrap"/> {/* Added whitespace-nowrap here */}
+        </div> 
+      </div>
+      <p className="text-red-600 mt-2">{errorMessage}</p>
 
       <iframe className="mx-auto md:w-75" src="https://calendar.google.com/calendar/embed?src=c_9f19d8848dd91d206f5fe65f50d697e178ec7e73ae93f6204d21b565a305c83e%40group.calendar.google.com&ctz=America%2FLos_Angeles"  width="800" height="600" frameborder="0" scrolling="no" style={{margin: "25px"}}></iframe>
 

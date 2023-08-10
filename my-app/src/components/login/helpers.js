@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 export const handleLoginSuccess = async (credentialResponse, setIsLoggedIn, setUserProfile) => {
     setIsLoggedIn(true);
     const userObject = jwt_decode(credentialResponse.credential);
+    console.log(userObject);
     setUserProfile(userObject);
 };
 

@@ -3,10 +3,12 @@ from bs4 import BeautifulSoup
 from bs4 import Comment
 from bs4 import Tag
 from bs4 import NavigableString
+import re
+from bs4 import Comment
 from urllib.parse import urljoin
 import json
 
-def scrape_and_save_table_with_styles(url, output_file):
+def scrape_and_save_table_with_styles(url):
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -44,7 +46,7 @@ def scrape_and_save_table_with_styles(url, output_file):
         <!DOCTYPE html>
         <html>
         <head>
-            <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="../../styles/CompareSchedule.css">
         </head>
         <body>
             {html_content}
@@ -53,14 +55,14 @@ def scrape_and_save_table_with_styles(url, output_file):
         """
 
         # Save the complete HTML content to a file
-        with open(output_file, "w", encoding="utf-8") as html_file:
+        with open("old_course.html", "w", encoding="utf-8") as html_file:
             html_file.write(complete_html)
 
         # Save the CSS content to a separate file
-        with open("styles.css", "w", encoding="utf-8") as css_file:
+        with open("../../styles/CompareSchedule.css", "w", encoding="utf-8") as css_file:
             css_file.write(all_css_content)
 
-        print(f"Table and associated styles saved as '{output_file}' and 'styles.css'")
+        print(f"Table and associated styles saved as 'old_course.html' and '../styles/CompareSchedule.css'")
     else:
         print("Failed to fetch the webpage.")
 
@@ -76,11 +78,12 @@ def save_mapping_to_json(data, json_file_path):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 
+def write_to_file(content, file_path):
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
 
-import re
-from bs4 import BeautifulSoup, Comment
-
-def create_fstring_representation(file_path):
+def create_fstring_representation():
+    file_path = "old_course.html"
     with open(file_path, 'r', encoding='utf-8') as file:
         html_content = file.read()
 
@@ -119,7 +122,8 @@ def create_fstring_representation(file_path):
     f_string_template = str(soup)
     save_mapping_to_file(variables, 'mapping.txt')
     save_mapping_to_json(variables, 'mapping.json')
-    return f_string_template, variables
+    write_to_file(f_string_template, 'template.html')
+    #return f_string_template, variables
 
 
 def fill_fstring_template_from_mapping(f_string_template, mapping_file):
@@ -143,43 +147,19 @@ def fill_fstring_template_from_mapping(f_string_template, mapping_file):
 
 
 
+def read_from_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
 
 
-
+def writeModifiedCourse():
+    loaded_template = read_from_file('template.html')
+    filled_html = fill_fstring_template_from_mapping(loaded_template, 'mapping.txt')
+    with open("modified_course.html", "w", encoding="utf-8") as file:
+        file.write(filled_html)
 
 # Example usage:
 url = "https://www.eecs70.org/"  # Replace this with the URL of the website you want to scrape
-output_file = "old_course.html"  # Output file name
-scrape_and_save_table_with_styles(url, output_file)
-f_string_template, variables = create_fstring_representation(output_file)
-
-def modify_mapping_file(mapping_filename, key_to_modify, new_value):
-    """
-    Modify a specific key's value in the mapping file.
-    
-    Parameters:
-    - mapping_filename (str): The name of the mapping file.
-    - key_to_modify (str): The key whose value should be modified.
-    - new_value (str): The new value to set for the key.
-    """
-    # Read the content of the mapping file
-    with open(mapping_filename, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
-
-    # Modify the necessary value
-    for i, line in enumerate(lines):
-        key, value = line.strip().split(": ", 1)
-        if key == key_to_modify:
-            lines[i] = f"{key}: {new_value}\n"
-            break
-
-    # Write changes back to the mapping file
-    with open(mapping_filename, 'w', encoding='utf-8') as file:
-        file.writelines(lines)
-
-modify_mapping_file('mapping.txt', '_5', 'Modified Value')
-
-#After modifying the mapping.txt file
-filled_html = fill_fstring_template_from_mapping(f_string_template, 'mapping.txt')
-with open("modified_course.html", "w", encoding="utf-8") as file:
-    file.write(filled_html)
+scrape_and_save_table_with_styles(url)
+create_fstring_representation()
+writeModifiedCourse()

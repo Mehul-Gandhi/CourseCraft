@@ -4,7 +4,6 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import BookIcon from '@mui/icons-material/Book';
 import ArticleIcon from '@mui/icons-material/Article';
-
 import GetAppIcon from '@mui/icons-material/GetApp';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import DevicesIcon from '@mui/icons-material/Devices';
@@ -42,7 +41,6 @@ function Information() {
       </div>
     );
   }
-
 
   export default function Instructions() {
     return (

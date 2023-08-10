@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Banner from './Banner';
-import LoginButton from './login/LoginButton';
-import LogoutButton from './login/LogoutButton';
 
 import Button from './buttons/Button';
 import Instructions from "./Instructions"
@@ -13,7 +11,6 @@ import CheckIcon from '@mui/icons-material/Check';
 
 
 
-import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import "../App.css"
 
 export default function LandingPage() {
@@ -49,7 +46,7 @@ export default function LandingPage() {
   };
 
   
-  const text = "Welcome to Course Logistics.AI, a course schedule\
+  const text = "Welcome to CourseCraft.AI, a course schedule\
    generator dedicated for course staff at the UC Berkeley Computer Science Department.";
 
    const getRequest = async (key) => {
@@ -138,15 +135,7 @@ export default function LandingPage() {
   
   return (
     <div className="App flex flex-col justify-center items-center w-full">
-      {isLoggedIn ? (
-        <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
-      ) : (
-        <LoginButton
-          onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile)}
-          onFailure={handleLoginFailure}
-          cookiePolicy="single_host_origin"
-        />
-      )}
+
   
       <Banner text={text} />
       <Instructions />
