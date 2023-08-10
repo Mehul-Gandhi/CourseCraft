@@ -48,7 +48,7 @@ function CompareSchedule() {
     console.log('Button clicked');
     var key = await postRequest();
     console.log(key);
-    navigate("/shared", { state: { key, classWebsite, courseWebsite, uploadData, department, semester, year } });
+    navigate("/shared", { state: { key, classWebsite, courseWebsite, uploadData, department, semester, year, newCode: newSchedule } });
   };
 
   function generateUniqueKey(length) {
