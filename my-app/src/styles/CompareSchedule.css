@@ -1,0 +1,25 @@
+/* styles.css */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* margin between the two containers */
+}
+
+.schedule-box {
+  width: 600px;
+  height: 800px;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.caption {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}

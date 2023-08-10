@@ -14,7 +14,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
-import "../index.css";
+// import "../index.css";
 import "../styles/Upload.css";
 
 export default function Upload() {
@@ -120,15 +120,7 @@ export default function Upload() {
         <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
   
         {/* Login/Logout button on the right */}
-        {isLoggedIn ? (
-          <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
-        ) : (
-          <LoginButton
-            onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile)}
-            onFailure={handleLoginFailure}
-            cookiePolicy="single_host_origin"
-          />
-        )}
+       
       </div>
   
       {/* The rest of your content */}

@@ -49,7 +49,7 @@ export default function LandingPage() {
   };
 
   
-  const text = "Welcome to Course Logistics.AI, a course schedule\
+  const text = "Welcome to CourseCraft.AI, a course schedule\
    generator dedicated for course staff at the UC Berkeley Computer Science Department.";
 
    const getRequest = async (key) => {
@@ -118,42 +118,6 @@ export default function LandingPage() {
     if (!key) {
       setErrorMessage("Invalid key. Try again.");
     } else {
-//       ClassWebsite
-// : 
-// "a"
-// Code
-// : 
-// "10"
-// Department
-// : 
-// "CS10"
-// Files
-// : 
-// []
-// ID
-// : 
-// "9EI6WtvGk6TRSldmcjb_R5m4f5qkdmfve"
-// MasterCalendar
-// : 
-// "SampleMasterCalendar.ics"
-// NewSchedule
-// : 
-// "SampleNewSchedule.txt"
-// OldSchedule
-// : 
-// "SampleOldSchedule.txt"
-// Semester
-// : 
-// "Spring"
-// Time
-// : 
-// "2023-08-10T06:06:16.116Z"
-// __v
-// : 
-// 0
-// _id
-// : 
-// "64d47e58ae445ba181d23d9b"
       var data = await getRequest(key);
       // state: { key, classWebsite, courseWebsite, uploadData, department, semester, year }
     navigate('/shared', { state: { key, 

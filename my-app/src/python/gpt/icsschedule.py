@@ -122,12 +122,14 @@ def dataframe_to_events(df):
 
     return calendar
 
-
+# Convert this to a variable name for the output of the classes.py function
 df = pd.read_csv('cs10table.csv')
+
 calendar = dataframe_to_events(df)
 
 # Save the calendar to an .ics file
 with open("events.ics", "w") as file:
     file.write(str(calendar))
+
 
 print("Events written to events.ics")

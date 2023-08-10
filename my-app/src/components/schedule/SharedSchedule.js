@@ -63,6 +63,26 @@ function SharedSchedule() {
     navigate("/calendar", { state: { uploadData, department, semester, year } });
   }
 
+  // For downloading file on click
+  const downloadIcs = () => {
+
+    // Handle click within the document
+    const handleClick = () => {
+      const a = document.createElement('a');
+      a.href = '/path/to/your/file.txt'; // URL of the file to be downloaded
+      a.download = 'my-calendar.ics'; // Suggested name for the downloaded file
+      document.body.appendChild(a); // Append the anchor to the body
+      a.click(); // Programmatically click the anchor to trigger the download
+      document.body.removeChild(a); // Remove the anchor from the body
+    };
+
+    return (
+      <button onClick={handleClick}>
+        Download File
+      </button>
+    );
+  }
+
   const handleEditorToggle = () => {
     setShowEditor(true);
   };
@@ -95,7 +115,7 @@ function SharedSchedule() {
       )}
 
       <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"}/>
-      <Banner text={""}/>
+      <Banner text={"Congratulations! Your new schedule has been generated. Copy the key to share this generated calendar with others. Now export the calendar in the format of your choosing!"}/>
       <div className="font-bold text-white text-md">
         <h1><LinkIcon /> Shared key: {key}</h1>
         <button onClick={handleCopy} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">
@@ -116,8 +136,8 @@ function SharedSchedule() {
       {showEditor ? <CodeEditor language={language} code={newCode} /> : <img src={placeholder} alt="Placeholder 2024" className="mx-auto md:w-75 h-auto"/>}
 
       <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
-        <Button icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
-        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"}/>
+        <Button onclick={downloadIcs} icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
+        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar"}/>
         <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"}/>
       </div>
     </div>

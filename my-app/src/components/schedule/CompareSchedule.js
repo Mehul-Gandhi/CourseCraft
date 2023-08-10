@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Banner from '../Banner';
-
-
+import CryptoJS from 'crypto-js';
 import Button from '../buttons/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import TimeLine from '../TimeLine';
 import "../../index.css";
+import "../../styles/CompareSchedule.css"
 import placeholder from '../../assets/placeholder.png'; 
 import CheckIcon from '@mui/icons-material/Check';
 import UpdateIcon from '@mui/icons-material/Update';
@@ -54,14 +54,22 @@ function CompareSchedule() {
   function generateUniqueKey(length) {
     const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_';
     let key = '';
-  
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      key += characters.charAt(randomIndex);
+
+    const wordArray = CryptoJS.lib.WordArray.random(length);
+
+    // Convert the WordArray to a string using your character set
+    for (let i = 0; i < wordArray.words.length; i++) {
+        const word = wordArray.words[i];
+        // Use 4 bytes of each word, as WordArray.random() provides 32 bits of randomness per word
+        for (let j = 0; j < 4 && key.length < length; j++) {
+            const byte = (word >> (8 * j)) & 0xFF;
+            key += characters.charAt(byte % characters.length);
+        }
     }
-  
+
     return key;
-  }
+}
+
 
 
   const postRequest = async () => {
@@ -148,18 +156,42 @@ function CompareSchedule() {
       </div>
       <Banner text={text}/>
       <TimeLine page={2}/>
+
+      {/*       
       <div className="flex flex-wrap justify-around md:justify-center p-4 md:space-x-10">
         <div className="w-full md:w-auto mb-4 md:mb-0">
           <h1 className="text-[#FFB81C] text-center">Spring 2023 Input Schedule</h1>
-          <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: newSchedule }} style={{backgroundColor: "white"}}/>
+          <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: oldSchedule }} style={{backgroundColor: "white"}}/>
         </div>
         
         <div className="w-full md:w-auto">
           <h1 className="text-[#FFB81C] text-center">Spring 2024 Generated Schedule</h1>
           <div className="text-white" dangerouslySetInnerHTML={{ __html: newSchedule }} style={{backgroundColor: "white"}}/>
         </div>
+      </div> */}
+
+      <div className="flex justify-center space-x-20 mt-10">
+          {/* Input Schedule */}
+          <div className="flex flex-col items-center">
+              <div 
+                  className="w-600 h-800 border border-gray-300 overflow-y-auto overflow-x-auto"
+                  dangerouslySetInnerHTML={{ __html: oldSchedule }}
+              ></div>
+              <h1 className="text-[#FFB81C] text-center mt-2.5">Spring 2023 Input Schedule</h1>
+          </div>
+
+          {/* Generated Schedule */}
+          <div className="flex flex-col items-center">
+              <div 
+                  className="w-600 h-800 border border-gray-300 overflow-y-auto overflow-x-auto"
+                  dangerouslySetInnerHTML={{ __html: newSchedule }}
+              ></div>
+              <h1 className="text-[#FFB81C] text-center mt-2.5">Spring 2024 Generated Schedule</h1>
+          </div>
       </div>
+
       
+      {/* Confirm */}
       <div className="flex justify-center space-x-4 m-4 md:m-50">
       <Button onClick={handleUpdateClick} icon={<UpdateIcon />} text={"Update"}/>
         <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
