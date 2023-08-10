@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import UploadButton from './UploadButton';
 import Banner from './Banner';
-import LoginButton from './login/LoginButton';
-import LogoutButton from './login/LogoutButton';
+
 import ClassWebsiteInput from './ClassWebsiteInput'
 import CourseWebsiteInput from './CourseWebsiteInput';
 import Button from './buttons/Button';
