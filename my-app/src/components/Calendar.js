@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Banner from './Banner';
 import LoginButton from './login/LoginButton';
 import LogoutButton from './login/LogoutButton';
@@ -17,7 +17,15 @@ export default function Calendar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showEditor, setShowEditor] = useState(false); // New state variable
   const text = "Populate your personal Google Calendar with all the events.";
+  const [displayedText, setDisplayedText] = useState("");
+  const [startTyping, setStartTyping] = useState(true);
   const location = useLocation();
+  var { uploadData, department, semester, year } = location.state;
+  const time = "4:10pm";
+  const fullText = `${department} ${semester} ${year} table generated at ${time}`;
+
+
+
   const navigate = useNavigate();
 
 //   var { uploadData, department, semester, year } = location.state;
@@ -37,11 +45,24 @@ export default function Calendar() {
   const handleEditorToggle = () => {
     setShowEditor(true);
   };
+
+  useEffect(() => {
+    let i = 0;
+    if (startTyping && i < fullText.length) {
+      const typingInterval = setInterval(() => {
+        if (i < fullText.length) {
+          setDisplayedText((prevText) => prevText + fullText.charAt(i));
+          i++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 30);
+      return () => clearInterval(typingInterval);
+    }
+  }, [startTyping]);
+
   
-  const time = "4:10pm";
-  const department = "CS10";
-  const semester = "Spring"
-  const year = "2023"
+
   return (
     <div className="App">
       {isLoggedIn ? (
@@ -55,7 +76,7 @@ export default function Calendar() {
       )}
       
       <Banner text={text}/>
-      <div className="font-bold text-white text-md">{department} {semester} {year} table generated at {time}</div>
+      <div className="font-bold text-white text-md">{displayedText}</div>
       
       {showEditor && <select value={language} onChange={handleLanguageChange}>
         <option value="javascript">JavaScript</option>

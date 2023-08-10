@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UploadButton from './UploadButton';
 import Banner from './Banner';
 import LoginButton from './login/LoginButton';
 import LogoutButton from './login/LogoutButton';
-import ClassWebsiteInput from './ClassWebsiteInput'
-import CourseWebsiteInput from './CourseWebsiteInput';
+
 import Button from './buttons/Button';
-import FileUpload from './FileUpload';
 import Instructions from "./Instructions"
 
 

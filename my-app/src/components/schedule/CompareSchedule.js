@@ -57,7 +57,7 @@ function CompareSchedule() {
   return (
     <div className="App w-full md:w-screen">
       <Banner text={text}/>
-      <TimeLine />
+      <TimeLine page={2}/>
       <div className="flex flex-wrap justify-around md:justify-center p-4 md:space-x-10">
         <div className="w-full md:w-auto mb-4 md:mb-0">
           <h1 className="text-[#FFB81C] text-center">Spring 2023 Input Schedule</h1>
