@@ -158,12 +158,16 @@ function base64ToBlob(base64, type = '') {
       <ul>
         <li className="flex items-center text-[#FFB81C] space-x-2 truncate">
         <span className="flex-1 truncate">Class Schedule Calendar (Optional) </span>
-          <Tooltip title="Supported file types: .xls, .html, .js, .md etc.">
+          <Tooltip title={
+            <div className="text-medium">
+            Supported file types: .xls, .html, .js, .md etc.
+            </div>
+            }>
             <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
       
           </Tooltip>
           <Tooltip title={
-  <div>
+  <div className="text-medium">
     Upload a Google Spreadsheet, MarkDown, or HTML file, of a previous semeseters' schedule that contains a week-by-week schedule of: <br />
   <ul>
     <li>• Lecture Topics</li>
