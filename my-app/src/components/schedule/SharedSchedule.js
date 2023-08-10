@@ -39,7 +39,7 @@ function SharedSchedule() {
   const fullText = `${department || "CS10" } ${semester || "Spring"} ${year || "2024"} table generated at ${time} ${classWebsite} ${courseWebsite}`;
 
   useEffect(() => {
-    let i = 0;
+    let i = -1;
     if (startTyping && i < fullText.length) {
       const typingInterval = setInterval(() => {
         if (i < fullText.length) {
