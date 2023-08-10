@@ -8,6 +8,7 @@ import placeholder from '../../assets/placeholder.png';
 import CodeEditor from '../website/AceEditor'; // Ensure you import the CodeEditor component
 
 import DownloadIcon from '@mui/icons-material/Download';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GoogleIcon from '@mui/icons-material/Google';
 import CodeIcon from '@mui/icons-material/Code';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -66,6 +67,9 @@ function SharedSchedule() {
     setShowEditor(true);
   };
   
+  const navigateBack = () => {
+    window.history.back()
+  }
   
   return (
     <div className="App">
@@ -78,7 +82,8 @@ function SharedSchedule() {
           cookiePolicy="single_host_origin"
         />
       )}
-      
+
+      <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"}/>
       <Banner text={""}/>
       <div className="font-bold text-white text-md">{displayedText}</div>
       

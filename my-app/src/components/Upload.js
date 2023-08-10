@@ -10,7 +10,7 @@ import FileUpload from './FileUpload';
 import TimeLine from './TimeLine';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
@@ -56,6 +56,10 @@ export default function Upload() {
       console.error('There was an error fetching data:', err);
     }
   };
+
+  const navigateBack = () => {
+    window.history.back()
+  }
 
   function generateSchedule() {
     if (!classWebsite) {
@@ -118,6 +122,8 @@ export default function Upload() {
           cookiePolicy="single_host_origin"
         />
       )}
+      <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"}/>
+
       
       <Banner text={text}/>
         <TimeLine page={1}/>
