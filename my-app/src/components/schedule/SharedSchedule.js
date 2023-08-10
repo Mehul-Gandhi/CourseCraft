@@ -18,7 +18,6 @@ import { handleLoginSuccess, handleLoginFailure, handleLogout } from '../login/h
 import "../../index.css";
 
 function SharedSchedule() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
   const [displayedText, setDisplayedText] = useState("");
   const [startTyping, setStartTyping] = useState(true);
@@ -104,15 +103,6 @@ function SharedSchedule() {
 
   return (
     <div className="App">
-      {isLoggedIn ? (
-        <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
-      ) : (
-        <LoginButton
-          onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn)}
-          onFailure={handleLoginFailure}
-          cookiePolicy="single_host_origin"
-        />
-      )}
 
       <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"}/>
       <Banner text={"Congratulations! Your new schedule has been generated. Copy the key to share this generated calendar with others. Now export the calendar in the format of your choosing!"}/>

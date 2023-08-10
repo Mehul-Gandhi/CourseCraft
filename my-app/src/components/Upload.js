@@ -18,9 +18,6 @@ import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/he
 import "../styles/Upload.css";
 
 export default function Upload() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [userProfile, setUserProfile] = useState(null);
   const [uploadData, setUploadData] = useState([]);
   const [classErrorMessage, setClassErrorMessage] = useState("");
   const [courseErrorMessage, setCourseErrorMessage] = useState("");

@@ -24,6 +24,7 @@ export default function Calendar() {
   const text = "Populate your personal Google Calendar with all the events.";
   const [displayedText, setDisplayedText] = useState("");
   const [startTyping, setStartTyping] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const location = useLocation();
   var { uploadData, department, semester, year } = location.state;
   const time = "4:10pm";
@@ -44,6 +45,10 @@ export default function Calendar() {
   }
 
   const handleClick = () => {
+    if (!userProfile) {
+      setErrorMessage("Please Login to Google First.");
+      return;
+    }
     console.log('Button clicked');
   };
   
@@ -77,10 +82,17 @@ export default function Calendar() {
             <div className="w-full flex flex-row justify-between items-center px-4 py-2">
       <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
       {isLoggedIn ? (
-        <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
+        <LogoutButton onLogout={() => {
+          handleLogout(setIsLoggedIn);
+          setUserProfile("");
+        }} />
       ) : (
         <LoginButton
-          onSuccess={(credentialResponse) => handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile)}
+          onSuccess={(credentialResponse) => {
+            handleLoginSuccess(credentialResponse, setIsLoggedIn, setUserProfile);
+            setErrorMessage("")
+          }
+        }
           onFailure={handleLoginFailure}
           cookiePolicy="single_host_origin"
         />
@@ -112,8 +124,9 @@ export default function Calendar() {
             <p className="text-center mb-4">Assignments • Exams</p>
           </div>
           <Button onClick={handleClick} icon={<TaskIcon />} text={"Populate Google Tasks"} className="whitespace-nowrap"/> {/* Added whitespace-nowrap here */}
-        </div>
+        </div> 
       </div>
+      <p className="text-red-600 mt-2">{errorMessage}</p>
 
       <iframe className="mx-auto md:w-75" src="https://calendar.google.com/calendar/embed?src=c_9f19d8848dd91d206f5fe65f50d697e178ec7e73ae93f6204d21b565a305c83e%40group.calendar.google.com&ctz=America%2FLos_Angeles"  width="800" height="600" frameborder="0" scrolling="no" style={{margin: "25px"}}></iframe>
 

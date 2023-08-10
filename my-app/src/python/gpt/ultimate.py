@@ -8,7 +8,7 @@ from bs4 import Comment
 from urllib.parse import urljoin
 import json
 
-def scrape_and_save_table_with_styles(url, output_file):
+def scrape_and_save_table_with_styles(url):
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -46,7 +46,7 @@ def scrape_and_save_table_with_styles(url, output_file):
         <!DOCTYPE html>
         <html>
         <head>
-            <link rel="stylesheet" href="../styles/CompareSchedule.css">
+            <link rel="stylesheet" href="../../styles/CompareSchedule.css">
         </head>
         <body>
             {html_content}
@@ -55,14 +55,14 @@ def scrape_and_save_table_with_styles(url, output_file):
         """
 
         # Save the complete HTML content to a file
-        with open(output_file, "w", encoding="utf-8") as html_file:
+        with open("old_course.html", "w", encoding="utf-8") as html_file:
             html_file.write(complete_html)
 
         # Save the CSS content to a separate file
-        with open("../styles/CompareSchedule.css", "w", encoding="utf-8") as css_file:
+        with open("../../styles/CompareSchedule.css", "w", encoding="utf-8") as css_file:
             css_file.write(all_css_content)
 
-        print(f"Table and associated styles saved as '{output_file}' and '../styles/CompareSchedule.css'")
+        print(f"Table and associated styles saved as 'old_course.html' and '../styles/CompareSchedule.css'")
     else:
         print("Failed to fetch the webpage.")
 
@@ -82,7 +82,8 @@ def write_to_file(content, file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(content)
 
-def create_fstring_representation(file_path):
+def create_fstring_representation():
+    file_path = "old_course.html"
     with open(file_path, 'r', encoding='utf-8') as file:
         html_content = file.read()
 
@@ -143,10 +144,8 @@ def fill_fstring_template_from_mapping(f_string_template, mapping_file):
     filled_html = f_string_template.format(**mappings)
     return filled_html
 
-# Example usage:
-url = "https://www.eecs70.org/"  # Replace this with the URL of the website you want to scrape
-scrape_and_save_table_with_styles(url, "old_course.html")
-create_fstring_representation("old_course.html")
+
+
 
 def read_from_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -155,6 +154,12 @@ def read_from_file(file_path):
 
 def writeModifiedCourse():
     loaded_template = read_from_file('template.html')
-    filled_html = fill_fstring_template_from_mapping(loaded_template, 'mapping2.txt')
+    filled_html = fill_fstring_template_from_mapping(loaded_template, 'mapping.txt')
     with open("modified_course.html", "w", encoding="utf-8") as file:
         file.write(filled_html)
+
+# Example usage:
+url = "https://www.eecs70.org/"  # Replace this with the URL of the website you want to scrape
+scrape_and_save_table_with_styles(url)
+create_fstring_representation()
+writeModifiedCourse()
