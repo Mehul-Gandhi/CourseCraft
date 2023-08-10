@@ -180,6 +180,8 @@ export default function LandingPage() {
           </Tooltip>
         </div>
   
+        <div className="text-white" style={{ fontSize: 'large' }}>OR</div>
+
         <div className="flex w-full space-x-4 text-[#FFB81C]">
           <input 
             type="text" 
@@ -191,7 +193,7 @@ export default function LandingPage() {
           <Button 
             onClick={() => getSharedCalendar(key)}
             icon={<CheckIcon />} 
-            text={"Get Request"}
+            text={"Get Calendar From Key"}
             disabled={!key}
           />
           <Tooltip title={<div className="text-xl">
