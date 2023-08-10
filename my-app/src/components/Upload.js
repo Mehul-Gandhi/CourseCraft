@@ -11,7 +11,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
 
-import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 // import "../index.css";
 import "../styles/Upload.css";
 
@@ -126,12 +125,12 @@ export default function Upload() {
   
       <br />
       <br />
-      <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite} />
+      {/* <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite} /> */}
       {courseErrorMessage && <p className="text-red-600 mt-2">{courseErrorMessage}</p>}
   
       <br />
       <br />
-      <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
+      {/* <FileUpload uploadData={uploadData} setUploadData={setUploadData} /> */}
   
       <br />
       <div className="flex justify-center items-center">
