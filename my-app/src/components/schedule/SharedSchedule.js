@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Banner from '../Banner';
-import LoginButton from '../login/LoginButton';
-import LogoutButton from '../login/LogoutButton';
+
 import LinkIcon from '@mui/icons-material/Link';
 import Button from '../buttons/Button';
 import placeholder from '../../assets/placeholder.png'; 
 import CodeEditor from '../website/AceEditor';
-import CheckIcon from '@mui/icons-material/Check';
 
 import DownloadIcon from '@mui/icons-material/Download';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -14,7 +12,9 @@ import GoogleIcon from '@mui/icons-material/Google';
 import CodeIcon from '@mui/icons-material/Code';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { handleLoginSuccess, handleLoginFailure, handleLogout } from '../login/helpers';
+import Tooltip from '@mui/material/Tooltip';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
 import "../../index.css";
 
 function SharedSchedule() {
@@ -92,7 +92,16 @@ function SharedSchedule() {
         <button onClick={handleCopy} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">
           Copy Key
         </button>
+        <Tooltip title={
+            <div className="text-medium">
+            Share this key with your staff members to export the Google Calendar and Tasks.
+            </div>
+            }>
+            <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+          </Tooltip>
+
         {copySuccess && <div style={{color: 'green'}}>{copySuccess}</div>}
+        
       </div>
       
       <div className="font-bold text-white text-md">{displayedText}</div>
