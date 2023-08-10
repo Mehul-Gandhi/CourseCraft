@@ -9,25 +9,30 @@ import GetAppIcon from '@mui/icons-material/GetApp';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import DevicesIcon from '@mui/icons-material/Devices';
 import CloudIcon from '@mui/icons-material/Cloud';
+import ExtensionIcon from '@mui/icons-material/Extension';
+import ScheduleIcon from '@mui/icons-material/Schedule';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import CodeIcon from '@mui/icons-material/Code';
 
 function Information() {
     const elements = [
-        [ArticleIcon, "Input Website & Current Schedule", "Drag and drop your file into the toolbox above to begin. Word, Excel, PPT and image files will convert to PDF format. PDF files will convert to the file type you choose."],
-        [GridOnIcon, "Generate New Schedule", "Based on the current year's schedule and academic holidays, generate a new schedule  given the next start, end dates, & holidays. Generate a new tabular schedule."],
-        [GetAppIcon,"Export New Schedule", "Export the newly generated schedule for updating the website code, and auto-creating google calendar and google tasks. Save hundreds of hours of repetitive work."],
-        [VerifiedUserIcon, "Great quality", "Test and see for yourself! To ensure best quality of PDF conversion, we partnered with Solid Documents - the best solution provider on the market."],
-        [DevicesIcon, "Perform on all devices", "You do not need to register or install a software. The online PDF converter works perfectly on all devices and popular browsers: IE, Firefox, Chrome & Opera."],
-        [CloudIcon, "Access from anywhere", "You can access the free PDF file converter anywhere, with an internet connection. Smallpdf PDF converter operates fully in the cloud."]
+        [ArticleIcon, "1. Input Course Title", "Course Logistics Master: Input course department, intended semester, and intended year."],
+        [GridOnIcon, "2. Generate New Schedule", "Based on reference past schedules, AI-generate a new schedule for the intended semester and year."],
+        [ExtensionIcon,"3. Plugin Generated Schedule", "General Course Staff: use the shared link to access the new calendar for exporting."],
+        [ScheduleIcon,"4. Export New Schedule", "Export the new calendar as a .ics file to then upload in a calendar application of your choice."],
+        [CalendarTodayIcon, "5. Export Google Calendar", "Export the new calendar into your personal google calendar."],
+        [CodeIcon, "6. Export Website Code", "Export the new calendar as website code to update the current class website front-end with one click."],
       ];
+
     return (
-      <div className="grid grid-cols-3 grid-rows-2 md:grid-cols-3  gap-4">
+      <div className="grid grid-cols-3 grid-rows-2 md:grid-cols-3 gap-4">
         {elements.map((el, index) => {
           const Icon = el[0]; // extract the icon component
           const title = el[1];
           const description = el[2];
   
           return (
-            <div key={index}>
+            <div key={index} className="p-6 bg-[rgba(255,255,255,0.2)] rounded-2xl">
               <Icon style={{color: '#ffffff'}} className="mb-2" />
               <h2 style={{color: '#ffffff'}} className="text-md font-semibold mb-2">{title}</h2>
               <p style={{color: '#FFB81C'}} className="text-md">{description}</p>

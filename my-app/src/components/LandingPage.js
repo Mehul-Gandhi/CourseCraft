@@ -14,7 +14,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import CheckIcon from '@mui/icons-material/Check';
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
-import "../index.css";
+import "../App.css"
 
 
 
@@ -50,8 +50,7 @@ export default function LandingPage() {
 
   
   const text = "Welcome to Course Logistics.AI, a course schedule\
-   generator dedicated for UC Berkeley Computer Science and Data \
-   Science classes.";
+   generator dedicated for course staff at the UC Berkeley Computer Science Department.";
 
    const getRequest = async () => {
     // Assuming the ID is hardcoded as '1234' for this example.
@@ -132,79 +131,74 @@ export default function LandingPage() {
           cookiePolicy="single_host_origin"
         />
       )}
-      
-      <Banner text={text}/>
-        <Instructions />
-
-
-    <div className="flex flex-col items-end" style={{margin: "50px"}}>
-      <div className="flex space-x-4 mb-4 text-[#FFB81C]">
-        <input 
-          type="text" 
-          placeholder="Class Code (Ex: CS10)" 
-          value={department}
-          className="flex-1 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-          onChange={(e) => setDepartment(e.target.value)}
-        />
-        <input 
-          type="text" 
-          placeholder="Semester (Ex: Spring)" 
-          value={semester}
-          className="flex-1 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-          onChange={(e) => setSemester(e.target.value)}
-        />
-
-        <input 
-          type="text" 
-          placeholder="Year (Ex: 2023)" 
-          value={year}
-          className="flex-1 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-          onChange={(e) => setYear(e.target.value)}
-        />
-
-        <Button 
-        onClick={handleConfirmClick} 
-        icon={<CheckIcon />}
-         text={"Confirm"}
-         disabled={!department || !semester || !year}
-         />
-         <Tooltip title={<div className="text-xl">
-          Input information about your class. <br />
-          Example format: < br/>
-          Class Code: CS10 < br/>
-          Semester: Spring <br />
-          Year: 2023 <br />
-          </div>}>
-  <InfoOutlinedIcon fontSize="large" style={{ marginLeft: '5px', cursor: 'pointer' }} />
-</Tooltip>
+  
+      <Banner text={text} />
+      <Instructions />
+  
+      <div className="flex flex-col items-center w-3/4 space-y-4" style={{ margin: "50px" }}>
+        <div className="flex w-full space-x-4 text-[#FFB81C]">
+          <input 
+            type="text" 
+            placeholder="Class Code (Ex: CS10)" 
+            value={department}
+            className="flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+            onChange={(e) => setDepartment(e.target.value)}
+          />
+          <input 
+            type="text" 
+            placeholder="Semester (Ex: Spring)" 
+            value={semester}
+            className="flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+            onChange={(e) => setSemester(e.target.value)}
+          />
+          <input 
+            type="text" 
+            placeholder="Year (Ex: 2023)" 
+            value={year}
+            className="flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+            onChange={(e) => setYear(e.target.value)}
+          />
+          <Button 
+            onClick={handleConfirmClick} 
+            icon={<CheckIcon />}
+            text={"Confirm"}
+            disabled={!department || !semester || !year}
+          />
+          <Tooltip title={<div className="text-xl">
+            Input information about your class. <br />
+            Example format: <br />
+            Class Code: CS10 <br />
+            Semester: Spring <br />
+            Year: 2023 <br />
+            </div>}>
+            <InfoOutlinedIcon fontSize="large" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+          </Tooltip>
+        </div>
+  
+        <div className="flex w-full space-x-4 text-[#FFB81C]">
+          <input 
+            type="text" 
+            placeholder="Key" 
+            value={key}
+            className="w-full flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
+            onChange={(e) => setKey(e.target.value)}
+          />
+          <Button 
+            onClick={getSharedCalendar}
+            icon={<CheckIcon />} 
+            text={"Get Request"}
+            disabled={!key}
+          />
+          <Tooltip title={<div className="text-xl">
+            Input a shared key to access a course calendar configuration. <br />
+            Example format: 1al0NYfHtmimou_PTGbK1Vns0DZfZW2Hh
+            </div>}>
+            <InfoOutlinedIcon fontSize="large" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+          </Tooltip>
+        </div>
+        <p className="text-red-600 mt-2">{errorMessage}</p>
       </div>
-
-      <div className="flex space-x-4 text-[#FFB81C]">
-        <input 
-          type="text" 
-          placeholder="Key" 
-          value={key}
-          className="flex-1  flex-grow rounded-full  border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-          onChange={(e) => setKey(e.target.value)}
-        />
-        <Button 
-        // onClick={handleGetRequestClick}
-        onClick={getSharedCalendar}
-         icon={<CheckIcon />} 
-         text={"Get Request"}
-         disabled={!key}
-         />
-         <Tooltip title={<div className="text-xl">
-          Input a shared key to access a course calendar configuration. <br />
-          Example format: 1al0NYfHtmimou_PTGbK1Vns0DZfZW2Hh
-          </div>}>
-  <InfoOutlinedIcon fontSize="large" style={{ marginLeft: '5px', cursor: 'pointer' }} />
-</Tooltip>
-      </div>
-      <p className="text-red-600 mt-2">{errorMessage}</p>
-
     </div>
+  );
 
-</div>
-  )
-      };
+};
