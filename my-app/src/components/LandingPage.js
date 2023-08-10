@@ -9,14 +9,11 @@ import Instructions from "./Instructions"
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-
-
 import CheckIcon from '@mui/icons-material/Check';
+import Flask;
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import "../App.css"
-
-
 
 export default function LandingPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,6 +27,10 @@ export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const navigate = useNavigate();
+
+  
+
+
 
   const handleConfirmClick = () => {
     if (!department) {
@@ -110,6 +111,7 @@ export default function LandingPage() {
       console.error('There was an error:', err);
     }
   };
+
   const getSharedCalendar = () => {
     //get request
     //key?
@@ -118,6 +120,10 @@ export default function LandingPage() {
     } else {
     navigate('/shared', { state: { key } });
     }
+
+    // run the python script here
+    
+
   }
   
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/ClassWebsiteInput.css';
+import '../styles/WebsiteInput.css'; // Rename the CSS file to a more generic name
 
 function CourseWebsiteInput( { courseWebsite , setCourseWebsite }) {
 
@@ -8,15 +8,15 @@ function CourseWebsiteInput( { courseWebsite , setCourseWebsite }) {
   };
 
   return (
-    <div className="class-container">
-      <h1 className="class-input-title">COURSE WEBSITE (Required) </h1>
-      <p className="class-input-instructions">Custom-built Personal Course Website
+    <div className="website-container">
+      <h1 className="website-input-title">COURSE WEBSITE*</h1>
+      <p className="website-input-instructions">Custom-built Personal Course Website
 ex. https://cs10.org/su23/
 </p>
       <div className="input-container">
         <input 
           type="text" 
-          className="class-input-field" 
+          className="website-input-field" 
           placeholder="Input Course Website here" 
           value={courseWebsite} 
           onChange={handleInputChange} 
