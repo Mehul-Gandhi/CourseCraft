@@ -19,7 +19,7 @@ export default function Instructions() {
 
       return (
         <div className="container">
-            <div className="row justify-content-center align-items-center ">
+        <div className="row justify-content-center align-items-stretch"> {/* Modified this line */}
                 <div className="col-12 text-center mb-5 ">
                     <div className="text-warning font-inter display-4">
                         I N S T R U C T I O N S

@@ -107,9 +107,9 @@ export default function Upload() {
   };
   
   return (
-    <div className="App flex flex-col justify-center items-center w-full h-full">
+    <div className="d-flex flex-column align-items-center justify-content-center" style={{ backgroundColor: '#003262' }}>
       {/* Top container */}
-      <div className="w-full flex flex-row justify-between items-center px-4 py-2">
+      <div className="w-100 d-flex flex-row justify-content-between align-items-center px-3 py-2">
         {/* Back button on the left */}
         <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
   
@@ -133,7 +133,7 @@ export default function Upload() {
       {/* <FileUpload uploadData={uploadData} setUploadData={setUploadData} /> */}
   
       <br />
-      <div className="flex justify-center items-center">
+      <div className="d-flex justify-content-center align-items-center">
         <Button onClick={generateSchedule} icon={<CheckIcon />} text={"Generate Schedule"} />
         {/* <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"} />
         <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"} /> */}
