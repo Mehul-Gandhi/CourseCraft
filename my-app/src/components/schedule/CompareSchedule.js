@@ -3,8 +3,7 @@ import Banner from '../Banner';
 
 
 import Button from '../buttons/Button';
-import UpdateButton from '../buttons/UpdateButton'
-import RegenerateButton from "../buttons/RegenerateButton"
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import TimeLine from '../TimeLine';
 import "../../index.css";
@@ -29,6 +28,10 @@ function CompareSchedule() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const navigateBack = () => {
+    window.history.back()
+  }
+  
   var { uploadData, department, semester, year } = location.state;
 
   useEffect(() => {
@@ -56,6 +59,10 @@ function CompareSchedule() {
 
   return (
     <div className="App w-full md:w-screen">
+      <div className="w-full flex flex-row justify-between items-center px-4 py-2">
+      <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
+
+      </div>
       <Banner text={text}/>
       <TimeLine page={2}/>
       <div className="flex flex-wrap justify-around md:justify-center p-4 md:space-x-10">

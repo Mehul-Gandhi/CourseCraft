@@ -4,7 +4,8 @@ import LoginButton from './login/LoginButton';
 import LogoutButton from './login/LogoutButton';
 
 import Button from './buttons/Button';
-import placeholder from './../assets/calendar.png'; 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GoogleIcon from '@mui/icons-material/Google';
 import TaskIcon from '@mui/icons-material/Task';
@@ -46,6 +47,10 @@ export default function Calendar() {
     setShowEditor(true);
   };
 
+  const navigateBack = () => {
+    window.history.back()
+  }
+
   useEffect(() => {
     let i = 0;
     if (startTyping && i < fullText.length) {
@@ -65,6 +70,8 @@ export default function Calendar() {
 
   return (
     <div className="App">
+            <div className="w-full flex flex-row justify-between items-center px-4 py-2">
+      <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
       {isLoggedIn ? (
         <LogoutButton onLogout={() => handleLogout(setIsLoggedIn)} />
       ) : (
@@ -74,6 +81,8 @@ export default function Calendar() {
           cookiePolicy="single_host_origin"
         />
       )}
+      </div>
+      
       
       <Banner text={text}/>
       <div className="font-bold text-white text-md">{displayedText}</div>
