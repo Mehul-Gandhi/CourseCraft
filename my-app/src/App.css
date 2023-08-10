@@ -3,7 +3,9 @@
   box-sizing: border-box;
 }
 
-
+.body {
+  background-color: #003262;
+}
 
 .App  {
   text-align: center;

@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-.class-container {
+.website-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.class-input-title {
+.website-input-title {
   color: #FFB81C;
   text-align: center;
   font-size: 24px;
@@ -19,31 +19,33 @@
   font-weight: 700;
   line-height: normal;
   letter-spacing: 10px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
-.class-input-instructions {
+.website-input-instructions {
   color: #FFF;
   text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 300;
-  line-height: normal;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .input-container {
   display: flex;
   justify-content: center;
-  width: 60%;
+  width: 100%;
   height: 36px;
   flex-shrink: 0;
   border-radius: 10px;
   border: 1px solid #000;
   background: #FFF;
+  padding: 0 10px;
 }
 
-.class-input-field {
-  width: 80%;
+.website-input-field {
+  width: 100%;
   height: 32px;
   color: #B7B7B7;
   text-align: center;
@@ -51,4 +53,10 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+  border: none;
+  outline: none;
+}
+
+.website-input-field:focus {
+  border-color: #FFB81C;
 }

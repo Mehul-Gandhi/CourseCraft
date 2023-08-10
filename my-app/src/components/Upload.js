@@ -15,6 +15,7 @@ import CheckIcon from '@mui/icons-material/Check';
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import "../index.css";
+import "../styles/Upload.css";
 
 export default function Upload() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -112,7 +113,7 @@ export default function Upload() {
   };
   
   return (
-    <div className="App flex flex-col justify-center items-center w-full">
+    <div className="App flex flex-col justify-center items-center w-full h-full">
       {/* Top container */}
       <div className="w-full flex flex-row justify-between items-center px-4 py-2">
         {/* Back button on the left */}
@@ -137,12 +138,15 @@ export default function Upload() {
       {classErrorMessage && <p className="text-red-600 mt-2">{classErrorMessage}</p>}
   
       <br />
+      <br />
       <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite} />
       {courseErrorMessage && <p className="text-red-600 mt-2">{courseErrorMessage}</p>}
   
       <br />
+      <br />
       <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
   
+      <br />
       <div className="flex justify-center items-center">
         <Button onClick={generateSchedule} icon={<CheckIcon />} text={"Generate Schedule"} />
         {/* <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"} />
@@ -150,6 +154,5 @@ export default function Upload() {
       </div>
     </div>
   );
-  
 }
 

@@ -1,0 +1,68 @@
+/* General styling */
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Main App container */
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px; /* Spacing between child elements */
+}
+
+/* Top container */
+.w-full {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Button container */
+.flex.justify-center.items-center.mt-4.space-x-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px; /* Spacing between buttons */
+}
+
+/* Individual input components */
+.class-container, .course-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Spacing between child elements */
+    width: 100%; /* Take full width of the parent */
+}
+
+/* File upload component */
+.FileUpload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Spacing between child elements */
+    width: 100%; /* Take full width of the parent */
+}
+
+/* Error messages */
+.text-red-600 {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/* Upload.css */
+.website-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container horizontally */
+}
