@@ -68,7 +68,7 @@ export default function LandingPage() {
   
       console.log('Received data:', data);
       // Optionally, set this data to the state or do something else with it.
-  
+      return data;
     } catch (err) {
       console.error('There was an error fetching data:', err);
       setErrorMessage("Incorrect key passed in or database error");
@@ -159,7 +159,7 @@ export default function LandingPage() {
       // state: { key, classWebsite, courseWebsite, uploadData, department, semester, year }
     navigate('/shared', { state: { key, 
       classWebsite: data[0].ClassWebsite,
-      courseWebsite: data[0].courseWebsite,
+      courseWebsite: data[0].CourseWebsite,
       uploadData: data[0].uploadData,
       Department: data[0].department,
       Semester: data[0].semester,
@@ -236,7 +236,7 @@ export default function LandingPage() {
         />
         <Button 
         // onClick={handleGetRequestClick}
-        onClick={() => getRequest(key)}
+        onClick={() => getSharedCalendar(key)}
          icon={<CheckIcon />} 
          text={"Get Request"}
          disabled={!key}

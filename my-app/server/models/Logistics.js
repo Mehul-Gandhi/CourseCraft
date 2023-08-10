@@ -57,6 +57,10 @@ const LogisticsSchema = new mongoose.Schema({
     Year: {
         type: Number,
         required: true
+    },
+    CourseWebsite: {
+        type: String,
+        required: true
     }
 })
 
