@@ -50,6 +50,14 @@ const LogisticsSchema = new mongoose.Schema({
         type: [FileSchema], //array of files for more specification
         required: false
     },
+    ClassWebsite: {
+        type: String,
+        required: true
+    },
+    Year: {
+        type: Number,
+        required: true
+    }
 })
 
 const LogisticsModel = mongoose.model("schedules", LogisticsSchema);

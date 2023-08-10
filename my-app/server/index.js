@@ -63,9 +63,10 @@ app.get("/locations/:category", async (req, res) => {
 
 app.post("/addLogistics", async (req, res) => {
   // Extract data from the request body
-  const { ID, OldSchedule, NewSchedule, Code, Semester, Department, Time, MasterCalendar, Files } = req.body;
+  const { ID, OldSchedule, NewSchedule, Code, Semester, Department, Time, MasterCalendar, Files, ClassWebsite, CourseWebsite, Year } = req.body;
   console.log("PASS")
   // Create a new document
+
   const newLogistic = new LogisticsModel({
       ID,
       OldSchedule,
@@ -75,7 +76,10 @@ app.post("/addLogistics", async (req, res) => {
       Department,
       Time,
       MasterCalendar,
-      Files
+      Files,
+      ClassWebsite,
+      CourseWebsite,
+      Year
   });
 
   try {

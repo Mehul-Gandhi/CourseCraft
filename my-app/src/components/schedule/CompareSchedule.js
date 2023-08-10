@@ -19,6 +19,7 @@ function CompareSchedule() {
   const [displayedText, setDisplayedText] = useState('');
   const [oldSchedule, setOldSchedule] = useState('');
   const [newSchedule, setNewSchedule] = useState("");
+  
  
   useEffect(() => {
     // Fetch the HTML file and set its content to the state
@@ -43,10 +44,68 @@ function CompareSchedule() {
   const fullText = "What would you like to update about the new calendar?";
   const text = "Update the new schedule with custom modifications or confirm the new schedule.";
  
-  const handleClick = () => {
+  const handleClick = async () => {
     console.log('Button clicked');
-    navigate("/shared", { state: { uploadData, department, semester, year } });
+    var key = await postRequest();
+    console.log(key);
+    // navigate("/shared", { state: { key, classWebsite, courseWebsite, uploadData, department, semester, year } });
   };
+
+  function generateUniqueKey(length) {
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_';
+    let key = '';
+  
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      key += characters.charAt(randomIndex);
+    }
+  
+    return key;
+  }
+
+
+  const postRequest = async () => {
+    console.log('Button clicked');
+  
+    // Dummy data
+    var key = generateUniqueKey(33);
+    const postData = {
+      ID: key,
+      OldSchedule: 'SampleOldSchedule.txt',
+      NewSchedule: 'SampleNewSchedule.txt',
+      Code: '10',
+      Semester: semester,
+      Department: department,
+      Time: new Date(),
+      MasterCalendar: 'SampleMasterCalendar.ics',
+      Files: uploadData,
+      ClassWebsite: classWebsite,
+      CourseWebsite: courseWebsite,
+      Year: year
+    };
+  
+    try {
+      const response = await fetch('http://localhost:3001/addLogistics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send data.');
+      }
+  
+      console.log(data);
+      return key;
+    } catch (err) {
+      console.error('There was an error:', err);
+    }
+  };
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -54,7 +113,9 @@ function CompareSchedule() {
     window.history.back()
   }
 
-  var { uploadData, department, semester, year } = location.state;
+  var { classWebsite, courseWebsite, uploadData, department, semester, year } = location.state;
+
+  console.log(classWebsite);
 
   useEffect(() => {
     let i = -1;

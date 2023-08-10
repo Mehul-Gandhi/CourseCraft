@@ -31,6 +31,7 @@ function FileUpload({ uploadData, setUploadData }) {
     const data = `${filename}-${Date.now()}`;
     return CryptoJS.SHA256(data).toString(CryptoJS.enc.Hex);
   };
+  
   const getUniqueFileName = (fileName, uploadData) => {
     let newFileName = fileName;
     let counter = 1;

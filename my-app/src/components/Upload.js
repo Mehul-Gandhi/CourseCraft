@@ -145,8 +145,8 @@ export default function Upload() {
   
       <div className="flex justify-center items-center">
         <Button onClick={generateSchedule} icon={<CheckIcon />} text={"Generate Schedule"} />
-        <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"} />
-        <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"} />
+        {/* <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"} />
+        <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"} /> */}
       </div>
     </div>
   );

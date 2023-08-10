@@ -53,9 +53,9 @@ export default function LandingPage() {
    generator dedicated for UC Berkeley Computer Science and Data \
    Science classes.";
 
-   const getRequest = async () => {
+   const getRequest = async (key) => {
     // Assuming the ID is hardcoded as '1234' for this example.
-    const id = '1234';
+    const id = key;
   
     try {
       const response = await fetch(`http://localhost:3001/getData/${id}`);
@@ -71,6 +71,7 @@ export default function LandingPage() {
   
     } catch (err) {
       console.error('There was an error fetching data:', err);
+      setErrorMessage("Incorrect key passed in or database error");
     }
   };
   
@@ -107,17 +108,63 @@ export default function LandingPage() {
       }
   
       console.log(data);
+      return data;
     } catch (err) {
       console.error('There was an error:', err);
     }
   };
-  const getSharedCalendar = () => {
+  const getSharedCalendar = async (key) => {
     //get request
     //key?
     if (!key) {
       setErrorMessage("Invalid key. Try again.");
     } else {
-    navigate('/shared', { state: { key } });
+//       ClassWebsite
+// : 
+// "a"
+// Code
+// : 
+// "10"
+// Department
+// : 
+// "CS10"
+// Files
+// : 
+// []
+// ID
+// : 
+// "9EI6WtvGk6TRSldmcjb_R5m4f5qkdmfve"
+// MasterCalendar
+// : 
+// "SampleMasterCalendar.ics"
+// NewSchedule
+// : 
+// "SampleNewSchedule.txt"
+// OldSchedule
+// : 
+// "SampleOldSchedule.txt"
+// Semester
+// : 
+// "Spring"
+// Time
+// : 
+// "2023-08-10T06:06:16.116Z"
+// __v
+// : 
+// 0
+// _id
+// : 
+// "64d47e58ae445ba181d23d9b"
+      var data = await getRequest(key);
+      // state: { key, classWebsite, courseWebsite, uploadData, department, semester, year }
+    navigate('/shared', { state: { key, 
+      classWebsite: data[0].ClassWebsite,
+      courseWebsite: data[0].courseWebsite,
+      uploadData: data[0].uploadData,
+      Department: data[0].department,
+      Semester: data[0].semester,
+      year: data[0].year
+      } });
     }
   }
   
@@ -189,7 +236,7 @@ export default function LandingPage() {
         />
         <Button 
         // onClick={handleGetRequestClick}
-        onClick={getSharedCalendar}
+        onClick={() => getRequest(key)}
          icon={<CheckIcon />} 
          text={"Get Request"}
          disabled={!key}
