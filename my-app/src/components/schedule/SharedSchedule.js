@@ -117,7 +117,7 @@ function SharedSchedule() {
 
       <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
       <Button onClick={() => {window.open("https://drive.google.com/uc?export=download&id=1-PJK4qgJEKgGdwtTWVXbK9G3sWQs3FZ_", '_blank')} } icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
-        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar"}/>
+        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"}/>
         <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"}/>
       </div>
     </div>
