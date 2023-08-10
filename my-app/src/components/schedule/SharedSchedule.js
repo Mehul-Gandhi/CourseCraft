@@ -26,9 +26,16 @@ function SharedSchedule() {
   const navigate = useNavigate();
 
   var { uploadData, department, semester, year } = location.state;
-  const time = "4:10pm";
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const formattedHours = hours > 12 ? hours - 12 : hours;
+  const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+  const amOrPm = hours >= 12 ? 'pm' : 'am';
 
-  const fullText = `${department} ${semester} ${year} table generated at ${time}`;
+  const time = `${formattedHours}:${formattedMinutes}${amOrPm}`;
+
+  const fullText = `${department || "CS10" } ${semester || "Spring"} ${year || "2024"} table generated at ${time}`;
 
   useEffect(() => {
     let i = 0;
