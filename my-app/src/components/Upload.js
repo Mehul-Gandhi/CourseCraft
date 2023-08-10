@@ -21,6 +21,8 @@ export default function Upload() {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
   const [uploadData, setUploadData] = useState([]);
+  const [classErrorMessage, setClassErrorMessage] = useState("");
+  const [courseErrorMessage, setCourseErrorMessage] = useState("");
 
   const [classWebsite, setClassWebsite] = useState("");
   const [courseWebsite, setCourseWebsite] = useState("");
@@ -56,7 +58,15 @@ export default function Upload() {
   };
 
   function generateSchedule() {
-    navigate('/schedule', { state: { uploadData, department, semester, year } });
+    if (!classWebsite) {
+      setClassErrorMessage("Class website field is required .");
+      return;
+    }
+    if (!courseWebsite) {
+      setCourseErrorMessage("Course website field is required.");
+      return;
+    }
+    navigate('/schedule', { state: { classWebsite, courseWebsite, uploadData, department, semester, year } });
   }
   
 
@@ -112,8 +122,11 @@ export default function Upload() {
       <Banner text={text}/>
         <TimeLine page={1}/>
       <ClassWebsiteInput classWebsite={classWebsite} setClassWebsite={setClassWebsite}/>
+      {classErrorMessage && <p className="text-red-600 mt-2">{classErrorMessage}</p>}
+
       <br></br>
       <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite}/>
+      {courseErrorMessage && <p className="text-red-600 mt-2">{courseErrorMessage}</p>}
       <br></br>
       <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
 
