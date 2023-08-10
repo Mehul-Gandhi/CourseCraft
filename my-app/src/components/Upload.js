@@ -15,7 +15,6 @@ import CheckIcon from '@mui/icons-material/Check';
 
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import "../index.css";
-import NavBar from "./NavBar"
 
 export default function Upload() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

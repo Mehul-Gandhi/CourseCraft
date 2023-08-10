@@ -6,6 +6,9 @@ import LogoutButton from './login/LogoutButton';
 
 import Button from './buttons/Button';
 import Instructions from "./Instructions"
+import Tooltip from '@mui/material/Tooltip';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 
 import CheckIcon from '@mui/icons-material/Check';
@@ -13,6 +16,13 @@ import CheckIcon from '@mui/icons-material/Check';
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import "../index.css";
 import NavBar from "./NavBar"
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  tooltip: {
+    color: '#FFB81C',
+  },
+});
 
 export default function LandingPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,6 +34,7 @@ export default function LandingPage() {
   const [year, setYear] = useState('');
   const [key, setKey] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const classes = useStyles();
 
   const navigate = useNavigate();
 
@@ -177,6 +188,10 @@ export default function LandingPage() {
          text={"Get Request"}
          disabled={!key}
          />
+         <Tooltip title="Supported file types: .xls, .html, .js, .md etc." className={classes.tooltip}>
+            <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+      
+          </Tooltip>
       </div>
       <p className="text-red-600 mt-2">{errorMessage}</p>
 

@@ -14,8 +14,7 @@ function App() {
 
     return (
       <Router>
-        {/* Conditionally render NavBar if the current location is not /404 */}
-        <NavBar />
+        {/* <NavBar /> */}
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path="/upload" element={<Upload />} />
