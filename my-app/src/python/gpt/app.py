@@ -38,10 +38,12 @@ def run_script3():
         return send_file(
             generated_file_path,
             as_attachment=True,
-            download_name='events.ics'
+            download_name='events.ics',
+            mimetype='text/calendar'
         )
     except Exception as e:
-        return str(e)
+        return str(e), 500  # 500 indicates an internal server error
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -17,6 +17,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from '../login/helpers';
 import "../../index.css";
 
+
+
 function SharedSchedule() {
   const [showEditor, setShowEditor] = useState(false);
   const [displayedText, setDisplayedText] = useState("");
@@ -63,24 +65,8 @@ function SharedSchedule() {
   }
 
   // For downloading file on click
-  const downloadIcs = () => {
 
-    // Handle click within the document
-    const handleClick = () => {
-      const a = document.createElement('a');
-      a.href = '/path/to/your/file.txt'; // URL of the file to be downloaded
-      a.download = 'my-calendar.ics'; // Suggested name for the downloaded file
-      document.body.appendChild(a); // Append the anchor to the body
-      a.click(); // Programmatically click the anchor to trigger the download
-      document.body.removeChild(a); // Remove the anchor from the body
-    };
 
-    return (
-      <button onClick={handleClick}>
-        Download File
-      </button>
-    );
-  }
 
   const handleEditorToggle = () => {
     setShowEditor(true);
@@ -126,7 +112,8 @@ function SharedSchedule() {
       {showEditor ? <CodeEditor language={language} code={newCode} /> : <img src={placeholder} alt="Placeholder 2024" className="mx-auto md:w-75 h-auto"/>}
 
       <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
-        <Button onclick={downloadIcs} icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
+      <Button onClick={window.open("https://drive.google.com/uc?export=download&id=1-PJK4qgJEKgGdwtTWVXbK9G3sWQs3FZ_", '_blank') } icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
+
         <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar"}/>
         <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"}/>
       </div>
