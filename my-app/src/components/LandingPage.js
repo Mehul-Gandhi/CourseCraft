@@ -8,7 +8,6 @@ import Information from "./Information";
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CheckIcon from '@mui/icons-material/Check';
-import { useEffect } from 'react';
 
 
 
@@ -152,12 +151,7 @@ export default function LandingPage() {
 
 // Within your component:
 
-useEffect(() => {
-    document.body.style.backgroundColor = '#003262';
-    return () => {  // Reset to default when component unmounts
-        document.body.style.backgroundColor = null;
-    }
-}, []); //ENSURES BLUE BACKGROUND EVERYWHERE
+
 
   return (
 <div 

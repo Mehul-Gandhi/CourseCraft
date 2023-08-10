@@ -8,9 +8,16 @@ import Upload from "./components/Upload";
 import LandingPage from "./components/LandingPage";
 import NotFound from "./components/NotFound"; 
 // import Calendar from "./components/Calendar";
+import { useEffect } from "react";
 
 function App() {
      
+    useEffect(() => {
+      document.body.style.backgroundColor = '#003262';
+      return () => {  // Reset to default when component unmounts
+          document.body.style.backgroundColor = null;
+      }
+  }, []); //ENSURES BLUE BACKGROUND EVERYWHERE
 
     return (
       <Router>

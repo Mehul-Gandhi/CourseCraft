@@ -58,7 +58,7 @@ export default function Upload() {
 
   function generateSchedule() {
     if (!classWebsite) {
-      setClassErrorMessage("Class website field is required .");
+      setClassErrorMessage("Class website field is required.");
       return;
     }
     if (!courseWebsite) {
@@ -125,15 +125,15 @@ export default function Upload() {
   
       <br />
       <br />
-      {/* <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite} /> */}
+      <CourseWebsiteInput courseWebsite={courseWebsite} setCourseWebsite={setCourseWebsite} />
       {courseErrorMessage && <p className="text-red-600 mt-2">{courseErrorMessage}</p>}
   
       <br />
       <br />
-      {/* <FileUpload uploadData={uploadData} setUploadData={setUploadData} /> */}
+      <FileUpload uploadData={uploadData} setUploadData={setUploadData} />
   
       <br />
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center" style={{marginBottom: "20px"}}>
         <Button onClick={generateSchedule} icon={<CheckIcon />} text={"Generate Schedule"} />
         {/* <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"} />
         <Button onClick={getRequest} icon={<CheckIcon />} text={"Get Request"} /> */}
