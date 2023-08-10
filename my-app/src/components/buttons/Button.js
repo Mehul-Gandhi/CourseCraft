@@ -1,16 +1,18 @@
 import React from 'react';
 import CheckIcon from '@mui/icons-material/Check';
+import { Button as ButtonBootstrap } from 'react-bootstrap';
+import '../../styles/Button.css'; // Import the custom CSS
 
 function Button({ onClick, icon, text }) {
-  return (
-    <button 
-    className="flex items-center justify-center bg-[#FFB81C] hover:bg-yellow-200 text-white px-4 py-2 rounded text-base transition-colors duration-300" 
-    onClick={ onClick }
-    >
-      {icon}
-      <span className="ml-2">{text}</span>
-    </button>
-  );
+    return (
+        <ButtonBootstrap 
+            onClick={onClick} 
+            className="btn-custom d-flex align-items-center justify-content-center"
+        >
+            {icon && <span className="mr-2">{icon}</span>}
+            {text}
+        </ButtonBootstrap>
+    );
 }
 
 export default Button;
