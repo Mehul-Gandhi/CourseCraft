@@ -173,19 +173,16 @@ function CompareSchedule() {
       <div className="flex justify-center space-x-20 mt-10">
           {/* Input Schedule */}
           <div className="flex flex-col items-center">
-              <div 
-                  className="w-600 h-800 border border-gray-300 overflow-y-auto overflow-x-auto"
-                  dangerouslySetInnerHTML={{ __html: oldSchedule }}
-              ></div>
+              <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: oldSchedule }} style={{backgroundColor: "white"}}/>
+
               <h1 className="text-[#FFB81C] text-center mt-2.5">Spring 2023 Input Schedule</h1>
           </div>
 
           {/* Generated Schedule */}
           <div className="flex flex-col items-center">
-              <div 
-                  className="w-600 h-800 border border-gray-300 overflow-y-auto overflow-x-auto"
-                  dangerouslySetInnerHTML={{ __html: newSchedule }}
-              ></div>
+
+          <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: newSchedule }} style={{backgroundColor: "white"}}/>
+
               <h1 className="text-[#FFB81C] text-center mt-2.5">Spring 2024 Generated Schedule</h1>
           </div>
       </div>
