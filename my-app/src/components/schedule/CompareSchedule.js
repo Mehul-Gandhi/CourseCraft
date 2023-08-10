@@ -79,8 +79,8 @@ function CompareSchedule() {
     var key = generateUniqueKey(33);
     const postData = {
       ID: key,
-      OldSchedule: 'SampleOldSchedule.txt',
-      NewSchedule: 'SampleNewSchedule.txt',
+      OldSchedule: oldSchedule,
+      NewSchedule: newSchedule,
       Code: '10',
       Semester: semester,
       Department: department,
