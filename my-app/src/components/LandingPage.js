@@ -163,7 +163,8 @@ export default function LandingPage() {
       uploadData: data[0].uploadData,
       Department: data[0].department,
       Semester: data[0].semester,
-      year: data[0].year
+      year: data[0].year,
+      newCode: data[0].NewSchedule
       } });
     }
   }

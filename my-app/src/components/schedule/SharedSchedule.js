@@ -27,7 +27,7 @@ function SharedSchedule() {
   const location = useLocation();
   const navigate = useNavigate();
   
-  var { key, classWebsite, courseWebsite, uploadData, department, semester, year } = location.state;
+  var { key, classWebsite, courseWebsite, uploadData, department, semester, year, newCode } = location.state;
 
   const now = new Date();
   const hours = now.getHours();
@@ -113,7 +113,7 @@ function SharedSchedule() {
         <option value="markdown">Markdown</option>
       </select>}
       
-      {showEditor ? <CodeEditor language={language} /> : <img src={placeholder} alt="Placeholder 2024" className="mx-auto md:w-75 h-auto"/>}
+      {showEditor ? <CodeEditor language={language} code={newCode} /> : <img src={placeholder} alt="Placeholder 2024" className="mx-auto md:w-75 h-auto"/>}
 
       <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
         <Button icon={<DownloadIcon />} text={"Download master calendar .ics"}/>

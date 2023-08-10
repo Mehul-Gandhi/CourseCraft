@@ -8,8 +8,10 @@ import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-markdown";
 import "ace-builds/src-noconflict/theme-github";
 
-function CodeEditor({ language }) {
-  const [value, setValue] = useState("");
+function CodeEditor({ language, code }) {
+  const [value, setValue] = useState(code);
+  console.log("Code");
+  console.log(code);
   const textareaRef = useRef(null);
   const [copyCode, setCopyCode] = useState(false);
 
