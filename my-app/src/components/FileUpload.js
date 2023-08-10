@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt, faFileAlt, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import CryptoJS from 'crypto-js';
 
@@ -155,17 +156,49 @@ function base64ToBlob(base64, type = '') {
     <div className="wrapper">
       <header>Upload Files Here</header>
       <ul>
-        <li>
-          Class Schedule Calendar(Required) 
-          <Tooltip title="Supported file types: .pdf, .docx, etc.">
-            <InfoOutlinedIcon fontSize="small" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+        <li className="flex items-center text-[#FFB81C] space-x-2 truncate">
+        <span className="flex-1 truncate">Class Schedule Calendar (Optional) </span>
+          <Tooltip title="Supported file types: .xls, .html, .js, .md etc.">
+            <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+      
+          </Tooltip>
+          <Tooltip title={
+  <div>
+    Upload a Google Spreadsheet, MarkDown, or HTML file, of a previous semeseters' schedule that contains a week-by-week schedule of: <br />
+  <ul>
+    <li>• Lecture Topics</li>
+    <li>• Lab Topics</li>
+    <li>• Discussion Topics</li>
+    <li>• Homework Assignments</li>
+    <li>• Other Resources</li>
+  </ul>
+  Use a previous semesters' schedule that most closely resembles your intended schedule.
+  </div>
+}>
+            <HelpOutlineIcon fontSize="medium" style={{ marginLeft: '5px', marginRight: '5px', cursor: 'pointer' }} />
+
           </Tooltip>
         </li>
-        <li>
-          TA/Reader Role Description Handbook 
-          <Tooltip title="Supported file types: .jpg, .png, etc.">
-            <InfoOutlinedIcon fontSize="small" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+        <li className="flex items-center text-[#FFB81C] space-x-2 relative group">
+  <span className="flex-1 truncate hover:overflow-visible hover:bg-white hover:border hover:border-gray-300 hover:shadow-lg hover:z-10 hover:absolute hover:-top-4 hover:-left-4 hover:p-2 hover:max-w-md">
+    TA/Reader Role Description Handbook (Optional)</span>
+          <Tooltip title="Supported file types: .pdf, .txt, etc.">
+            <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
           </Tooltip>
+          <Tooltip title={
+  <div>
+    The TA/Reader role descriptions show an hourly breakdown of tasks for each ASE employee in your class.<br />
+    Example: Mehul (30h Admin + Pedagogy TA)<br />
+    2 labs and a discussion- 11h/w + 2h prep: ~13h/w<br />
+    1h staff meeting - total 14h/w<br />
+    2h misc - total 16h/w [Exam Review Amortized / checking slack / …]<br />
+    2h/w Ed Lieutenant - total 18h/w<br />
+    12h/w logistics - working with Yishu
+  </div>
+}>
+          <HelpOutlineIcon fontSize="medium" style={{ marginLeft: '5px', marginRight: '5px', cursor: 'pointer' }} />
+          </Tooltip>
+
         </li>
       </ul>
 
