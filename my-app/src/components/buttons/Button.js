@@ -1,7 +1,7 @@
 import React from 'react';
 import CheckIcon from '@mui/icons-material/Check';
+import '../../styles/Button.css';  // import your CSS file
 import { Button as ButtonBootstrap } from 'react-bootstrap';
-import '../../styles/Button.css'; // Import the custom CSS
 
 function Button({ onClick, icon, text }) {
     return (
