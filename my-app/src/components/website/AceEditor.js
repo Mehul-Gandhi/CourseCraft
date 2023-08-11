@@ -30,6 +30,23 @@ function CodeEditor({ language, code }) {
   }
 
   useEffect(() => {
+    function handleDocumentCopy(event) {
+        // If the event target isn't the textareaRef, reset the copyCode state
+        if (event.target !== textareaRef.current) {
+            setCopyCode(false);
+        }
+    }
+
+    // Attach the event listener
+    document.addEventListener('copy', handleDocumentCopy);
+
+    // Cleanup: remove the event listener when the component unmounts
+    return () => {
+        document.removeEventListener('copy', handleDocumentCopy);
+    };
+}, []);
+
+  useEffect(() => {
     window.ace.config.set('basePath', '/ace-builds/src-noconflict');
     window.ace.config.set('modePath', '');
     window.ace.config.set('workerPath', '');

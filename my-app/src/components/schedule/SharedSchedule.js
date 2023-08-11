@@ -93,15 +93,34 @@ useEffect(() => {
   }
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(key)
-      .then(() => {
-        setCopySuccess('Key Copied!');
-      })
-      .catch(err => {
-        console.error('Failed to copy text: ', err);
-        setCopySuccess('Failed to copy key!');
-      });
+    navigator.clipboard.writeText(key);
+    setCopySuccess('Key Copied!');
   };
+  
+  useEffect(() => {
+    function handleDocumentCopy(event) {
+      // Read the copied content from the clipboard
+      navigator.clipboard.readText()
+        .then(clipboardContent => {
+          if (clipboardContent !== key) {
+            setCopySuccess(false);  // Reset the copySuccess state if copied content is not the key
+          }
+        })
+        .catch(err => {
+          console.error('Failed to read clipboard:', err);
+        });
+    }
+  
+    // Attach the event listener
+    document.addEventListener('copy', handleDocumentCopy);
+  
+    // Cleanup: remove the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('copy', handleDocumentCopy);
+    };
+  }, [key]);
+  
+
 
   return (
     <div className="App container">
