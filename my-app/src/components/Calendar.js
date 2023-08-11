@@ -103,7 +103,10 @@ export default function Calendar() {
         </div>
         
         <Banner text={text}/>
+        <div className="d-flex justify-content-center align-items-center">
+
         <div className="font-weight-bold text-white my-2">{displayedText}</div>
+        </div>
         
         {showEditor && 
             <select className="form-select" value={language} onChange={handleLanguageChange}>
