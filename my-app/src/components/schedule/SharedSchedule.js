@@ -14,7 +14,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import "../../index.css";
 
 function SharedSchedule() {
@@ -85,7 +85,7 @@ useEffect(() => {
 
 
   const handleEditorToggle = () => {
-    setShowEditor(true);
+    setShowEditor(!showEditor);
   };
 
   const navigateBack = () => {
@@ -155,12 +155,18 @@ useEffect(() => {
     <div key={index}>{line}</div>
   ))}
 </div> 
-      {showEditor && <select value={language} onChange={handleLanguageChange} className="form-select form-select-sm">
+    {showEditor && 
+      <select 
+        value={language} 
+        onChange={handleLanguageChange} 
+        className="form-select form-select-sm custom-select-smaller"
+      >
         <option value="javascript">JavaScript</option>
         <option value="python">Python</option>
         <option value="html">HTML</option>
         <option value="markdown">Markdown</option>
-      </select>}
+      </select>
+    }
       
       {showEditor ? <CodeEditor language={language} code={newCode} /> : 
       <div className="d-flex flex-column align-items-center" style= {{paddingRight: "30px"}}>
@@ -170,26 +176,35 @@ useEffect(() => {
       
       }
 
-<div className="d-flex justify-content-center align-items-center mt-4" >
+<div className="d-flex justify-content-center my-4">
+    <div className="pe-4">
     <Button 
         onClick={() => {window.open("https://drive.google.com/uc?export=download&id=1-PJK4qgJEKgGdwtTWVXbK9G3sWQs3FZ_", '_blank')}} 
         icon={<DownloadIcon />} 
         text={"Download master calendar .ics"} 
-        className="btn btn-secondary mr-10"
+        className="btn btn-secondary mr-3"
     />
+    </div>
+    <div className="pe-4">
     <Button 
         onClick={generateCalendar} 
         icon={<GoogleIcon />} 
         text={"Google Calendar & Role-based Google Tasks"} 
-        className="btn btn-secondary mr-10"
+        className="btn btn-secondary mr-3"
     />
+    </div>
+    <div className="pe-4">
     <Button 
         onClick={handleEditorToggle} 
-        icon={<CodeIcon />} 
-        text={"Website Code"} 
+        icon={showEditor ? <CalendarMonthIcon /> : <CodeIcon />} 
+        text={showEditor ? "HTML Calendar" : "Website Code"}
         className="btn btn-secondary"
     />
+    </div>
 </div>
+
+
+
 
     </div>
 );

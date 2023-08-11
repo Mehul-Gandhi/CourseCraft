@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.custom-select-smaller {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  width: 0px;
+}
