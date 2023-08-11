@@ -9,7 +9,7 @@ from flask_cors import CORS  # Import the CORS library
 
 app = Flask(__name__)
 
-CORS(app) 
+CORS(app, origins=["http://localhost:3000"])
 
 @app.route('/export-to-calendar', methods=['POST'])
 def export_to_calendar():

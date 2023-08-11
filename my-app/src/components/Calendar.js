@@ -144,7 +144,7 @@ export default function Calendar() {
 
                 <h2 className="mb-3">Google Calendar:</h2>
                 <p className="mb-3">Lecture • Lab • Discussion</p>
-                <Button onClick={handleClick} icon={<CalendarMonthIcon />} text={"Populate Google Calendar"} />
+                <Button onClick={generateCalendar} icon={<CalendarMonthIcon />} text={"Populate Google Calendar"} />
             </div>
             <div className="bg-white p-4 rounded shadow-sm text-center">
 
