@@ -11,6 +11,8 @@ body{
   /* background: #032054; */
 }
 
+
+
 ::selection{
   color: #fff;
   background: #FFB81C;
@@ -18,6 +20,12 @@ body{
 
 h1 {
   color: #FFB81C;
+}
+
+.custom-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .wrapper{
@@ -127,4 +135,24 @@ section .details span{
   display: flex;
   width: 100px;
   height: 100px;
+}
+
+
+.hover-expand {
+  max-width: calc(100% - 65px); /* Example value, adjust as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hover-expand:hover {
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
+  max-width: 400px; /* Set to a desired max width or remove to fit content */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }

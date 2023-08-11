@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,24 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.special-link {
-  color: white; /* This is equivalent to Tailwind's text-gray-700 */
+.custom-select-smaller {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  width: 0px;
 }
-
-.special-link:hover {
-  color: rgb(255, 184, 28);
-}
-
-
-.table-container {
-  max-width: 100%;  /* Adjust the maximum width as needed */
-  overflow-x: auto; /* Add horizontal scroll if table overflows */
-}
-
-/* If the table needs to be styled */
-.table-container table {
-  /* Add your table styling here */
-  width: 100%; /* Make table take full container width */
-}
-

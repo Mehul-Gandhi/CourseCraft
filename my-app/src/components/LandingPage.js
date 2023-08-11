@@ -3,20 +3,35 @@ import { useNavigate } from 'react-router-dom';
 import Banner from './Banner';
 
 import Button from './buttons/Button';
-import Instructions from "./Instructions"
+import Instructions from "./Instructions";
+import Information from "./Information";
+import Heading from "./Heading";
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import CheckIcon from '@mui/icons-material/Check';
 
 
+function ConditionalTooltipInput({ placeholder, value, setValue }) {
+    const [showTooltip, setShowTooltip] = useState(false);
+    
+    return (
+        <Tooltip title={placeholder} placement="top" open={!value && showTooltip}>
+            <input 
+                type="text" 
+                placeholder={placeholder} 
+                value={value}
+                className="form-control me-2"
+                onChange={(e) => setValue(e.target.value)}
+                onFocus={() => setShowTooltip(true)}
+                onBlur={() => setShowTooltip(false)}
+            />
+        </Tooltip>
+    );
+}
 
-import "../App.css"
 
 export default function LandingPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [userProfile, setUserProfile] = useState(null);
+
   const [uploadData, setUploadData] = useState([]);
   const [department, setDepartment] = useState('');
   const [semester, setSemester] = useState('');
@@ -73,7 +88,6 @@ export default function LandingPage() {
     }
   };
   
-
   const handleClick = async () => {
     console.log('Button clicked');
   
@@ -134,78 +148,90 @@ export default function LandingPage() {
     
 
   }
-  
-  return (
-    <div className="App flex flex-col justify-center items-center w-full">
 
-  
-      <Banner text={text} />
+// Within your component:
+
+
+
+  return (
+<div 
+    className="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" 
+    style={{ backgroundColor: '#003262', minHeight: '100vh' }}>
+    <Banner text={text} />
       <Instructions />
-  
-      <div className="flex flex-col items-center w-3/4 space-y-4" style={{ margin: "50px" }}>
-        <div className="flex w-full space-x-4 text-[#FFB81C]">
-          <input 
-            type="text" 
-            placeholder="Class Code (Ex: CS10)" 
-            value={department}
-            className="flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-            onChange={(e) => setDepartment(e.target.value)}
-          />
-          <input 
-            type="text" 
-            placeholder="Semester (Ex: Spring)" 
-            value={semester}
-            className="flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-            onChange={(e) => setSemester(e.target.value)}
-          />
-          <input 
-            type="text" 
-            placeholder="Year (Ex: 2023)" 
-            value={year}
-            className="flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-            onChange={(e) => setYear(e.target.value)}
-          />
+      <Heading title="Create New Schedule" subtitle="For Course Schedule Creater: Instructor or Head TA. Input the FUTURE semester and year for generating a new course calendar."/>
+
+      <div className="d-flex flex-column align-items-center w-75 space-y-4 mb-5">
+        <div className="d-flex w-100 justify-content-between">
+
+        <ConditionalTooltipInput 
+                placeholder="Class Code (Ex: CS10)" 
+                value={department} 
+                setValue={setDepartment}
+            />
+
+          <ConditionalTooltipInput 
+                placeholder="Semester (Ex: Spring)" 
+                value={semester} 
+                setValue={setSemester}
+            />
+
+          <ConditionalTooltipInput 
+                placeholder="Year (Ex: 2023)" 
+                value={year} 
+                setValue={setYear}
+            />
           <Button 
             onClick={handleConfirmClick} 
             icon={<CheckIcon />}
             text={"Confirm"}
             disabled={!department || !semester || !year}
           />
-          <Tooltip title={<div className="text-xl">
+          {/* You might want to style or change the Tooltip to be more Bootstrap-like */}
+          <Tooltip title={<div className="h5">
             Input information about your class. <br />
             Example format: <br />
             Class Code: CS10 <br />
             Semester: Spring <br />
             Year: 2023 <br />
             </div>}>
-            <InfoOutlinedIcon fontSize="large" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+            <InfoOutlinedIcon className="lg-2 cursor-pointer" fontSize="large" />
           </Tooltip>
         </div>
+
+        <br></br>
+        <Heading title="Get Existing Schedule" subtitle="For All Course Staff: If a co-worker generated the new calendar, paste the sharing key here to export to code, ics & calendar!"/>
+        
+
+        <div className="d-flex w-100 justify-content-between">
+         
+          <ConditionalTooltipInput 
+                placeholder="Shared Key (Example: 1al0NYfHtmimou_PTGbK1Vns0DZfZW2Hh)" 
+                value={key} 
+                setValue={setKey}
+            />
+          
   
-        <div className="flex w-full space-x-4 text-[#FFB81C]">
-          <input 
-            type="text" 
-            placeholder="Key" 
-            value={key}
-            className="w-full flex-grow rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none px-4 py-2"
-            onChange={(e) => setKey(e.target.value)}
-          />
+        <div className="text-white" style={{ fontSize: 'large' }}>OR</div>
+
+
           <Button 
             onClick={() => getSharedCalendar(key)}
             icon={<CheckIcon />} 
-            text={"Get Request"}
+            text={"Get Calendar From Key"}
             disabled={!key}
           />
-          <Tooltip title={<div className="text-xl">
+          <Tooltip title={<div className="h5">
             Input a shared key to access a course calendar configuration. <br />
             Example format: 1al0NYfHtmimou_PTGbK1Vns0DZfZW2Hh
             </div>}>
-            <InfoOutlinedIcon fontSize="large" style={{ marginLeft: '5px', cursor: 'pointer' }} />
+            <InfoOutlinedIcon className="lg-2 cursor-pointer" fontSize="large" />
           </Tooltip>
         </div>
-        <p className="text-red-600 mt-2">{errorMessage}</p>
+        <p className="text-danger mt-2">{errorMessage}</p>
       </div>
     </div>
   );
+
 
 };

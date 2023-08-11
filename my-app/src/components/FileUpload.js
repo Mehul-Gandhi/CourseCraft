@@ -155,15 +155,15 @@ function base64ToBlob(base64, type = '') {
 
   return (
     <div className="wrapper">
-      <header>Upload Files Here</header>
-      <ul>
-        <li className="flex items-center text-[#FFB81C] space-x-2 truncate">
-        <span className="flex-1 truncate">Class Schedule Calendar (Optional) </span>
+      <header className="my-4">Upload Files Here</header>
+      <ul className="list-unstyled">
+      <li className="d-flex align-items-center mb-3" style={{ color: "#FFB81C" }}>
+        <span className="flex-grow-1">(Optional) Class Schedule Calendar </span>
           <Tooltip title={
             <div className="text-medium">
-            Supported file types: .xls, .html, .js, .md etc.
+              Supported file types: .xls, .html, .js, .md etc.
             </div>
-            }>
+          }>
             <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
       
           </Tooltip>
@@ -184,9 +184,9 @@ function base64ToBlob(base64, type = '') {
 
           </Tooltip>
         </li>
-        <li className="flex items-center text-[#FFB81C] space-x-2 relative group">
-  <span className="flex-1 truncate hover:overflow-visible hover:bg-white hover:border hover:border-gray-300 hover:shadow-lg hover:z-10 hover:absolute hover:-top-4 hover:-left-4 hover:p-2 hover:max-w-md">
-    TA/Reader Role Description Handbook (Optional)</span>
+        <li className="flex items-center space-x-2 relative group" style={{ color: "#FFB81C" }}>
+        <span className="d-inline-block hover-expand">
+        (Optional) TA/Reader Role Description Handbook </span>
           <Tooltip title="Supported file types: .pdf, .txt, etc.">
             <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
           </Tooltip>
@@ -208,14 +208,18 @@ function base64ToBlob(base64, type = '') {
       </ul>
 
       {/* Handle click area */}
-      <form onClick={handleClick} onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-                handleClick(e);
-            }
-        }} tabIndex="0" role="button" aria-label="File uploader">
-        <input ref={fileInput} className="file-input" type="file" name="file" hidden onChange={handleChange} />
-        <FontAwesomeIcon icon={faCloudUploadAlt} />
-        <p>Browse File to Upload</p>
+      <form className="text-center my-4">
+          <input ref={fileInput} className="d-none" type="file" name="file" onChange={handleChange} />
+          <button 
+              type="button" 
+              onClick={handleClick} 
+              tabIndex="0" 
+              aria-label="File uploader" 
+              className="btn btn-link"
+          >
+              <FontAwesomeIcon icon={faCloudUploadAlt} className="mb-3" />
+              <p>Browse File to Upload</p>
+          </button>
       </form>
 
       {/* Dynamic file visualizer section */}

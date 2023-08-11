@@ -8,6 +8,8 @@ import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-markdown";
 import "ace-builds/src-noconflict/theme-github";
 
+import "../../styles/Button.css"
+
 function CodeEditor({ language, code }) {
   const [value, setValue] = useState(code);
   console.log("Code");
@@ -28,6 +30,23 @@ function CodeEditor({ language, code }) {
   }
 
   useEffect(() => {
+    function handleDocumentCopy(event) {
+        // If the event target isn't the textareaRef, reset the copyCode state
+        if (event.target !== textareaRef.current) {
+            setCopyCode(false);
+        }
+    }
+
+    // Attach the event listener
+    document.addEventListener('copy', handleDocumentCopy);
+
+    // Cleanup: remove the event listener when the component unmounts
+    return () => {
+        document.removeEventListener('copy', handleDocumentCopy);
+    };
+}, []);
+
+  useEffect(() => {
     window.ace.config.set('basePath', '/ace-builds/src-noconflict');
     window.ace.config.set('modePath', '');
     window.ace.config.set('workerPath', '');
@@ -35,7 +54,7 @@ function CodeEditor({ language, code }) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-4">
+    <div className="d-flex flex-column align-items-center justify-content-center">
       <AceEditor
         mode={language}
         theme="github"
@@ -51,17 +70,17 @@ function CodeEditor({ language, code }) {
         ref={textareaRef} 
         value={value} 
         readOnly 
-        className="absolute opacity-0 pointer-events-none"
+        className="position-absolute invisible"
       />
 
       <button 
         onClick={handleCopyCode} 
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
+        className="btn btn-custom mt-2"
+        
       >
         {copyCode ? <> <CheckIcon /> Copied </> : "Copy Code"}
       </button>
     </div>
-  );
+);
 }
-
 export default CodeEditor;
