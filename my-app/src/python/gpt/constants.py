@@ -1,0 +1,2 @@
+import academicCalendars
+APIKEY= "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"
