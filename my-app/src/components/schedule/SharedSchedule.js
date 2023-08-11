@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Banner from '../Banner';
 
 import LinkIcon from '@mui/icons-material/Link';
@@ -36,22 +36,30 @@ function SharedSchedule() {
   const amOrPm = hours >= 12 ? 'pm' : 'am';
 
   const time = `${formattedHours}:${formattedMinutes}${amOrPm}`;
-  const fullText = `${department || "CS10" } ${semester || "Spring"} ${year || "2024"} table generated at ${time} ${classWebsite} ${courseWebsite}`;
+  const iRef = useRef(-1);
 
-  useEffect(() => {
-    let i = -1;
-    if (startTyping && i < fullText.length) {
-      const typingInterval = setInterval(() => {
-        if (i < fullText.length) {
-          setDisplayedText((prevText) => prevText + fullText.charAt(i));
-          i++;
-        } else {
-          clearInterval(typingInterval);
-        }
-      }, 30);
-      return () => clearInterval(typingInterval);
-    }
-  }, [startTyping]);
+  const DisplayText = `
+TTable generated at: ${time}
+Class Website: ${classWebsite}
+Course Website: ${courseWebsite}
+`;
+
+const fullText = DisplayText;
+
+useEffect(() => {
+  if (startTyping) {
+    const typingInterval = setInterval(() => {
+      if (iRef.current < fullText.length) {
+        setDisplayedText((prevText) => prevText + fullText.charAt(iRef.current));
+        iRef.current++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 30);
+
+    return () => clearInterval(typingInterval);
+  }
+}, [startTyping]);
 
   const [language, setLanguage] = useState("javascript");
   const handleLanguageChange = (event) => {
@@ -83,13 +91,19 @@ function SharedSchedule() {
   };
 
   return (
-    <div className="App">
+    <div className="App container">
 
       <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"}/>
       <Banner text={"Congratulations! Your new schedule has been generated. Copy the key to share this generated calendar with others. Now export the calendar in the format of your choosing!"}/>
-      <div className="font-bold text-white text-md">
-        <h1><LinkIcon /> Shared key: {key}</h1>
-        <button onClick={handleCopy} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none">
+
+      <div className="font-weight-bold text-white">
+      <h3>
+  <LinkIcon className="mr-2"/> 
+  Shared key: 
+  <span style={{color: "#FFB81C"}}> {key}</span>
+</h3>        
+
+        <button onClick={handleCopy} className="btn btn-primary btn-sm mr-2">
           Copy Key
         </button>
         <Tooltip title={
@@ -103,25 +117,32 @@ function SharedSchedule() {
         {copySuccess && <div style={{color: 'green'}}>{copySuccess}</div>}
         
       </div>
+
+      <div className="font-weight-bold text-white">{displayedText}</div>
       
-      <div className="font-bold text-white text-md">{displayedText}</div>
-      
-      {showEditor && <select value={language} onChange={handleLanguageChange}>
+      {showEditor && <select value={language} onChange={handleLanguageChange} className="form-select form-select-sm">
         <option value="javascript">JavaScript</option>
         <option value="python">Python</option>
         <option value="html">HTML</option>
         <option value="markdown">Markdown</option>
       </select>}
       
-      {showEditor ? <CodeEditor language={language} code={newCode} /> : <img src={placeholder} alt="Placeholder 2024" className="mx-auto md:w-75 h-auto"/>}
+      {showEditor ? <CodeEditor language={language} code={newCode} /> : 
+      <div className="d-flex flex-column align-items-center" style= {{paddingRight: "30px"}}>
+      <div className="text-white table-responsive overflow-auto" style={{backgroundColor: "white", maxHeight: '500px', maxWidth: "90%"}} dangerouslySetInnerHTML={{ __html: newCode }} />
+      <h1 className="text-warning text-center mt-2.5">{department} {semester} {year} Generated Schedule</h1>
+  </div>
+      
+      }
 
-      <div className="flex justify-center items-center space-x-5" style={{padding: "25px"}}>
-      <Button onClick={() => {window.open("https://drive.google.com/uc?export=download&id=1-PJK4qgJEKgGdwtTWVXbK9G3sWQs3FZ_", '_blank')} } icon={<DownloadIcon />} text={"Download master calendar .ics"}/>
-        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"}/>
-        <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"}/>
+      <div className="d-flex justify-content-center align-items-center mt-4">
+        <Button onClick={() => {window.open("https://drive.google.com/uc?export=download&id=1-PJK4qgJEKgGdwtTWVXbK9G3sWQs3FZ_", '_blank')}} icon={<DownloadIcon />} text={"Download master calendar .ics"} className="btn btn-secondary mr-2"/>
+        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"} className="btn btn-secondary mr-2"/>
+        <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"} className="btn btn-secondary"/>
       </div>
+
     </div>
-  );
+);
 }
 
 export default SharedSchedule;
