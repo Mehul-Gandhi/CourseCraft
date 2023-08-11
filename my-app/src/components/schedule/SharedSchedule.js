@@ -11,6 +11,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GoogleIcon from '@mui/icons-material/Google';
 import CodeIcon from '@mui/icons-material/Code';
 import { useLocation, useNavigate } from 'react-router-dom';
+import CheckIcon from '@mui/icons-material/Check';
 
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -25,13 +26,7 @@ function SharedSchedule() {
   const [copyKeySuccess, setCopyKeySuccess] = useState(false);
   const keyTextareaRef = useRef(null);
   
-  function handleKeyCopy() {
-    if (keyTextareaRef.current) {
-        keyTextareaRef.current.select();
-        document.execCommand("copy");
-        setCopyKeySuccess(true);
-    }
-}
+
 
 useEffect(() => {
   function handleDocumentCopy(event) {
@@ -167,9 +162,14 @@ useEffect(() => {
   <span style={{color: "#FFB81C"}}> {key}</span>
 </h3>        
 
-        <button onClick={handleCopy} className="btn btn-primary btn-sm mr-2">
-          Copy Key
-        </button>
+      <button 
+        onClick={handleCopy} 
+        className="btn btn-custom mt-2"
+        
+      >
+        {copySuccess ? <> <CheckIcon /> Copied </> : "Copy Code"}
+      </button>
+
         <Tooltip title={
             <div className="text-medium">
             Share this key with your staff members to export the Google Calendar and Tasks.
@@ -178,7 +178,6 @@ useEffect(() => {
             <InfoOutlinedIcon fontSize="medium" style={{ marginLeft: '5px', cursor: 'pointer' }} />
           </Tooltip>
 
-        {copySuccess && <div style={{color: 'green'}}>{copySuccess}</div>}
         
       </div>
 
