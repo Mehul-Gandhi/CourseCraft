@@ -2,52 +2,56 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import re
-from ics import Calendar, Event
 import pytz
 import json
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
-fixed_redirect_uri = 'http://localhost:64180/'
-# Set up the OAuth 2.0 flow with the fixed redirect URI
-flow = InstalledAppFlow.from_client_secrets_file('credentials.json', ['https://www.googleapis.com/auth/calendar'], redirect_uri=fixed_redirect_uri)
-credentials = flow.run_local_server(port=64180)
-# Set up the API credentials (replace 'credentials.json' with your credentials file)
-# flow = InstalledAppFlow.from_client_secrets_file('credentials.json', ['https://www.googleapis.com/auth/calendar'])
-# credentials = flow.run_local_server(port=0)
-# Create a service instance to access Google Calendar API
-service = build('calendar', 'v3', credentials=credentials)
+
+def initialize():
+    fixed_redirect_uri = 'http://localhost:64180/'
+    # Set up the OAuth 2.0 flow with the fixed redirect URI
+    flow = InstalledAppFlow.from_client_secrets_file('credentials.json', ['https://www.googleapis.com/auth/calendar'], redirect_uri=fixed_redirect_uri)
+    credentials = flow.run_local_server(port=64180)
+    # Set up the API credentials (replace 'credentials.json' with your credentials file)
+    # flow = InstalledAppFlow.from_client_secrets_file('credentials.json', ['https://www.googleapis.com/auth/calendar'])
+    # credentials = flow.run_local_server(port=0)
+    # Create a service instance to access Google Calendar API
+    service = build('calendar', 'v3', credentials=credentials)
+    return service
 
 
-# Open the JSON file for reading
-with open("cs70details.json", "r") as file:
-    data = json.load(file)
+def createDetails():
+    # Open the JSON file for reading
+    with open("course_details.json", "r") as file:
+        data = json.load(file)
 
-course_details = data["Course Details"]
-course_number = data["Course Number"]
-session = data["Session"]
-program = data["Program"]
-instructor_names = data["Instructor Names"]
-instruction_mode = data["Instruction Mode"]
-description = data["Description"]
-course_description = data["Course description"]
-location = data["Lecture Room"]
-lecture_meet_days = data["Lecture Meet Days"]
-start_date = data["Start Date"]
-end_date = data["End Date"]
-lecture_start_time = data["Start Time"]
-lecture_end_time = data["End Time"]
-enrollment_status = data["Enrollment Status"]
-currently_enrolled_count = data["Currently Enrolled Count"]
-maximum_enrollment_count = data["Maximum Enrollment Count"]
-attribute = data["Attribute"]
-note = data["Note"]
-email = data["Email"]
-exams = data["Exams"]
-important_notes = data["Important Notes"]
-
+    course_details = data["Course Details"]
+    course_number = data["Course Number"]
+    session = data["Session"]
+    program = data["Program"]
+    instructor_names = data["Instructor Names"]
+    instruction_mode = data["Instruction Mode"]
+    description = data["Description"]
+    course_description = data["Course description"]
+    location = data["Lecture Room"]
+    lecture_meet_days = data["Lecture Meet Days"]
+    start_date = data["Start Date"]
+    end_date = data["End Date"]
+    lecture_start_time = data["Start Time"]
+    lecture_end_time = data["End Time"]
+    enrollment_status = data["Enrollment Status"]
+    currently_enrolled_count = data["Currently Enrolled Count"]
+    maximum_enrollment_count = data["Maximum Enrollment Count"]
+    attribute = data["Attribute"]
+    note = data["Note"]
+    email = data["Email"]
+    exams = data["Exams"]
+    important_notes = data["Important Notes"]
+    return course_details, course_number, session, program, instructor_names, instruction_mode, description, course_description, location, lecture_meet_days, start_date, end_date, lecture_start_time, lecture_end_time, enrollment_status, currently_enrolled_count, maximum_enrollment_count, attribute, note, email, exams, important_notes
 
 def dataframe_to_events(df):
     # Events to be added to google calendar tracked here
+    course_details, course_number, session, program, instructor_names, instruction_mode, description, course_description, location, lecture_meet_days, start_date, end_date, lecture_start_time, lecture_end_time, enrollment_status, currently_enrolled_count, maximum_enrollment_count, attribute, note, email, exams, important_notes = createDetails()
     events = []
 
     # LECTURES TO EVENTS
@@ -165,18 +169,23 @@ def dataframe_to_events(df):
 
     return events
 
+def exportEventsToCalendar():
+    df = pd.read_csv('output_table.csv')
+    events = dataframe_to_events(df)
+    i = 0
+    for event in events:
+        if(i == 8):
+            break
+        # Google Calendar API calls here
+        event = initialize().events().insert(calendarId='primary', body=event).execute()
+        print(f'Event created: {event.get("htmlLink")}')
+        i += 1
+        
+# exportEventsToCalendar()
+
 """
 Run examples below here
 """
-df = pd.read_csv('cs10table.csv')
-# Week,Date,Lecture,Reading,Section,Assignments
-events = dataframe_to_events(df)
-print(events)
-for event in events:
-    # Google Calendar API calls here
-    event = service.events().insert(calendarId='primary', body=event).execute()
-    print(f'Event created: {event.get("htmlLink")}')
-
 
     #print 'Event created: %s' % (event.get('htmlLink'))
 # with open("output.txt", "w") as file:

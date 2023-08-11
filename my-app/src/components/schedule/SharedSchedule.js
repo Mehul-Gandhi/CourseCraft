@@ -15,6 +15,9 @@ import CheckIcon from '@mui/icons-material/Check';
 
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
+import axios from 'axios'
+
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import "../../index.css";
 
@@ -106,9 +109,13 @@ useEffect(() => {
     setLanguage(event.target.value);
   }
   
-  const generateCalendar = () => {
+  // const generateCalendar = () => {
+  //   navigate("/calendar", { state: { uploadData, department, semester, year } });
+  // }
+
+  const generateCalendar = async () => {
     navigate("/calendar", { state: { uploadData, department, semester, year } });
-  }
+}
 
 
   const handleEditorToggle = () => {

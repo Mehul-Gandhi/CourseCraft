@@ -1,0 +1,5 @@
+Flask>=2.2.2
+Flask-Cors
+Werkzeug
+gunicorn
+jinja2==3.0.3

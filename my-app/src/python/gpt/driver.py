@@ -52,7 +52,6 @@ messages=[
     {"role" : "assistant", "content" : courseDescription},
     {"role" : "user", "content" : "Given the current course calendar outline for " + term + " " + "2024" + " " + newTableGeneration + "output the table formatted as a csv."}
 ]
-# openai.api_key = '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'
 
 # response = openai.ChatCompletion.create(
 #     model = "gpt-3.5-turbo-16k",

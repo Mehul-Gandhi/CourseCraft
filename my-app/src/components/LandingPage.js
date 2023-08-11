@@ -56,6 +56,8 @@ export default function LandingPage() {
         setErrorMessage("Please fill out the Year with a valid year.");
         return;
       }
+
+      
     
     navigate('/upload', { state: { department, semester, year } });
   };
