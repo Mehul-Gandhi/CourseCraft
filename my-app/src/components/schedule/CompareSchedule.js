@@ -148,58 +148,63 @@ function CompareSchedule() {
   };
 
   return (
-    <div className="App w-full md:w-screen">
-      <div className="w-full flex flex-row justify-between items-center px-4 py-2">
-      <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
-
+    <div className="App container-fluid">
+      <div className="d-flex align-items-center px-4 py-2">
+          <Button onClick={navigateBack} icon={<ArrowBackIcon />} text={"Back"} />
       </div>
       <Banner text={text}/>
       <TimeLine page={2}/>
 
-
-      <div className="flex justify-center space-x-20 mt-10">
-          {/* Input Schedule */}
-          <div className="flex flex-col items-center">
-              <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: oldSchedule }} style={{backgroundColor: "white"}}/>
-
-              <h1 className="text-[#FFB81C] text-center mt-2.5">Spring 2023 Input Schedule</h1>
+      <div className="d-flex justify-content-center mt-3">
+          <div className="col">
+              {/* Input Schedule */}
+              <div className="d-flex flex-column align-items-center" style= {{paddingLeft: "30px"}}>
+                  <div className="text-white table-responsive overflow-auto" style={{backgroundColor: "white", maxHeight: '500px', maxWidth: "90%"}} dangerouslySetInnerHTML={{ __html: oldSchedule }} />
+                  <h1 className="text-warning text-center mt-2.5">Spring 2023 Input Schedule</h1>
+              </div>
           </div>
 
-          {/* Generated Schedule */}
-          <div className="flex flex-col items-center">
-
-          <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: newSchedule }} style={{backgroundColor: "white"}}/>
-
-              <h1 className="text-[#FFB81C] text-center mt-2.5">Spring 2024 Generated Schedule</h1>
+          <div className="col">
+              {/* Generated Schedule */}
+              <div className="d-flex flex-column align-items-center" style= {{paddingRight: "30px"}}>
+                  <div className="text-white table-responsive overflow-auto" style={{backgroundColor: "white", maxHeight: '500px', maxWidth: "90%"}} dangerouslySetInnerHTML={{ __html: newSchedule }} />
+                  <h1 className="text-warning text-center mt-2.5">Spring 2024 Generated Schedule</h1>
+              </div>
           </div>
       </div>
 
-      
       {/* Confirm */}
-      <div className="flex justify-center space-x-4 m-4 md:m-50">
-      <Button onClick={handleUpdateClick} icon={<UpdateIcon />} text={"Update"}/>
-        <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
-      </div>
 
       {confirmClicked && (
-        <div className="flex flex-col items-center justify-center" style={{padding: "50px"}}>
-          <h2 className="text-[#FFB81C] mb-4">{displayedText}</h2>
+        <div className="d-flex flex-column align-items-center justify-content-center" style={{padding: "10px"}}>
+          <h2 className="text-warning mb-4">{displayedText}</h2>
           <textarea
-            className="w-1/2 h-64 p-4 border-2 border-gray-600 rounded-lg overflow-auto resize-y"
+            className="form-control w-50"
             value={userInput}
             onChange={handleInputChange}
             placeholder="Paste your text here"
+            style={{height: '10rem'}}
           />
-          <div style={{padding: "25px"}}>
+          <div style={{padding: "10px"}}>
            {confirmClicked && userInput.length > 0 && 
-      <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
-      }
-      </div>
+               <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
+           }
+          </div>
         </div>
       )}
-     
+
+<div className="d-flex justify-content-center my-4">
+    <div className="pe-4">
+        <Button onClick={handleUpdateClick} icon={<UpdateIcon />} text={"Update"}/>
     </div>
-  );
+    <Button onClick={handleClick} icon={<CheckIcon />} text={"Confirm"}/>
+</div>
+
+
+      
+    </div>
+);
+
 }
 
 export default CompareSchedule;
