@@ -62,6 +62,8 @@ export default function LandingPage() {
     navigate('/upload', { state: { department, semester, year } });
   };
 
+
+
   
   const text = "Welcome to CourseCraft.AI, a course schedule\
    generator dedicated for course staff at the UC Berkeley Computer Science Department.";
@@ -69,10 +71,10 @@ export default function LandingPage() {
    const getRequest = async (key) => {
     // Assuming the ID is hardcoded as '1234' for this example.
     const id = key;
-  
     try {
       const response = await fetch(`http://localhost:3001/getData/${id}`);
-  
+      console.log(response);
+
       if (!response.ok) {
         throw new Error('Server responded with a non-200 status');
       }
@@ -137,9 +139,9 @@ export default function LandingPage() {
       classWebsite: data[0].ClassWebsite,
       courseWebsite: data[0].CourseWebsite,
       uploadData: data[0].uploadData,
-      Department: data[0].department,
-      Semester: data[0].semester,
-      year: data[0].year,
+      department: data[0].Department,
+      semester: data[0].Semester,
+      year: data[0].Year,
       newCode: data[0].NewSchedule
       } });
     }

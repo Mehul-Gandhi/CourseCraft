@@ -24,7 +24,9 @@ function CodeEditor({ language, code }) {
   function handleCopyCode() {
     if (textareaRef.current) {
       textareaRef.current.select();
-      document.execCommand("copy");
+      // document.execCommand("copy");
+      navigator.clipboard.writeText(code);
+
       setCopyCode(true);
     }
   }

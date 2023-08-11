@@ -97,10 +97,10 @@ app.post("/addLogistics", async (req, res) => {
 
 app.get("/getData/:id", async (req, res) => {
   const id = req.params.id;  // Extract ID from request parameters
-
   try {
       // Query the database for documents with the specified ID
       const data = await LogisticsModel.find({ ID: id });
+      console.log(data);
 
       if (!data.length) {
           // If no data was found with the given ID

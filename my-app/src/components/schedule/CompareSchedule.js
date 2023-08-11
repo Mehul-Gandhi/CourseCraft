@@ -39,6 +39,8 @@ function CompareSchedule() {
         console.log(content);
       });
   }, []);
+
+
   
   const fullText = "What would you like to update about the new calendar?";
   const text = "Update the new schedule with custom modifications or confirm the new schedule.";
@@ -160,7 +162,7 @@ function CompareSchedule() {
               {/* Input Schedule */}
               <div className="d-flex flex-column align-items-center" style= {{paddingLeft: "30px"}}>
                   <div className="text-white table-responsive overflow-auto" style={{backgroundColor: "white", maxHeight: '500px', maxWidth: "90%"}} dangerouslySetInnerHTML={{ __html: oldSchedule }} />
-                  <h1 className="text-warning text-center mt-2.5">Spring 2023 Input Schedule</h1>
+                  <h1 className="text-warning text-center mt-2.5">{semester} {year - 1} Input Schedule</h1>
               </div>
           </div>
 
@@ -168,7 +170,7 @@ function CompareSchedule() {
               {/* Generated Schedule */}
               <div className="d-flex flex-column align-items-center" style= {{paddingRight: "30px"}}>
                   <div className="text-white table-responsive overflow-auto" style={{backgroundColor: "white", maxHeight: '500px', maxWidth: "90%"}} dangerouslySetInnerHTML={{ __html: newSchedule }} />
-                  <h1 className="text-warning text-center mt-2.5">Spring 2024 Generated Schedule</h1>
+                  <h1 className="text-warning text-center mt-2.5">{semester} {year} Generated Schedule</h1>
               </div>
           </div>
       </div>
