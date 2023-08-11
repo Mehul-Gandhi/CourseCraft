@@ -5,7 +5,7 @@ import CompareSchedule from "./components/schedule/CompareSchedule";
 import SharedSchedule from "./components/schedule/SharedSchedule";
 import LandingPage from "./components/LandingPage";
 import NotFound from "./components/NotFound"; 
-// import Calendar from "./components/Calendar";
+import Calendar from "./components/Calendar";
 import { useEffect } from "react";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
           <Route path="/upload" element={<Upload />} />
           <Route path="/schedule" element={<CompareSchedule />} />
           <Route path="/shared" element={<SharedSchedule />} />
-          {/* <Route path="/calendar" element={<Calendar />} /> */}
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>
