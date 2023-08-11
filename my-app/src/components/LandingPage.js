@@ -209,6 +209,10 @@ export default function LandingPage() {
                 setValue={setKey}
             />
           
+  
+        <div className="text-white" style={{ fontSize: 'large' }}>OR</div>
+
+
           <Button 
             onClick={() => getSharedCalendar(key)}
             icon={<CheckIcon />} 
