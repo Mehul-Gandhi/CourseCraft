@@ -7,6 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background-color: yellow;
+  color: black; /* optional: set text color to ensure contrast */
+}
+
+::-moz-selection {
+  background-color: yellow;
+  color: black; /* optional */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

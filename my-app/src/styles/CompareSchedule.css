@@ -25,6 +25,14 @@
   --tw-content: '';
 }
 
+::selection {
+  background-color: yellow;
+}
+
+::-moz-selection {
+  background-color: yellow;
+}
+
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.

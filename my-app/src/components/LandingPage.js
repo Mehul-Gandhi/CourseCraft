@@ -212,7 +212,6 @@ export default function LandingPage() {
             />
           
   
-        <div className="text-white" style={{ fontSize: 'large' }}>OR</div>
 
 
           <Button 

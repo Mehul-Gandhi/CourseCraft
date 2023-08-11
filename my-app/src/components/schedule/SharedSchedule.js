@@ -3,7 +3,6 @@ import Banner from '../Banner';
 
 import LinkIcon from '@mui/icons-material/Link';
 import Button from '../buttons/Button';
-import placeholder from '../../assets/placeholder.png'; 
 import CodeEditor from '../website/AceEditor';
 
 import DownloadIcon from '@mui/icons-material/Download';
@@ -20,6 +19,8 @@ import axios from 'axios'
 
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import "../../index.css";
+import { createGlobalStyle } from 'styled-components';
+
 
 function SharedSchedule() {
   const [showEditor, setShowEditor] = useState(false);
