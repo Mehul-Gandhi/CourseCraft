@@ -38,28 +38,41 @@ function SharedSchedule() {
   const time = `${formattedHours}:${formattedMinutes}${amOrPm}`;
   const iRef = useRef(-1);
 
-  const DisplayText = `
-TTable generated at: ${time}
-Class Website: ${classWebsite}
-Course Website: ${courseWebsite}
-`;
+  const fullTextArray = [
+  `C${department} Table generated at: ${time}`,
+  `CClass Website: ${classWebsite}`,
+  `CCourse Website: ${courseWebsite}`
+];
 
-const fullText = DisplayText;
+const [displayedLines, setDisplayedLines] = useState(Array(fullTextArray.length).fill(''));
 
 useEffect(() => {
   if (startTyping) {
-    const typingInterval = setInterval(() => {
-      if (iRef.current < fullText.length) {
-        setDisplayedText((prevText) => prevText + fullText.charAt(iRef.current));
-        iRef.current++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 30);
+    const intervals = [];
 
-    return () => clearInterval(typingInterval);
+    fullTextArray.forEach((text, lineIndex) => {
+      let charIndex = 0;
+
+      const interval = setInterval(() => {
+        if (charIndex < text.length) {
+          setDisplayedLines(prevLines => {
+            const newLines = [...prevLines];
+            newLines[lineIndex] += text.charAt(charIndex);
+            return newLines;
+          });
+          charIndex++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 30);
+
+      intervals.push(interval);
+    });
+
+    return () => intervals.forEach(interval => clearInterval(interval));
   }
 }, [startTyping]);
+
 
   const [language, setLanguage] = useState("javascript");
   const handleLanguageChange = (event) => {
@@ -98,8 +111,8 @@ useEffect(() => {
 
       <div className="font-weight-bold text-white">
       <h3>
-  <LinkIcon className="mr-2"/> 
-  Shared key: 
+  <LinkIcon className="mr-2" style={{margin: "5px"}}/> 
+   Shared key: 
   <span style={{color: "#FFB81C"}}> {key}</span>
 </h3>        
 
@@ -118,8 +131,11 @@ useEffect(() => {
         
       </div>
 
-      <div className="font-weight-bold text-white">{displayedText}</div>
-      
+      <div className="font-weight-bold text-white">
+  {displayedLines.map((line, index) => (
+    <div key={index}>{line}</div>
+  ))}
+</div> 
       {showEditor && <select value={language} onChange={handleLanguageChange} className="form-select form-select-sm">
         <option value="javascript">JavaScript</option>
         <option value="python">Python</option>
@@ -135,11 +151,26 @@ useEffect(() => {
       
       }
 
-      <div className="d-flex justify-content-center align-items-center mt-4">
-        <Button onClick={() => {window.open("https://drive.google.com/uc?export=download&id=1-PJK4qgJEKgGdwtTWVXbK9G3sWQs3FZ_", '_blank')}} icon={<DownloadIcon />} text={"Download master calendar .ics"} className="btn btn-secondary mr-2"/>
-        <Button onClick={generateCalendar} icon={<GoogleIcon />} text={"Google Calendar & Role-based Google Tasks"} className="btn btn-secondary mr-2"/>
-        <Button onClick={handleEditorToggle} icon={<CodeIcon />} text={"Website Code"} className="btn btn-secondary"/>
-      </div>
+<div className="d-flex justify-content-center align-items-center mt-4" >
+    <Button 
+        onClick={() => {window.open("https://drive.google.com/uc?export=download&id=1-PJK4qgJEKgGdwtTWVXbK9G3sWQs3FZ_", '_blank')}} 
+        icon={<DownloadIcon />} 
+        text={"Download master calendar .ics"} 
+        className="btn btn-secondary mr-10"
+    />
+    <Button 
+        onClick={generateCalendar} 
+        icon={<GoogleIcon />} 
+        text={"Google Calendar & Role-based Google Tasks"} 
+        className="btn btn-secondary mr-10"
+    />
+    <Button 
+        onClick={handleEditorToggle} 
+        icon={<CodeIcon />} 
+        text={"Website Code"} 
+        className="btn btn-secondary"
+    />
+</div>
 
     </div>
 );
