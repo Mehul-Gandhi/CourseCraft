@@ -5,11 +5,10 @@ import Banner from './Banner';
 import Button from './buttons/Button';
 import Instructions from "./Instructions";
 import Information from "./Information";
+import Heading from "./Heading";
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CheckIcon from '@mui/icons-material/Check';
-
-
 
 
 function ConditionalTooltipInput({ placeholder, value, setValue }) {
@@ -87,7 +86,6 @@ export default function LandingPage() {
     }
   };
   
-
   const handleClick = async () => {
     console.log('Button clicked');
   
@@ -158,10 +156,10 @@ export default function LandingPage() {
     className="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" 
     style={{ backgroundColor: '#003262', minHeight: '100vh' }}>
     <Banner text={text} />
-        <Information />
       <Instructions />
+      <Heading title="Create New Schedule" subtitle="For Course Schedule Creater: Instructor or Head TA. Input the FUTURE semester and year for generating a new course calendar."/>
 
-      <div className="d-flex flex-column align-items-center w-75 mt-5 space-y-4">
+      <div className="d-flex flex-column align-items-center w-75 space-y-4 mb-5">
         <div className="d-flex w-100 justify-content-between">
 
         <ConditionalTooltipInput 
@@ -199,7 +197,9 @@ export default function LandingPage() {
           </Tooltip>
         </div>
 
-        <div className="text-white fs-4 mt-4">OR</div>
+        <br></br>
+        <Heading title="Get Existing Schedule" subtitle="For All Course Staff: If a co-worker generated the new calendar, paste the sharing key here to export to code, ics & calendar!"/>
+        
 
         <div className="d-flex w-100 justify-content-between">
          

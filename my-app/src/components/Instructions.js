@@ -21,8 +21,8 @@ export default function Instructions() {
         <div className="container">
         <div className="row justify-content-center align-items-stretch"> {/* Modified this line */}
                 <div className="col-12 text-center mb-5 ">
-                    <div className="text-warning font-inter display-4">
-                        I N S T R U C T I O N S
+                    <div className="text-warning font-inter display-5" style={{fontWeight: "800", letterSpacing: "10px"}}>
+                        INSTRUCTIONS
                     </div>
                 </div>
     
@@ -32,14 +32,14 @@ export default function Instructions() {
                     const description = el[2];
     
                     return (
-                      <div key={index} className="col-md-4 mb-4 d-flex justify-content-center">
-                          <div className="p-4 rounded d-flex flex-column justify-content-center align-items-center" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}>
-                              <Icon style={{ color: '#ffffff' }} className="mb-2 " />
-                              <h2 style={{ color: '#ffffff' }} className="h6 font-weight-bold mb-2 text-center">{title}</h2>
-                              <p style={{ color: '#FFB81C' }} className="mb-0 text-center">{description}</p>
-                          </div>
-                      </div>
-                  );
+                        <div key={index} className="col-md-4 mb-4 d-flex justify-content-start">
+                            <div className="p-4 rounded d-flex flex-column justify-content-center align-items-center" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}>
+                                <Icon style={{ color: '#ffffff', fontSize: '40px' }} className="mb-2 " />
+                                <h2 style={{ color: '#ffffff' }} className="h5 font-weight-bold mb-2 text-center">{title}</h2>
+                                <p style={{ color: '#FFB81C' }} className="mb-0 text-center">{description}</p>
+                            </div>
+                        </div>
+                    );
                 })}
             </div>
         </div>
