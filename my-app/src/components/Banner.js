@@ -6,6 +6,9 @@ function Banner({text}) {
       {/* Title */}
       <h1 className="mb-4" style={{ fontWeight: 'bold', fontSize: "6rem" }}>CourseCraft.ai</h1>
       
+      {/* Yellow Bar */}
+      <div style={{ width: '70%', height: '5px', backgroundColor: '#FFC007', marginBottom: '20px' }}></div>
+
       {/* Subtitle */}
       <p className="h3" style={{ fontWeight: '300', maxWidth: '50rem' }}>{text}</p>
     </div>
