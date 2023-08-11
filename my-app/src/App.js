@@ -1,10 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Upload from "./components/Upload";
-// import NavBar from "./components/NavBar";
-// import Instructions from "./components/Instructions";
 import CompareSchedule from "./components/schedule/CompareSchedule";
-// import SharedSchedule from "./components/schedule/SharedSchedule";
+import SharedSchedule from "./components/schedule/SharedSchedule";
 import LandingPage from "./components/LandingPage";
 import NotFound from "./components/NotFound"; 
 // import Calendar from "./components/Calendar";
@@ -26,8 +24,8 @@ function App() {
           <Route index element={<LandingPage />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/schedule" element={<CompareSchedule />} />
-          {/* <Route path="/shared" element={<SharedSchedule />} />
-          <Route path="/calendar" element={<Calendar />} /> */}
+          <Route path="/shared" element={<SharedSchedule />} />
+          {/* <Route path="/calendar" element={<Calendar />} /> */}
           <Route path="*" element={<NotFound />} />
 
         </Routes>
