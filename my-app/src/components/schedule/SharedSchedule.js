@@ -56,21 +56,40 @@ useEffect(() => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  
-  var { key, classWebsite, courseWebsite, uploadData, department, semester, year, newCode } = location.state;
 
+  function formatDate(dateTimeStr) {
+    const date = new Date(dateTimeStr);
+
+    // Example format: 'August 10, 2023, 11:19 AM'
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
+    return date.toLocaleDateString('en-US', options);
+}
+  
+  var { key, classWebsite, courseWebsite, uploadData, department, semester, year, newCode, time } = location.state;
+  if (!time) {
   const now = new Date();
   const hours = now.getHours();
   const minutes = now.getMinutes();
   const formattedHours = hours > 12 ? hours - 12 : hours;
   const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
   const amOrPm = hours >= 12 ? 'pm' : 'am';
+  var formattedTime = `${formattedHours}:${formattedMinutes}${amOrPm}`;
+} else {
+  var formattedTime = formatDate(time);
+}
 
-  const time = `${formattedHours}:${formattedMinutes}${amOrPm}`;
   const iRef = useRef(-1);
 
   const fullTextArray = [
-  `C${department} Table generated at: ${time}`,
+  `C${department} Table generated at: ${formattedTime}`,
   `CClass Website: ${classWebsite}`,
   `CCourse Website: ${courseWebsite}`
 ];

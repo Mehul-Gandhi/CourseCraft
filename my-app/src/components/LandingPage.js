@@ -142,6 +142,7 @@ export default function LandingPage() {
       department: data[0].Department,
       semester: data[0].Semester,
       year: data[0].Year,
+      time: data[0].Time,
       newCode: data[0].NewSchedule
       } });
     }
