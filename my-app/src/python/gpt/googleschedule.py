@@ -172,11 +172,15 @@ def dataframe_to_events(df):
 def exportEventsToCalendar():
     df = pd.read_csv('output_table.csv')
     events = dataframe_to_events(df)
+    i = 0
     for event in events:
+        if(i == 8):
+            break
         # Google Calendar API calls here
         event = initialize().events().insert(calendarId='primary', body=event).execute()
         print(f'Event created: {event.get("htmlLink")}')
-        break
+        i += 1
+        
 # exportEventsToCalendar()
 
 """
