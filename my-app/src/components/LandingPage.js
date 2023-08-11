@@ -5,6 +5,7 @@ import Banner from './Banner';
 import Button from './buttons/Button';
 import Instructions from "./Instructions";
 import Information from "./Information";
+import Heading from "./Heading";
 import Tooltip from '@mui/material/Tooltip';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CheckIcon from '@mui/icons-material/Check';
@@ -164,8 +165,9 @@ useEffect(() => {
     className="d-flex flex-column justify-content-center align-items-center text-white w-100 h-100" 
     style={{ backgroundColor: '#003262', minHeight: '100vh' }}>
     <Banner text={text} />
-        <Information />
+      <Information />
       <Instructions />
+      <Heading text="Input Course Info" />
 
       <div className="d-flex flex-column align-items-center w-75 mt-5 space-y-4">
         <div className="d-flex w-100 justify-content-between">
