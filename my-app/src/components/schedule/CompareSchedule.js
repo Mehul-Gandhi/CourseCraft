@@ -7,7 +7,6 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import TimeLine from '../TimeLine';
 import "../../index.css";
 import "../../styles/CompareSchedule.css"
-import placeholder from '../../assets/placeholder.png'; 
 import CheckIcon from '@mui/icons-material/Check';
 import UpdateIcon from '@mui/icons-material/Update';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -157,18 +156,6 @@ function CompareSchedule() {
       <Banner text={text}/>
       <TimeLine page={2}/>
 
-      {/*       
-      <div className="flex flex-wrap justify-around md:justify-center p-4 md:space-x-10">
-        <div className="w-full md:w-auto mb-4 md:mb-0">
-          <h1 className="text-[#FFB81C] text-center">Spring 2023 Input Schedule</h1>
-          <div className="text-white table-container" dangerouslySetInnerHTML={{ __html: oldSchedule }} style={{backgroundColor: "white"}}/>
-        </div>
-        
-        <div className="w-full md:w-auto">
-          <h1 className="text-[#FFB81C] text-center">Spring 2024 Generated Schedule</h1>
-          <div className="text-white" dangerouslySetInnerHTML={{ __html: newSchedule }} style={{backgroundColor: "white"}}/>
-        </div>
-      </div> */}
 
       <div className="flex justify-center space-x-20 mt-10">
           {/* Input Schedule */}

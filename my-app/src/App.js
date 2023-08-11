@@ -25,7 +25,6 @@ function App() {
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path="/upload" element={<Upload />} />
-          <Route path="/help" element={<Instructions />} />
           <Route path="/schedule" element={<CompareSchedule />} />
           {/* <Route path="/shared" element={<SharedSchedule />} />
           <Route path="/calendar" element={<Calendar />} /> */}
