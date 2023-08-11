@@ -22,7 +22,39 @@ function SharedSchedule() {
   const [displayedText, setDisplayedText] = useState("");
   const [startTyping, setStartTyping] = useState(true);
   const [copySuccess, setCopySuccess] = useState('');  // New state for copy success message
+  const [copyKeySuccess, setCopyKeySuccess] = useState(false);
+  const keyTextareaRef = useRef(null);
   
+  function handleKeyCopy() {
+    if (keyTextareaRef.current) {
+        keyTextareaRef.current.select();
+        document.execCommand("copy");
+        setCopyKeySuccess(true);
+    }
+}
+
+useEffect(() => {
+  function handleDocumentCopy(event) {
+      navigator.clipboard.readText()
+          .then(clipboardContent => {
+              if (clipboardContent !== key) {
+                  setCopyKeySuccess(false);  // Reset the copyKeySuccess state if copied content is not the shared key
+              }
+          })
+          .catch(err => {
+              console.error('Failed to read clipboard:', err);
+          });
+  }
+  // Attach the event listener
+  document.addEventListener('copy', handleDocumentCopy);
+
+  // Cleanup: remove the event listener when the component unmounts
+  return () => {
+      document.removeEventListener('copy', handleDocumentCopy);
+  };
+}, [key]);
+
+
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -202,10 +234,6 @@ useEffect(() => {
     />
     </div>
 </div>
-
-
-
-
     </div>
 );
 }
