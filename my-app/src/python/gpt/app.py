@@ -1,24 +1,40 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify
 import subprocess
 import os
+import googleschedule
+import df
+import classes
+from flask_cors import CORS  # Import the CORS library
+# from googleschedule import exportEventsToCalendar
 
 app = Flask(__name__)
+
+CORS(app) 
+
+@app.route('/export-to-calendar', methods=['POST'])
+def export_to_calendar():
+    try:
+        googleschedule.exportEventsToCalendar()
+        return jsonify({'message': 'Success'}), 200
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+
+@app.route('/create-csv', methods=['POST'])
+def create_csv():
+    try:
+        data = request.get_json()
+        url = data['url']
+        df.driver(url)
+        return jsonify({'message': 'Successfully created class JSON'}), 200
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+
 
 @app.route('/new-website-calendar', methods=['POST'])
 def run_script():
     try:
         script_path = os.path.join(os.path.dirname(__file__), 'driver.py')
         # Run the Python script using subprocess
-        subprocess.run(['python', script_path], check=True)
-        return jsonify({"message": "Script executed successfully"})
-    except Exception as e:
-        return jsonify({"error": str(e)})
-    
-@app.route('/generate-google-calendar', methods=['POST'])
-def run_script2():
-    try:
-        # Run the Python script using subprocess
-        script_path = os.path.join(os.path.dirname(__file__), 'googleschedule.py')
         subprocess.run(['python', script_path], check=True)
         return jsonify({"message": "Script executed successfully"})
     except Exception as e:
@@ -44,4 +60,4 @@ def run_script3():
         return str(e)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port = 5000)

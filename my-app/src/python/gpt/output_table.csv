@@ -1,0 +1,41 @@
+Week,Date,Lecture,Lab,Discussion,Assignment
+1,Mon 6/19,No Class (Administrative Holiday),No Class (Administrative Holiday),No Class (Administrative Holiday),Presemester Survey Released and Due (06/22)
+1,Tue 6/20,1: Welcome + Administrivia + Number Rep  (Recording)  (Slides)  (Syllabus Handout),1. Welcome to Snap!,,
+1,Wed 6/21,"2. Number Rep Contd. + Functions, Blocks + Intro to Lists  (Recording)  (Slides)",2. Build Your Own Blocks,"1. Number Rep, Control, Scoping, Domain & Range",Project 1: Wordle™-lite Released and Due (6/26)
+1,Thur 6/22,"3. Lists, HOFs, Scoping + Mutability  (Recording)  (Slides)","3. Conditionals, Reporters, Testing","1. Number Rep, Control, Scoping, Domain & Range",Presemester Survey Due
+1,Fri 6/23,No Lecture,No Lab,No Discussion,
+2,Mon 6/26,4. Mutability + Algorithmic Complexity  (Recording)  (Slides),4. Lists + HOFs,"2. Lists & HOFs, Iteration, Scoping",Project 1: Wordle™-lite Due
+2,Tue 6/27,5. Algorithmic Complexity Contd.  (Recording)  (Slides),5. Algorithmic Complexity,"2. Lists & HOFs, Iteration, Scoping",Project 2: Spelling Bee Released and Due (07/03)
+2,Wed 6/28,6. Recursion I (Linear)  (Recording)  (Slides)  (Mandelbrot Set Video),6. Boards,3. Algorithms & Algorithmic Complexity,
+2,Thur 6/29,7. Recursion II (Linear + Tree)  (Recording)  (slides),7. Recursive Reporters,3. Algorithms & Algorithmic Complexity,
+2,Fri 6/30,No Lecture,No Lab,No Discussion,
+3,Mon 7/3,8. Recursion III (Fractals)  (Recording)  (slides),8. Testing + 2048,4. Recursion I,Project 3: 2048 Released and Due (07/17)
+3,Tue 7/4,No Lecture,No Lab,4. Recursion I,
+3,Wed 7/5,9. Good Coding Practices + 2048  (Recording)  (Slides),9. HOFs + Functions as Data,5. Recursion II,
+3,Thur 7/6,10. Midterm Review  (Recording)  (Slides),10. Trees and Fractals,5. Recursion II,
+3,Fri 7/7,No Lecture,No Lab,No Discussion,Midterm Exam 5pm-8pm Pinmental 1
+4,Mon 7/10,11. Midterm Walkthrough (Recording) (Slides),In-Lab Midterm,No Discussion,In-Lab Midterm Exam  9-11am PST  11am-1pm PST  3-5pm PST  SDH 200
+4,Tue 7/11,12. Python I: Welcome to Python! (Recording) (Slides),No Lab,No Discussion,
+4,Wed 7/12,"13. Python II: Built-in Types, Data Structures (Recording) (Slides)",11. Welcome to Python,6. Intro to Python,
+4,Thur 7/13,14. Python III: Data Structures Contd. + List Mutation  (Recording)  (Slides),12. Data Structures in Python,6. Intro to Python,
+4,Fri 7/14,No Lecture,No Lab,No Discussion,
+5,Mon 7/17,15. Python IV: List Mutation Contd. + OOP  (Recording)  (Slides),No Lab,7. Python Data Structures,Project 3: 2048 Due
+5,Tue 7/18,16. Python V - OOP Contd.  (Recording)  (Slides)  (Code),No Lab,7. Python Data Structures,Project 4: Pyturis Released and Due (07/24)  Final Project Proposal Released and Due (07/22)
+5,Wed 7/19,"17. Guest Lecture: CyberSecurity: ""Personal Self-Defense""  (Recording)  (Dr. Nicholas Weaver)",13. OOP in Python,8. Python OOP,
+5,Thur 7/20,18. Python VI: Functions as Data  (Recording)  (Slides),14. Text Processing in Python,8. Python OOP,
+5,Fri 7/21,No Lecture,No Lab,No Discussion,Final Project Propasal due Saturday 11:59pm
+6,Mon 7/24,19. Python VII: Modelling with OOP  (Recording)  (Slides)  (Code),Project Proposal Reviews + Project Worksession,9. Lambdas and HOFs,Project 4: Pyturis Due Final Project Released and Due (08/07)
+6,Tue 7/25,20. Python VIII: Recursion  (Recording)  (Slides),Project Proposal Review + worksession 15. Data Science (Optional),9. Lambdas and HOFs,
+6,Wed 7/26,21: Concurrency  (Recording)  (slides),No Lab,10. Tree Recursion + Concurrency,
+6,Thur 7/27,22. AI Guest Lecture: Generative AI  (Recording)  (Slides)  (Prof. Hany Farid),16. Concurrency,10. Tree Recursion + Concurrency,
+6,Fri 7/28,No Lecture,No Lab,No Discussion,
+7,Mon 7/31,23. Alumni Panel  (Recording)  (Slides),No Lab,11. Final Review,
+7,Tue 8/01,24. Social Implications: Computing and War  (Recording)  (Slides),No Lab,11. Final Review,
+7,Wed 8/02,25. Final Review  (Recording)  (Slides),,12. Conclusion and Farewell,
+7,Thur 8/03,26. Conclusion and Farewell  (Recording)  (Slides),In-Lab Final,12. Conclusion and Farewell,In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200
+7,Fri 8/04,No Lecture,No Lab,No Discussion,
+8,Mon 8/07,No Lecture,No Lab,No Discussion,Final Project Due
+8,Tue 8/08,No Lecture,No Lab,No Discussion,
+8,Wed 8/9,No Lecture,No Lab,No Discussion,
+8,Thur 8/10,No Lecture,No Lab,No Discussion,Paper Final Exam (3pm-6pm PT) Dwinelle 155
+8,Fri 8/11 n,No Lecture,No Lab,No Discussion,

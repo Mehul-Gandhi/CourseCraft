@@ -1,0 +1,260 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 8. Testing + 2048\n\nDiscussion: 4. Recursion I\n\nAssignment: Project 3: 2048 Released and Due (07/17)\n\n
+DTEND:20230703T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230703T193000Z
+SUMMARY:COMPSCI 70 Lecture 8. Recursion III (Fractals)  (Recording)  (slides)
+UID:a2e921e2-a44a-410f-a1da-503f11ddb8ec@a2e9.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: No Lab\n\nDiscussion: No Discussion\n\n
+DTEND:20230711T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230711T193000Z
+SUMMARY:COMPSCI 70 Lecture 12. Python I: Welcome to Python! (Recording) (Slides)
+UID:29003bcf-5bc2-4529-aeb4-4877dc66e8c7@2900.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 7. Recursive Reporters\n\nDiscussion: 3. Algorithms & Algorithmic Complexity\n\n
+DTEND:20230629T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230629T193000Z
+SUMMARY:COMPSCI 70 Lecture 7. Recursion II (Linear + Tree)  (Recording)  (slides)
+UID:3b8159f2-6f76-4df4-a576-9a2b1afe6148@3b81.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Final\n\nDiscussion: 12. Conclusion and Farewell\n\nAssignment: In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230713T025900Z
+LOCATION:Dwinelle 155
+DTSTART:20230713T020000Z
+SUMMARY:COMPSCI 70 Mid-Term Exam 
+UID:7d3a94e3-342e-45c6-aa93-4c383f441aea@7d3a.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Final\n\nDiscussion: 12. Conclusion and Farewell\n\nAssignment: In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230812T045900Z
+LOCATION:Dwinelle 155
+DTSTART:20230811T230000Z
+SUMMARY:COMPSCI 70 Final Exam 
+UID:1601faef-4954-4af8-8160-a6ea0c7b2977@1601.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: No Lab\n\nDiscussion: 11. Final Review\n\n
+DTEND:20230731T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230731T193000Z
+SUMMARY:COMPSCI 70 Lecture 23. Alumni Panel  (Recording)  (Slides)
+UID:76ac7bdf-faac-469e-886e-2eca401f5d8b@76ac.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: Project Proposal Review + worksession 15. Data Science (Optional)\n\nDiscussion: 9. Lambdas and HOFs\n\n
+DTEND:20230725T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230725T193000Z
+SUMMARY:COMPSCI 70 Lecture 20. Python VIII: Recursion  (Recording)  (Slides)
+UID:f8171cac-154e-4838-b874-c6222e264d79@f817.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 5. Algorithmic Complexity\n\nDiscussion: 2. Lists & HOFs\, Iteration\, Scoping\n\nAssignment: Project 2: Spelling Bee Released and Due (07/03)\n\n
+DTEND:20230627T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230627T193000Z
+SUMMARY:COMPSCI 70 Lecture 5. Algorithmic Complexity Contd.  (Recording)  (Slides)
+UID:b3ec69a7-660b-42ae-a899-9ed48804b833@b3ec.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 10. Trees and Fractals\n\nDiscussion: 5. Recursion II\n\n
+DTEND:20230706T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230706T193000Z
+SUMMARY:COMPSCI 70 Lecture 10. Midterm Review  (Recording)  (Slides)
+UID:ecedce60-4e18-45a5-8115-6aff93cca9c2@eced.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 1. Welcome to Snap!\n\n
+DTEND:20230620T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230620T193000Z
+SUMMARY:COMPSCI 70 Lecture 1: Welcome + Administrivia + Number Rep  (Recording)  (Slides)  (Syllabus Handout)
+UID:556929f0-abdd-4158-a760-f084b8dc65a1@5569.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: No Lab\n\nDiscussion: 7. Python Data Structures\n\nAssignment: Project 4: Pyturis Released and Due (07/24)  Final Project Proposal Released and Due (07/22)\n\n
+DTEND:20230718T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230718T193000Z
+SUMMARY:COMPSCI 70 Lecture 16. Python V - OOP Contd.  (Recording)  (Slides)  (Code)
+UID:20d34ebf-4c50-4695-a672-b45f7703a0e9@20d3.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Final\n\nDiscussion: 12. Conclusion and Farewell\n\nAssignment: In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230812T035900Z
+LOCATION:Dwinelle 155
+DTSTART:20230812T010000Z
+SUMMARY:COMPSCI 70 Final Exam 
+UID:c6757862-7e0d-4e93-a691-2848ed0164eb@c675.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: No Lab\n\nDiscussion: 11. Final Review\n\n
+DTEND:20230801T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230801T193000Z
+SUMMARY:COMPSCI 70 Lecture 24. Social Implications: Computing and War  (Recording)  (Slides)
+UID:4324ff28-3340-4e11-ae1d-6338ba6fe3bf@4324.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 4. Lists + HOFs\n\nDiscussion: 2. Lists & HOFs\, Iteration\, Scoping\n\nAssignment: Project 1: Wordle™-lite Due\n\n
+DTEND:20230626T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230626T193000Z
+SUMMARY:COMPSCI 70 Lecture 4. Mutability + Algorithmic Complexity  (Recording)  (Slides)
+UID:c45b6e30-4480-40c8-957a-92665719222c@c45b.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 9. HOFs + Functions as Data\n\nDiscussion: 5. Recursion II\n\n
+DTEND:20230705T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230705T193000Z
+SUMMARY:COMPSCI 70 Lecture 9. Good Coding Practices + 2048  (Recording)  (Slides)
+UID:7deeb259-b706-4799-bad7-8dbee4c846a6@7dee.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 12. Data Structures in Python\n\nDiscussion: 6. Intro to Python\n\n
+DTEND:20230713T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230713T193000Z
+SUMMARY:COMPSCI 70 Lecture 14. Python III: Data Structures Contd. + List Mutation  (Recording)  (Slides)
+UID:13d09094-5429-4e38-a2fe-c91f8a5ce8b0@13d0.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 16. Concurrency\n\nDiscussion: 10. Tree Recursion + Concurrency\n\n
+DTEND:20230727T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230727T193000Z
+SUMMARY:COMPSCI 70 Lecture 22. AI Guest Lecture: Generative AI  (Recording)  (Slides)  (Prof. Hany Farid)
+UID:a78f8927-d033-4255-8018-4c5d111851ca@a78f.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: No Lab\n\nDiscussion: 10. Tree Recursion + Concurrency\n\n
+DTEND:20230726T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230726T193000Z
+SUMMARY:COMPSCI 70 Lecture 21: Concurrency  (Recording)  (slides)
+UID:ebda00e8-aae4-41f5-bd6f-42db36e6cf3a@ebda.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: No Lab\n\nDiscussion: 7. Python Data Structures\n\nAssignment: Project 3: 2048 Due\n\n
+DTEND:20230717T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230717T193000Z
+SUMMARY:COMPSCI 70 Lecture 15. Python IV: List Mutation Contd. + OOP  (Recording)  (Slides)
+UID:7727a6c3-4016-4e6f-8d9b-dbd2fa6f82d1@7727.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 14. Text Processing in Python\n\nDiscussion: 8. Python OOP\n\n
+DTEND:20230720T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230720T193000Z
+SUMMARY:COMPSCI 70 Lecture 18. Python VI: Functions as Data  (Recording)  (Slides)
+UID:e792ecdc-fc73-4934-a03f-f9bb3c870360@e792.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Final\n\nDiscussion: 12. Conclusion and Farewell\n\nAssignment: In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230629T025900Z
+LOCATION:Dwinelle 155
+DTSTART:20230629T020000Z
+SUMMARY:COMPSCI 70 Mid-Term Exam 
+UID:6a041d29-4747-4f7b-bae9-c00ff3bf77d5@6a04.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: Project Proposal Reviews + Project Worksession\n\nDiscussion: 9. Lambdas and HOFs\n\nAssignment: Project 4: Pyturis Due Final Project Released and Due (08/07)\n\n
+DTEND:20230724T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230724T193000Z
+SUMMARY:COMPSCI 70 Lecture 19. Python VII: Modelling with OOP  (Recording)  (Slides)  (Code)
+UID:644b8bd8-70a7-4255-9bb2-1a202581ca79@644b.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 6. Boards\n\nDiscussion: 3. Algorithms & Algorithmic Complexity\n\n
+DTEND:20230628T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230628T193000Z
+SUMMARY:COMPSCI 70 Lecture 6. Recursion I (Linear)  (Recording)  (Slides)  (Mandelbrot Set Video)
+UID:664c0871-68ad-40d6-97f2-a50b648c2471@664c.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Midterm\n\nDiscussion: No Discussion\n\nAssignment: In-Lab Midterm Exam  9-11am PST  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230710T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230710T193000Z
+SUMMARY:COMPSCI 70 Lecture 11. Midterm Walkthrough (Recording) (Slides)
+UID:a6322373-0188-4910-ad68-f6d333c7e391@a632.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 11. Welcome to Python\n\nDiscussion: 6. Intro to Python\n\n
+DTEND:20230712T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230712T193000Z
+SUMMARY:COMPSCI 70 Lecture 13. Python II: Built-in Types\, Data Structures (Recording) (Slides)
+UID:3bcebaeb-1877-4751-a5a1-2340075409cc@3bce.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Final\n\nDiscussion: 12. Conclusion and Farewell\n\nAssignment: In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230727T025900Z
+LOCATION:Dwinelle 155
+DTSTART:20230727T020000Z
+SUMMARY:COMPSCI 70 Mid-Term Exam 
+UID:9b117fd3-39a1-46bf-8761-86ea12d92b45@9b11.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nDiscussion: 12. Conclusion and Farewell\n\n
+DTEND:20230802T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230802T193000Z
+SUMMARY:COMPSCI 70 Lecture 25. Final Review  (Recording)  (Slides)
+UID:bae5380b-45c2-401c-915b-1c7b0943aacd@bae5.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 2. Build Your Own Blocks\n\nDiscussion: 1. Number Rep\, Control\, Scoping\, Domain & Range\n\nAssignment: Project 1: Wordle™-lite Released and Due (6/26)\n\n
+DTEND:20230621T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230621T193000Z
+SUMMARY:COMPSCI 70 Lecture 2. Number Rep Contd. + Functions\, Blocks + Intro to Lists  (Recording)  (Slides)
+UID:bf74016e-db48-4553-ae3b-b5fcc8733207@bf74.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 13. OOP in Python\n\nDiscussion: 8. Python OOP\n\n
+DTEND:20230719T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230719T193000Z
+SUMMARY:COMPSCI 70 Lecture 17. Guest Lecture: CyberSecurity: "Personal Self-Defense"  (Recording)  (Dr. Nicholas Weaver)
+UID:8b94becb-8a84-4733-a529-8bd793b9296a@8b94.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: 3. Conditionals\, Reporters\, Testing\n\nDiscussion: 1. Number Rep\, Control\, Scoping\, Domain & Range\n\nAssignment: Presemester Survey Due\n\n
+DTEND:20230622T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230622T193000Z
+SUMMARY:COMPSCI 70 Lecture 3. Lists\, HOFs\, Scoping + Mutability  (Recording)  (Slides)
+UID:4239b294-9cc7-4731-847a-ff9a2dd6a38c@4239.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Final\n\nDiscussion: 12. Conclusion and Farewell\n\nAssignment: In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230812T035900Z
+LOCATION:Dwinelle 155
+DTSTART:20230811T230000Z
+SUMMARY:COMPSCI 70 Final Exam 
+UID:27fc80f3-2f7d-434b-81fe-75ab02d89fdb@27fc.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:COMPSCI 70 - Discrete Mathematics and Probability Theory\n\nLocation: Dwinelle 155\nLecture Days: MoTuWeTh\n\nLab: In-Lab Final\n\nDiscussion: 12. Conclusion and Farewell\n\nAssignment: In-Lab Final Exam  11am-1pm PST  3-5pm PST  SDH 200\n\n
+DTEND:20230803T205900Z
+LOCATION:Dwinelle 155
+DTSTART:20230803T193000Z
+SUMMARY:COMPSCI 70 Lecture 26. Conclusion and Farewell  (Recording)  (Slides)
+UID:05431152-7d41-4ec0-a357-817a313c80fa@0543.org
+END:VEVENT
+END:VCALENDAR

@@ -7,7 +7,7 @@ import pytz
 import json
 
 # Open the JSON file for reading
-with open("cs70details.json", "r") as file:
+with open("course_details.json", "r") as file:
     data = json.load(file)
 
 course_details = data["Course Details"]

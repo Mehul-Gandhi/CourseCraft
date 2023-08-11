@@ -1,0 +1,60 @@
+{
+    "Course Details": "COMPSCI 70 - Discrete Mathematics and Probability Theory",
+    "Course Number": "001",
+    "Session": "2023 Summer Session C\r\n8 weeks, June 20 - August 11",
+    "Program": "Electrical Eng & Computer Sci",
+    "Instructor Names": "Michael  Ball, Victor  Huang, Victor H Huang, Victor Haoyang Huang, Nikki  Suzani, Nate A Tausik, Nathan A Tausik",
+    "Instruction Mode": "In-Person Instruction",
+    "Description": "2023 Summer COMPSCI 70 001 LEC 001",
+    "Course description": "Logic, infinity, and induction; applications include undecidability and stable marriage problem. Modular arithmetic and GCDs; applications include primality testing and cryptography. Polynomials; examples include error correcting codes and interpolation. Probability including sample spaces, independence, random variables, law of large numbers; examples include load balancing, existence arguments, Bayesian inference. ",
+    "Lecture Room": "Dwinelle 155",
+    "Lecture Meet Days": "MoTuWeTh",
+    "Start Date": "2023-06-20",
+    "End Date": "2023-08-11",
+    "Start Time": "12:30:00",
+    "End Time": "13:59:00",
+    "Enrollment Status": "Open",
+    "Currently Enrolled Count": 349,
+    "Maximum Enrollment Count": 389,
+    "Attribute": [
+        [
+            "CRSE LEVEL",
+            "UG Lower Division"
+        ],
+        [
+            "Summer",
+            "8 Week Offering Only"
+        ],
+        [
+            "TCOR",
+            "Allow Time Conflict Enrollment"
+        ],
+        [
+            "Instr Type",
+            "Lecture/Supplementary Activity"
+        ],
+        [
+            "VCREDIT",
+            "Fixed"
+        ],
+        [
+            null,
+            null
+        ]
+    ],
+    "Note": "* Time conflicts ALLOWED with this class.\n\n* Attendance is not mandatory. Lecture will be recorded for playback later.\n\n* Remote option offered (in addition to in person) for exams.\n\n*To enroll in this class, select the lecture and the 999 (placeholder) discussion sections. Assignment to the ACTUAL discussion sections will be managed by teaching staff during the first class.*\n\n* Email CS70-staff@berkeley.edu to reach instructors.",
+    "Email": "conflicts",
+    "Exams": [
+        "Final Exam: 2023-08-11 from 18:00:00 to 20:59:00",
+        "Final Exam: 2023-08-11 from 18:00:00 to 20:59:00",
+        "Mid-Term Exam: 2023-07-12 from 19:00:00 to 19:59:00",
+        "Mid-Term Exam: 2023-07-12 from 19:00:00 to 19:59:00",
+        "Mid-Term Exam: 2023-07-26 from 19:00:00 to 19:59:00",
+        "Mid-Term Exam: 2023-07-26 from 19:00:00 to 19:59:00",
+        "Mid-Term Exam: 2023-06-28 from 19:00:00 to 19:59:00",
+        "Mid-Term Exam: 2023-06-28 from 19:00:00 to 19:59:00",
+        "Final Exam: 2023-08-11 from 16:00:00 to 20:59:00",
+        "Final Exam: 2023-08-11 from 16:00:00 to 21:59:00"
+    ],
+    "Important Notes": null
+}

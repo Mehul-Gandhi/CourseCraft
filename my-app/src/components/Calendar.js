@@ -14,6 +14,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { handleLoginSuccess, handleLoginFailure, handleLogout } from './login/helpers';
 import "./../index.css";
 
+import axios from 'axios'
+
 export default function Calendar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showEditor, setShowEditor] = useState(false); // New state variable
@@ -44,13 +46,33 @@ export default function Calendar() {
     setLanguage(event.target.value);
   }
 
-  const handleClick = () => {
+  const handleClick = async () => {
+
+    
     if (!userProfile) {
       setErrorMessage("Please Login to Google First.");
       return;
     }
     console.log('Button clicked');
   };
+
+  const generateCalendar = async () => {
+    // Call the Flask API
+    try { 
+        const response = await axios.post('http://localhost:5000/export-to-calendar');
+
+        if (response.data.message === "Success") {
+            console.log("Successfully exported to calendar");
+            
+            // Continue with the navigation if the API call is successful
+            navigate("/calendar", { state: { uploadData, department, semester, year } });
+        } else {
+            console.error("Failed to export to calendar:", response.data.message);
+        }
+    } catch (error) {
+        console.error("Error exporting to calendar:", error);
+    }
+};
   
   const handleEditorToggle = () => {
     setShowEditor(true);
@@ -116,7 +138,7 @@ export default function Calendar() {
             <h2 className="text-center mb-4">Google Calendar:</h2>
             <p className="text-center mb-4">Lecture • Lab • Discussion</p>
           </div>
-          <Button onClick={handleClick} icon={<CalendarMonthIcon />} text={"Populate Google Calendar"} className="whitespace-nowrap"/> {/* Added whitespace-nowrap here */}
+          <Button onClick={generateCalendar} icon={<CalendarMonthIcon />} text={"Populate Google Calendar"} className="whitespace-nowrap"/> {/* Added whitespace-nowrap here */}
         </div>
         <div className="flex-1 bg-white p-6 rounded-lg shadow-md max-w-lg flex flex-col justify-between"> {/* Added flex and flex-col here */}
           <div>
