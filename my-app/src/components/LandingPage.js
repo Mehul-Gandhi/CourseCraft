@@ -208,7 +208,7 @@ export default function LandingPage() {
         <div className="d-flex w-100 justify-content-between">
          
           <ConditionalTooltipInput 
-                placeholder="Shared Key (Example: 1al0NYfHtmimou_PTGbK1Vns0DZfZW2Hh)" 
+                placeholder="Shared Key (Example: OctPso9iSZgTaq6v4nBAPFeZfej3cFJXq)" 
                 value={key} 
                 setValue={setKey}
             />
