@@ -57,19 +57,25 @@ export default function Calendar() {
 
   const generateCalendar = async () => {
     // Call the Flask API
+    if (!userProfile) {
+      setErrorMessage("Please Login to Google First.");
+      return;
+    }
     try { 
         const response = await axios.post('http://localhost:5000/export-to-calendar');
 
         if (response.data.message === "Success") {
-            console.log("Successfully exported to calendar");
+            alert("Successfully exported to calendar");
             
             // Continue with the navigation if the API call is successful
             navigate("/calendar", { state: { uploadData, department, semester, year } });
         } else {
             console.error("Failed to export to calendar:", response.data.message);
+            alert("Error exporting calendar.")
         }
     } catch (error) {
         console.error("Error exporting to calendar:", error);
+        alert("Error exporting calendar.")
     }
 };
   
