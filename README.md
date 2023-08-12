@@ -1,4 +1,4 @@
-# CS160-Final-Project
+# CourseCraft.AI
 CS160 Final Project
 
 
