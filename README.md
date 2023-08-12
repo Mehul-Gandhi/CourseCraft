@@ -1,19 +1,18 @@
 # CourseCraft.AI
-CS160 Final Project
+<a href="https://kwsong.github.io/cs160su23/">Summer 2023 CS 160: User Interface Design and Development</a>
 
-
-Introduction
+## Introduction
 
 Every semester, the dedicated teaching assistants and instructors of the Computer Science and Data Science courses at UC Berkeley face a monumental task. Hours that could have been invested in office hours, course content development, and community-building are instead consumed by the labor-intensive process of creating and updating course calendars as well as delegating tasks. These administrative duties, although essential, often overshadow the core academic experience, diminishing the quality of instructor-student interactions.
 
 Enter Course Logistics.AI, our innovative platform designed to empower course staff by drastically streamlining their administrative workload. By automating the transfer of relevant deadlines from past semesters and providing an intuitive interface for calendar modifications, we aim to give back the precious hours lost in repetitive tasks. Through our platform, TAs and instructors can refocus their energies on what truly matters: fostering a vibrant academic community, stimulating intellectual discussions, and enriching the overall learning experience at UC Berkeley.
 
 
-## Video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SXaSYd8E1fI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Video 
+Click on the image
+[![Video Thumbnail](./my-app/public/home.png)](https://www.youtube.com/watch?v=SXaSYd8E1fI)
 
-## Home Page
-![Home Page](./my-app/public/home.png)
+
 
 ## Create New Schedule or Get Existing Schedule Configuration
 ![Home Page](./my-app/public/home2.png)
