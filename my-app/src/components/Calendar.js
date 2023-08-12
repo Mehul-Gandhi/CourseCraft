@@ -52,7 +52,7 @@ export default function Calendar() {
       setErrorMessage("Please Login to Google First.");
       return;
     }
-    console.log('Button clicked');
+    alert('Google Tasks generated!');
   };
 
   const generateCalendar = async () => {
