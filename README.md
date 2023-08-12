@@ -199,6 +199,6 @@ After following these steps, both your frontend and backend should be operationa
 <ul>
 <li><a href="https://github.com/mananb77">Manan Bhargava</a> Data 8 Tutor</li>
 <li><a href="">Naman Chawla</a> University of British Columbia CS Student</li>
-<li><a href="https://www.linkedin.com/in/mehul-gandhi/">Mehul Gandhi</a> CS10 Summer 2023 Head TA</li>
+<li><a href="https://www.linkedin.com/in/mehul-gandhi/">Mehul Gandhi</a> CS10 Summer 2023 Head Teaching Assistant</li>
 <li><a href="https://github.com/Yeek2">Kevin Yee</a> EECS Undergraduate Student</li>
 </ul>
