@@ -27,9 +27,8 @@ export default function Upload() {
 
   const { department, semester, year } = location.state;
 
-  const text = "Welcome to Course Logistics.AI, a course schedule\
-   generator dedicated for UC Berkeley Computer Science and Data \
-   Science classes.";
+  const text = "Input the classes.berkeley.edu class link for the new scheduling times\
+   and your old custom-built course website.";
 
    const getRequest = async () => {
     // Assuming the ID is hardcoded as '1234' for this example.
