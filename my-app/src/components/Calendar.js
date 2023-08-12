@@ -163,7 +163,7 @@ export default function Calendar() {
         <div className="d-flex justify-content-center align-items-center">
     <p className="text-danger mt-2">{errorMessage}</p>
 </div>
-        <iframe className="mx-auto d-block w-100" style={{maxWidth: "800px", height: "600px", margin: "25px 0"}} src="https://calendar.google.com/calendar/embed?src=c_9f19d8848dd91d206f5fe65f50d697e178ec7e73ae93f6204d21b565a305c83e%40group.calendar.google.com&ctz=America%2FLos_Angeles" frameborder="0" scrolling="no"></iframe>
+        <iframe className="mx-auto d-block w-100" title="Google Calendar Placeholder" style={{maxWidth: "800px", height: "600px", margin: "25px 0"}} src="https://calendar.google.com/calendar/embed?src=c_9f19d8848dd91d206f5fe65f50d697e178ec7e73ae93f6204d21b565a305c83e%40group.calendar.google.com&ctz=America%2FLos_Angeles" frameborder="0" scrolling="no"></iframe>
     </div>
 );
 }
